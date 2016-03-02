@@ -1,8 +1,21 @@
 
 <ul class="nav">
 
-{% for page in navPages %}
-	  	<li class="nav"><a href="/blog">{{page.title}}</a></li>
+{% for parentPage in parentPages %}
+	{% if parentPage.title in parentPageNames %}
+		<div class="dropdown">
+		<a href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a>
+		<div class="dropdown-content">
+			{% for childPage in childPages %}
+				{% if childPage.parentPage == parentPage.title %}
+					<a href="{{ path('index', {'slug': childPage.slug}) }}">{{ childPage.title }}</a>
+				{% endif %}
+			{% endfor %}
+		</div>
+		</div>
+	{% else %}
+	  	<li class="nav"><a href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></li>
+	{% endif %}
 {% endfor %}
 
 </ul>

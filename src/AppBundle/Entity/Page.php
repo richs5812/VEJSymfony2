@@ -46,9 +46,9 @@
 		protected $includeInNav;
 		
 		/**
-		 * @ORM\Column(type="boolean", nullable=true)
+		 * @ORM\Column(type="integer", nullable=true)
 		 */		
-		protected $isParent;
+		protected $menuOrder;
 		
 		/**
 		 * @ORM\Column(type="string", length=200, nullable=true)
@@ -303,30 +303,6 @@
     }
 
     /**
-     * Set isParent
-     *
-     * @param boolean $isParent
-     *
-     * @return Page
-     */
-    public function setIsParent($isParent)
-    {
-        $this->isParent = $isParent;
-
-        return $this;
-    }
-
-    /**
-     * Get isParent
-     *
-     * @return boolean
-     */
-    public function getIsParent()
-    {
-        return $this->isParent;
-    }
-
-    /**
      * Set parentPage
      *
      * @param string $parentPage
@@ -348,5 +324,29 @@
     public function getParentPage()
     {
         return $this->parentPage;
+    }
+
+    /**
+     * Set menuOrder
+     *
+     * @param integer $menuOrder
+     *
+     * @return Page
+     */
+    public function setMenuOrder($menuOrder)
+    {
+        $this->menuOrder = $menuOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get menuOrder
+     *
+     * @return integer
+     */
+    public function getMenuOrder()
+    {
+        return $this->menuOrder;
     }
 }

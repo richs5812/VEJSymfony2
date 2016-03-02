@@ -17,10 +17,21 @@ class DefaultController extends Controller
     		$slug = "Home";
     	}
     	
+    	if ($slug == 'Blog') {
+			return $this->forward('AppBundle:Blog:Blog');
+    	}    	
+    	
+    	if ($slug == 'Photo-Galleries') {
+			return $this->forward('AppBundle:GalleriesPage:GalleriesPage');
+    	}
+    	
 		$repository = $this->getDoctrine()
 		->getRepository('AppBundle:Page');
 		$allPages = $repository->findByIncludeInNav(1);
 		$page = $repository->findOneBySlug($slug);
+		if (!$page) {
+		throw $this->createNotFoundException('No page found for voices4earth.org/'.$slug);
+		}
 		
 		$picsRepository = $this->getDoctrine()
 		->getRepository('AppBundle:Document');

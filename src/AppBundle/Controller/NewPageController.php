@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Form\Type\PageType;
+use AppBundle\Form\Type\NewPageType;
 use AppBundle\Entity\Page;
 
 class NewPageController extends Controller
@@ -17,11 +17,28 @@ class NewPageController extends Controller
     {
     
 		$page = new Page();
-		$adminForm = $this->createForm(PageType::class, $page);
-		
-		$adminForm->handleRequest($request);
+		$form = $this->createForm(NewPageType::class, $page);
 
-		if ($adminForm->isSubmitted() && $adminForm->isValid()) {	
+		$em = $this->getDoctrine()->getManager();
+		
+		$parentQuery = $em->createQuery('SELECT p.title FROM AppBundle:Page p WHERE p.parentPage IS NULL AND p.pageType = :pageType');
+		$parentQuery->setParameter('pageType', 'Page');
+		$parentPages = $parentQuery->getResult();
+		
+		$query = $em->createQuery('SELECT DISTINCT d.galleryName FROM AppBundle:Document d');
+		$distinctPages = $query->getResult();
+		
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid()) {	
+			$galleryName = $request->request->getIterator()["GalleryName"];
+			$page->setGalleryName($galleryName);
+			
+			$parentPage = $request->request->getIterator()["ParentPage"];
+			if ($parentPage == 'no parent page'){
+				$parentPage = NULL;
+			}
+			$page->setParentPage($parentPage);
 			
 			//generate slug
 			$slugNoHyphens = str_replace(" - "," ",$page->getTitle());
@@ -33,13 +50,15 @@ class NewPageController extends Controller
 			$em->persist($page);
 			$em->flush();
 
-			return $this->redirectToRoute('showPages');
+			return $this->redirectToRoute('admin');
 
 		}
     
         // render form
-        return $this->render('default/admin.html.twig', array(
-            'adminForm' => $adminForm->createView(),
+        return $this->render('default/newPage.html.twig', array(
+            'form' => $form->createView(),
+            'distinctPages' => $distinctPages,
+            'parentPages' => $parentPages,
         ));
     }
 }

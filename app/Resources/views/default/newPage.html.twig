@@ -1,0 +1,30 @@
+{# app/Resources/views/default/admin.html.twig #}
+{% extends 'base.html.twig' %}
+{% block nav %}
+  	 {% include 'adminNav.html' %}
+{% endblock %}
+{% block body %}
+
+{{ form_start(form) }}
+{{ form_row(form.title) }}
+	{{ form_row(form.pageType) }}
+	{{ form_row(form.content) }}
+		<label for="gallerySelect">Select Gallery: </label><select id="gallerySelect" name="GalleryName">
+			<option value="no gallery"></option>
+		{% for distinctPage in distinctPages %}
+			<option value="{{ distinctPage.galleryName }}">{{ distinctPage.galleryName }}</option>
+		{% endfor %}
+	</select>
+	{{ form_row(form.content2) }}                        
+	{{ form_row(form.includeInNav) }}                        
+	{{ form_row(form.menuOrder) }} 
+		<label for="parentPageSelect">Select Parent Page: </label><select id="parentPageSelect" name="ParentPage">
+			<option value="no parent page"></option>
+	{% for parentPage in parentPages %}
+		<option value="{{ parentPage.title }}">{{ parentPage.title }}</option>
+	{% endfor %}
+		</select>                                               
+	{{ form_row(form.sqlDate) }}                                             
+	{{ form_row(form.save) }}
+{{ form_end(form) }}
+{% endblock %}

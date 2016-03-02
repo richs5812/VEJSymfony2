@@ -21,24 +21,45 @@ class EditPageController extends Controller
 		->getRepository('AppBundle:Page');
 		
 		$page = $repository->findOneBySlug($slug);
+		//$parentPages = $repository->findByParentPage(null);
 		
-		$adminForm = $this->createForm(PageType::class, $page);
+		$em = $this->getDoctrine()->getManager();
 		
-		$adminForm->handleRequest($request);
+		$parentQuery = $em->createQuery('SELECT p.title FROM AppBundle:Page p WHERE p.parentPage IS NULL AND p.pageType = :pageType');
+		$parentQuery->setParameter('pageType', 'Page');
+		$parentPages = $parentQuery->getResult();
+		
+		$query = $em->createQuery('SELECT DISTINCT d.galleryName FROM AppBundle:Document d');
+		$distinctPages = $query->getResult();
+		
+		$form = $this->createForm(EditPageType::class, $page);
+		
+		$form->handleRequest($request);
 
-		if ($adminForm->isSubmitted() && $adminForm->isValid()) {	
+		if ($form->isSubmitted() && $form->isValid()) {	
+			$galleryName = $request->request->getIterator()["GalleryName"];
+			$page->setGalleryName($galleryName);
+			
+			$parentPage = $request->request->getIterator()["ParentPage"];
+			if ($parentPage == 'no parent page'){
+				$parentPage = NULL;
+			}
+			$page->setParentPage($parentPage);
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($page);
 			$em->flush();
 
-			return $this->redirectToRoute('showPages');
+			return $this->redirectToRoute('admin');
 
 		}
     
         // render form
-        return $this->render('default/admin.html.twig', array(
-            'adminForm' => $adminForm->createView(),
+        return $this->render('default/editPage.html.twig', array(
+            'form' => $form->createView(),
+            'distinctPages' => $distinctPages,
+            'page' => $page,
+            'parentPages' => $parentPages,
         ));
     }
 }

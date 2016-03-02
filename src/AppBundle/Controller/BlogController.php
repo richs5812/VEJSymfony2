@@ -8,9 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * @Route("/blog", name="blog")
-     */
     public function blogAction()
     {
     	

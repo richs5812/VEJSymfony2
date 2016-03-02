@@ -7,22 +7,27 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class PageType extends AbstractType
+class NewPageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
-			->add('pageType')
+			->add('pageType', ChoiceType::class, array(
+				'choices' => array(
+					'Page' => 'Page',
+					'Blog' => 'Blog',
+				)
+			));
+		$builder	
             ->add('content')
-            ->add('galleryName')
+            //->add('galleryName')
 			->add('content2')
 			->add('includeInNav')
-			->add('isParent')
-			->add('parentPage')
+			->add('menuOrder')
 			->add('sqlDate')
-            ->add('slug')
             ->add('save', SubmitType::class)
         ;
     }
