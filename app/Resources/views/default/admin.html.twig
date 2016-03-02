@@ -1,0 +1,17 @@
+{# app/Resources/views/default/admin.html.twig #}
+{% extends 'base.html.twig' %}
+{% block nav %}
+	<ul class="nav">
+  	  <li class="nav"><a href="/admin">Edit Pages</a></li>
+  	  <li class="nav"><a href="/admin/newPage">Create New Page</a></li>
+  	  <li class="nav"><a href="/admin/upload">Upload Images</a></li>
+  	 </ul>
+{% endblock %}
+{% block body %}
+<!--<img src="{{ 'uploads/documents/IMG_0867.jpeg'|imagine_filter('my_thumb') }}" />
+<img src="{{ 'uploads/documents/IMG_0867.jpeg'|imagine_filter('my_image') }}" />-->
+
+{{ form_start(adminForm) }}
+{{ form_widget(adminForm) }}
+{{ form_end(adminForm) }}
+{% endblock %}

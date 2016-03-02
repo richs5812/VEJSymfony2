@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for blog in blogs %}
+	<h2><a href="{{blog.slug}}">{{blog.title}}</a></h2>
+  	 {{ blog.content|raw }}
+  	 {% if blog.galleryName %}
+  	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': blog.galleryName })) }}
+  	 {% endif %}
+	{% endfor %}
+{% endblock %}
+

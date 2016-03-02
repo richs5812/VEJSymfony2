@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h2>{{page.title}}</h2>
+	{% if page.title == 'Contact' %}
+		<div id="contact">
+			{{ render(controller(
+				'AppBundle:Contact:Contact'
+			)) }}
+		</div>
+	{% endif %}
+   {{ page.content|raw }}
+   {% if pics %}
+      <h3>Gallery: {{ page.galleryName }}</h3>
+    	{{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
+   	{% endif %}
+   {{ page.content2|raw }}
+{% endblock %}
+{% if page.title == 'Contact' %}
+	{% block javascripts %}
+		{{ parent() }}
+		<!--script for pattern masks-->
+		<script>
+		jQuery(function($){
+			$("input[type=text]#contact_phoneNumber").mask("(999)999-9999");
+		});
+		</script>
+	{% endblock %}
+{% endif %}

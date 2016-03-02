@@ -1,0 +1,8 @@
+{# app/Resources/views/default/registration.html.twig #}
+<h3>New voices4earth.org Contact </h3>
+<p>From: {{ contact.firstName }}  {{ contact.lastName }}</p>
+<p>Email Address: {{ contact.emailAddress }}</p>
+{% if contact.phoneNumber %}
+<p>Phone Number: {{ contact.phoneNumber }}</p>
+{% endif %}
+<p>Comment: {{ contact.comment }}</p>

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% for gallery in galleries %}
+	<h2><a href="{{gallery.slug}}">{{gallery.title}}</a></h2>
+  	 {{ gallery.content|raw }}
+
+  	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': gallery.galleryName })) }}
+
+	{% endfor %}
+{% endblock %}
+

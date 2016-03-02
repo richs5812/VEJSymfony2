@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block nav %}
+	<ul class="nav">
+  	  <li class="nav"><a href="/admin">Edit Pages</a></li>
+  	  <li class="nav"><a href="/admin/newPage">Create New Page</a></li>
+  	  <li class="nav"><a href="/admin/upload">Upload Images</a></li>
+  	 </ul>
+{% endblock %}
+{% block body %}
+	<ul>
+		{% for page in pages %}
+			<li><a href="{{ path('editPage', {'slug': page.slug}) }}">{{ page.title }}</a></li>
+		{% endfor %}
+			<li><a href="{{ path('newPage')}}">Create New Page</a></li>
+	</ul>
+{% endblock %}
+
