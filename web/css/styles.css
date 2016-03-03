@@ -1,50 +1,83 @@
-ul.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-   /*background-color: lightgray;*/
+* {
+    box-sizing: border-box;
 }
 
-li.nav {
-    /*float: left;*/
-    display: inline-block;
+body {
+	font-family: sans-serif;
 }
 
-li.nav a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+/*form styles*/
+textarea {
+	width: 1000px;
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 1em;
+	margin: .5em;
+}
+
+textarea#edit_page_content {
+		height: 400px;
+}
+
+textarea#new_page_content {
+		height: 200px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number] {
+	font-size: 1em;
+	padding: 4px;
+    margin: .5em 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /*width: 100%;*/
+}
+
+input[type=number] {
+	width:50px;
+}
+
+select {
+	font-size: 1em;
+	margin: .5em;
+}
+
+button[type=submit]{
+	font-size: 1em;
+	padding: .1em 0;
+	margin: .25em;
+}
+
+
+/*nav styles*/
+
+div.navSuper {
+	margin: .5em;
+	text-align: center;
+}
+
+a.nav {
+	display: block;
     text-decoration: none;
-}
-
-li.nav a:hover, .dropdown:hover .dropbtn {
-    background-color: #111;
-}
-
-.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
     color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+	background-color: #f2f2f2;
+	padding: .5em;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+/* visited link */
+a.nav:visited {
+    text-decoration: none;
+}
 
-.dropdown:hover .dropdown-content {
-    display: block;
+a.superNav {
+
+}
+/*
+div.navSub {
+	padding: 0 0 0 .5em;
+}*/
+
+a.subNav {
+	font-style: italic;
 }

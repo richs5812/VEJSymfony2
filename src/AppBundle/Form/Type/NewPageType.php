@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class NewPageType extends AbstractType
 {
@@ -23,11 +25,13 @@ class NewPageType extends AbstractType
 			));
 		$builder	
             ->add('content')
-            //->add('galleryName')
 			->add('content2')
 			->add('includeInNav')
 			->add('menuOrder')
-			->add('sqlDate')
+			->add('sqlDate', DateTimeType::class, array(
+					'data' => new \DateTime()
+				));
+		$builder
             ->add('save', SubmitType::class)
         ;
     }

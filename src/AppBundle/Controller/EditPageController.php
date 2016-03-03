@@ -46,6 +46,9 @@ class EditPageController extends Controller
 			}
 			$page->setParentPage($parentPage);
 			
+			$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
+			$page->setPubDate($rssDate);
+			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($page);
 			$em->flush();

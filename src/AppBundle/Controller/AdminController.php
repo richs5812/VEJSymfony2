@@ -19,8 +19,12 @@ class AdminController extends Controller
 		$repository = $this->getDoctrine()
 		->getRepository('AppBundle:Page');
 		
-		$pages = $repository->findAll();
-		
+		//$pages = $repository->findAll();
+		$em = $this->getDoctrine()->getManager();
+
+		$pagesQuery = $em->createQuery('SELECT p FROM AppBundle:Page p ORDER BY p.title ASC');
+		$pages = $pagesQuery->getResult();
+
         // replace this example code with whatever you need
         return $this->render('default/showPages.html.twig',
         array('pages' => $pages)

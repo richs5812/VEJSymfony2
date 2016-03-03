@@ -21,7 +21,8 @@
 		protected $id;
 		
 		/**
-		 * @ORM\Column(type="string", length=200, nullable=true)
+		 * @ORM\Column(type="string", length=200)
+	     * @Assert\NotNull()
 		 */
 		protected $title;
 		
@@ -61,7 +62,8 @@
 		protected $pubDate;
 		
 		/**
-		 * @ORM\Column(type="date", nullable=true)
+		 * @ORM\Column(type="datetime", nullable=true)
+	     * @Assert\NotNull()
 		 */		
 		protected $sqlDate;
 

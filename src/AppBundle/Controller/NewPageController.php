@@ -17,6 +17,7 @@ class NewPageController extends Controller
     {
     
 		$page = new Page();
+
 		$form = $this->createForm(NewPageType::class, $page);
 
 		$em = $this->getDoctrine()->getManager();
@@ -32,6 +33,9 @@ class NewPageController extends Controller
 
 		if ($form->isSubmitted() && $form->isValid()) {	
 			$galleryName = $request->request->getIterator()["GalleryName"];
+			if ($galleryName = 'no gallery') {
+				$galleryName = null;
+			}
 			$page->setGalleryName($galleryName);
 			
 			$parentPage = $request->request->getIterator()["ParentPage"];
@@ -45,6 +49,10 @@ class NewPageController extends Controller
 			$strippedSlug = preg_replace("/[^a-zA-Z0-9 ]/", "", $slugNoHyphens);
 			$slug = str_replace(" ","-",$strippedSlug);
 			$page->setSlug($slug);
+			
+			$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
+		
+			$page->setPubDate($rssDate);
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($page);

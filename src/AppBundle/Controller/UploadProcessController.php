@@ -10,12 +10,12 @@ use AppBundle\Form\Type\PageType;
 use AppBundle\Entity\Document;
 use Symfony\Component\HttpFoundation\Response;
 
-class FilesUploadController extends Controller
+class UploadProcessController extends Controller
 {
     /**
      * @Route("/admin/filesUpload", name="filesUpload")
      */
-    public function helloAction(Request $request)
+    public function uploadProcessAction(Request $request)
     {
 
     	$filesArray = $request->files->getIterator()->current()["file"];  	

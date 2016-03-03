@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class NavController extends Controller
+class NavFooterController extends Controller
 {
-    public function navAction()
+    public function navFooterAction()
     {
 		
 		$em = $this->getDoctrine()->getManager();
@@ -32,7 +32,7 @@ class NavController extends Controller
 		}
 			
         // replace this example code with whatever you need
-        return $this->render('default/nav.html.twig', array(
+        return $this->render('default/navFooter.html.twig', array(
         	'childPages' => $childArray,
         	'parentPages' => $parentArray,
         	'parentPageNames' => $parentPageNames,

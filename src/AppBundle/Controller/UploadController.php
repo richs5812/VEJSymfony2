@@ -34,8 +34,8 @@ class UploadController extends Controller
 			return $this->redirectToRoute('index');
 		}
 
-		return $this->render('default/admin.html.twig', array(
-			'adminForm' => $form->createView(),
+		return $this->render('default/upload.html.twig', array(
+			'form' => $form->createView(),
 		));
 	}
 }
