@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -7,21 +7,22 @@
         	<link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="{{ asset('js/modernizr-custom.js') }}"></script>
     </head>
-    <nav>
-    	{% block nav %}
-    	{{ render(controller('AppBundle:Nav:Nav')) }}
-    	{% endblock %}
-    </nav>
     <body>
-        {% block body %}{% endblock %}
+		<main class="main-content">
+			<button class="off-canvas-launcher">Menu</button>
+	    	{% block main %}{% endblock %}
+		</main>
+		<nav class="navigation-menu">
+			{% block nav %}
+			{{ render(controller('AppBundle:NavFooter:NavFooter')) }}
+			{% endblock %}
+		</nav>
         {% block javascripts %}
             <script src="{{ asset('js/jquery.js') }}"></script>
 			<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+			<script src="{{ asset('js/menuShow.js') }}"></script>
         {% endblock %}
     </body>
-    
-    <footer>
-	{{ render(controller('AppBundle:NavFooter:NavFooter')) }}
-    </footer>
 </html>

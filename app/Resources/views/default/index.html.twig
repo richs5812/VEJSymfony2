@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+
+{% block main %}
 	<h2>{{page.title}}</h2>
 	{% if page.title == 'Contact' %}
 		<div id="contact">
@@ -11,9 +12,9 @@
 	{% endif %}
    {{ page.content|raw }}
    {% if pics %}
-      <h3>Gallery: {{ page.galleryName }}</h3>
-    	{{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
-   	{% endif %}
+	  <h3>Gallery: {{ page.galleryName }}</h3>
+		{{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
+	{% endif %}
    {{ page.content2|raw }}
 {% endblock %}
 {% if page.title == 'Contact' %}
