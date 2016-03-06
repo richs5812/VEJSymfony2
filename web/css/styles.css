@@ -4,6 +4,7 @@
 
 body {
 	font-family: sans-serif;
+    font-size: 100%;
 }
 
 /*form styles*/
@@ -53,24 +54,38 @@ button[type=submit]{
 /*nav styles*/
 
 div.navSuper {
-	margin: .5em;
-	text-align: center;
+	text-align: left;
 }
 
 a.nav {
 	display: block;
     text-decoration: none;
     color: black;
-	background-color: #f2f2f2;
+	/*background-color: #f2f2f2;*/
 	padding: .5em;
+	border-top: 1px solid #aaa;
+	transition: background-color .25s;
 }
 
-a.nav:active {
-    background-color: #ffe6ff;
+a.nav:hover {
+	background-color: #e7d2f9;
+}
+
+a#donate {
+	display: block;
+	width: 100%;
+	background-color: #ffff00;
+	text-align: center;
+}
+
+a#donate:hover {
+	background-color: #ffff80;
 }
 
 a.subNav {
+	font-size: 0.75em;
 	font-style: italic;
+	padding: .75em 1em;
 }
 
 /*remove default button styling*/
@@ -92,6 +107,11 @@ a.subNav {
 /*add some interactivity when the button is clicked*/
 .off-canvas-launcher:active {
 	top: 1px;
+}
+
+/*add a transition for the left and transform properties and a duration for transitions*/
+.navigation-menu {
+	background-color: #dabcf6;
 }
 
 /*for smaller screens that support JavaScript by default hide the nav off screen*/

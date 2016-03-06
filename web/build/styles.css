@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+    font-size: 100%;
+}
+
+/*form styles*/
+textarea {
+	width: 1000px;
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 1em;
+	margin: .5em;
+}
+
+textarea#edit_page_content {
+		height: 400px;
+}
+
+textarea#new_page_content {
+		height: 200px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number] {
+	font-size: 1em;
+	padding: 4px;
+    margin: .5em 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /*width: 100%;*/
+}
+
+input[type=number] {
+	width:50px;
+}
+
+select {
+	font-size: 1em;
+	margin: .5em;
+}
+
+button[type=submit]{
+	font-size: 1em;
+	padding: .1em 0;
+	margin: .25em;
+}
+
+
+/*nav styles*/
+
+div.navSuper {
+	text-align: left;
+}
+
+a.nav {
+	display: block;
+    text-decoration: none;
+    color: black;
+	/*background-color: #f2f2f2;*/
+	padding: .5em;
+	border-top: 1px solid #aaa;
+	-webkit-transition: background-color .25s;
+	        transition: background-color .25s;
+}
+
+a.nav:hover {
+	background-color: #e7d2f9;
+}
+
+a#donate {
+	display: block;
+	width: 100%;
+	background-color: #ffff00;
+	text-align: center;
+}
+
+a#donate:hover {
+	background-color: #ffff80;
+}
+
+a.subNav {
+	font-size: 0.75em;
+	font-style: italic;
+	padding: .75em 1em;
+}
+
+/*remove default button styling*/
+.off-canvas-launcher {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: 1px solid #297D94;
+	border-radius: 4px;
+	background: none;
+	padding: 4px 8px;
+	position: relative;
+}
+
+/*if we don't have JavaScript available, no point showing the button*/
+.no-js .off-canvas-launcher {
+	display: none;
+}
+
+/*add some interactivity when the button is clicked*/
+.off-canvas-launcher:active {
+	top: 1px;
+}
+
+/*add a transition for the left and transform properties and a duration for transitions*/
+.navigation-menu {
+	background-color: #dabcf6;
+}
+
+/*for smaller screens that support JavaScript by default hide the nav off screen*/
+@media (min-width: 200px) {
+
+	.js .navigation-menu {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 200px;
+		left: -200px;
+		/*transition: left .5s;*/
+	}
+
+	/*when the menu button is clicked move the nav back on screen*/
+	.js .OffCanvas-Active .navigation-menu {
+		left: 0;
+		/*transition: left .5s; */
+	}
+	/*if the browser supports transforms, reset the left property and pull it off screen with a translate */
+	.js .csstransforms .navigation-menu {
+		left: auto;
+		-webkit-transform: translateX(-200px);
+		        transform: translateX(-200px);
+	}
+	/*when transforms are supported and the menu button is clicked, reset the nav to default position*/
+	.js .csstransforms .OffCanvas-Active .navigation-menu {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+	}
+	/*where transform3d is supported reset left and pull off screen with a translate3d instead*/
+	.js .csstransforms3d .navigation-menu {
+		left: auto;
+		-webkit-transform: translate3d(-200px, 0, 0);
+		        transform: translate3d(-200px, 0, 0);
+	}
+	/*when transform3d is supported and the menu button is clicked, reset the nav to default position*/
+	.js .csstransforms3d .OffCanvas-Active .navigation-menu {
+		-webkit-transform: translate3d(0, 0, 0);
+		        transform: translate3d(0, 0, 0);
+	}
+}

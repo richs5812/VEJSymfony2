@@ -2,7 +2,7 @@
 {% for parentPage in parentPages %}
 	{% if parentPage.title in parentPageNames %}
 
-			<div class="navSuper">
+			<div class="nav navSuper">
 				<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a></li>
 
 				{% for childPage in childPages %}
@@ -15,7 +15,11 @@
 			</div>
 		{% else %}
 			<div class="navSuper">
-				<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a>
+				{% if parentPage.title == 'Donate' %}
+					<a class="nav superNav" id="donate" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a>
+				{% else %}
+					<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a>
+				{% endif %}
 			</div>
 	{% endif %}
 {% endfor %}
