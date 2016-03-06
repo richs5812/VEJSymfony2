@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 	// This debounce function (via: https://remysharp.com/2010/07/21/throttling-function-calls) merely stops functioned firing too often on repetitive events (such as resize/scroll)
-	function debounce(fn, delay) {
+	/*function debounce(fn, delay) {
 		var timer = null;
 		return function () {
 			var context = this, args = arguments;
@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', function(){
 	}, 250);
 
 	// When the window is resized, we want to fire the debouncedA function
-	window.onresize = debouncedA;
+	window.onresize = debouncedA;*/
 });
