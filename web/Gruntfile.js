@@ -7,6 +7,17 @@ module.exports = function (grunt) {
                 }
             }
         },
+        browserSync: {
+			dev: {
+				bsFiles: {
+					src : 'build/styles.css'
+				},
+				options: {
+					watchTask: true,
+					proxy: "localhost:8000"
+				}
+			}
+		},
         watch: {
             styles: {
                 files: ['css/styles.css'],
@@ -16,4 +27,8 @@ module.exports = function (grunt) {
     });
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browser-sync');
+    
+    // define default task
+    grunt.registerTask('default', ['browserSync', 'watch']);
 };
