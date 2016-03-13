@@ -1,4 +1,4 @@
 
    		{% for pic in pics %}
-			<a href="{{ asset(pic.path)}}"><img src="{{ asset(pic.path)|imagine_filter('my_thumb') }}" /></a>
+			<a href="{{ path('slideshow', {'picPath': pic.path}) }}"><img src="thumb/{{pic.path}}" /></a>
    		{% endfor %}

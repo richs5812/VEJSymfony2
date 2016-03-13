@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block main %}
+
 	{% for gallery in galleries %}
 	<h2><a href="{{gallery.slug}}">{{gallery.title}}</a></h2>
   	 {{ gallery.content|raw }}

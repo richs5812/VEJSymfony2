@@ -18,7 +18,11 @@ class UploadController extends Controller
 		$document = new Document();
 
 		$form = $this->createForm(DocumentType::class, $document, array('action' => $this->generateUrl('filesUpload')));
-		
+
+		$em = $this->getDoctrine()->getManager();
+		$query = $em->createQuery('SELECT DISTINCT d.galleryName FROM AppBundle:Document d');
+		$distinctGalleries = $query->getResult();
+
 		//print_r($request->all());
 		
 		//$form->handleRequest($request);
@@ -36,6 +40,7 @@ class UploadController extends Controller
 
 		return $this->render('default/upload.html.twig', array(
 			'form' => $form->createView(),
+			'distinctGalleries' => $distinctGalleries,
 		));
 	}
 }

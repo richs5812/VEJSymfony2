@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block main %}
 	{% for blog in blogs %}
 	<h2><a href="{{blog.slug}}">{{blog.title}}</a></h2>
   	 {{ blog.content|raw }}
@@ -9,4 +9,3 @@
   	 {% endif %}
 	{% endfor %}
 {% endblock %}
-

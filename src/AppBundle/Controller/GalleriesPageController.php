@@ -15,9 +15,9 @@ class GalleriesPageController extends Controller
 		$query = $em->createQuery(
 			'SELECT p
 			FROM AppBundle:Page p
-			WHERE p.galleryName IS NOT NULL
+			WHERE p.galleryName != :name
 			ORDER BY p.sqlDate DESC'
-		);
+		)->setParameter('name', 'no gallery');
 		
 		$galleries = $query->getResult();
 		

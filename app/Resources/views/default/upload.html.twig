@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
-{% block nav %}
-  	 {% include 'adminNav.html' %}
-{% endblock %}
-{% block body %}
+
+{% block main %}
 	{{ form_start(form) }}
-	{{ form_widget(form) }}
+		<label for="gallerySelect">Select Gallery: </label><select id="gallerySelect" name="GalleryName">
+			<option value="no gallery"></option>
+		{% for distinctGallery in distinctGalleries %}
+			<option value="{{ distinctGallery.galleryName }}">{{ distinctGallery.galleryName }}</option>
+		{% endfor %}
+		</select>
+	{{ form_row(form.galleryName, {'label': 'or create new gallery: '}) }}
+	{{ form_row(form.caption) }}
+	{{ form_row(form.file) }}
+	{{ form_row(form.save) }}
+
 	{{ form_end(form) }}
 {% endblock %}

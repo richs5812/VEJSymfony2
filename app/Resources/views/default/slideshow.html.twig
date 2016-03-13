@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<table>
+	<tr>
+		<td colspan="3"><img class="slideshow" src="../slideshow/{{pic.path}}" /></a>
+	</tr>
+	<tr>
+		<td colspan="3">{{ pic.caption }}</td>
+	</tr>
+	<tr>
+		<td>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</td>
+		<td><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></td>
+		<td>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">next image</a>{% endif %}</td>
+	</tr>
+</table>
+{% endblock %}
