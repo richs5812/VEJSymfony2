@@ -1,4 +1,3 @@
-
-   		{% for pic in pics %}
-			<a href="{{ path('slideshow', {'picPath': pic.path}) }}"><img src="thumb/{{pic.path}}" /></a>
-   		{% endfor %}
+{% for pic in pics %}
+	<a href="{{ path('slideshow', {'picPath': pic.path}) }}"><img src="thumb/{{pic.path}}" class="thumbnail"/></a>
+{% endfor %}

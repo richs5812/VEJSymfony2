@@ -9,6 +9,7 @@
 		{% endfor %}
 		</select>
 	{{ form_row(form.galleryName, {'label': 'or create new gallery: '}) }}
+	{{ form_row(form.createBlog, {'label': 'create blog post with same title: '}) }}
 	{{ form_row(form.caption) }}
 	{{ form_row(form.file) }}
 	{{ form_row(form.save) }}

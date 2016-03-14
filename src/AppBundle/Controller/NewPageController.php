@@ -22,18 +22,18 @@ class NewPageController extends Controller
 
 		$em = $this->getDoctrine()->getManager();
 		
-		$parentQuery = $em->createQuery('SELECT p.title FROM AppBundle:Page p WHERE p.parentPage IS NULL AND p.pageType = :pageType');
+		$parentQuery = $em->createQuery('SELECT p.title FROM AppBundle:Page p WHERE p.parentPage IS NULL AND p.pageType = :pageType ORDER BY p.title ASC');
 		$parentQuery->setParameter('pageType', 'Page');
 		$parentPages = $parentQuery->getResult();
 		
-		$query = $em->createQuery('SELECT DISTINCT d.galleryName FROM AppBundle:Document d');
+		$query = $em->createQuery('SELECT DISTINCT d.galleryName FROM AppBundle:Document d WHERE d.galleryName IS NOT NULL ORDER BY d.galleryName ASC');
 		$distinctPages = $query->getResult();
 		
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {	
 			$galleryName = $request->request->getIterator()["GalleryName"];
-			if ($galleryName = 'no gallery') {
+			if ($galleryName == 'no gallery') {
 				$galleryName = null;
 			}
 			$page->setGalleryName($galleryName);

@@ -41,6 +41,11 @@ class Document
 	 * @ORM\Column(type="string", length=100, nullable=true)
 	 */
 	protected $pubDate;
+	
+	/**
+	 * @ORM\Column(type="boolean", nullable=true)
+	 */		
+	protected $createBlog;
     
 	/**
      * @Assert\File(maxSize="6000000")
@@ -129,6 +134,13 @@ class Document
 			$filename = trim($filename);
 			$filename = stripslashes($filename);
 			$filename = htmlspecialchars($filename);
+				$characters = '0123456789';
+				$charactersLength = strlen($characters);
+				$randomString = '';
+				for ($i = 0; $i < 10; $i++) {
+					$randomString .= $characters[rand(0, $charactersLength - 1)];
+				}
+			$filename .= $randomString;	
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -273,5 +285,29 @@ class Document
     public function getPubDate()
     {
         return $this->pubDate;
+    }
+
+    /**
+     * Set createBlog
+     *
+     * @param boolean $createBlog
+     *
+     * @return Document
+     */
+    public function setCreateBlog($createBlog)
+    {
+        $this->createBlog = $createBlog;
+
+        return $this;
+    }
+
+    /**
+     * Get createBlog
+     *
+     * @return boolean
+     */
+    public function getCreateBlog()
+    {
+        return $this->createBlog;
     }
 }

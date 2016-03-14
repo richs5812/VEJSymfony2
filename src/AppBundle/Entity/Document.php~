@@ -41,6 +41,11 @@ class Document
 	 * @ORM\Column(type="string", length=100, nullable=true)
 	 */
 	protected $pubDate;
+	
+	/**
+	 * @ORM\Column(type="boolean", nullable=true)
+	 */		
+	protected $createBlog;
     
 	/**
      * @Assert\File(maxSize="6000000")
@@ -79,14 +84,14 @@ class Document
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../web/uploads'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/documents';
+        return '';
     }
     
     /**
@@ -129,6 +134,13 @@ class Document
 			$filename = trim($filename);
 			$filename = stripslashes($filename);
 			$filename = htmlspecialchars($filename);
+				$characters = '0123456789';
+				$charactersLength = strlen($characters);
+				$randomString = '';
+				for ($i = 0; $i < 10; $i++) {
+					$randomString .= $characters[rand(0, $charactersLength - 1)];
+				}
+			$filename .= $randomString;	
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
         }
     }

@@ -18,6 +18,10 @@ body {
 img.slideshow {
 	max-width: 80%;
 }
+
+img.thumbnail {
+	max-width: 150px;
+}
 /*form styles*/
 textarea {
 	width: 1000px;

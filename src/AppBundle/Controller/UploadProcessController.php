@@ -10,6 +10,8 @@ use AppBundle\Form\Type\PageType;
 use AppBundle\Entity\Document;
 use Symfony\Component\HttpFoundation\Response;
 use Imagick;
+use AppBundle\Entity\Page;
+
 
 class UploadProcessController extends Controller
 {
@@ -18,21 +20,37 @@ class UploadProcessController extends Controller
      */
     public function uploadProcessAction(Request $request)
     {
+    
 		if ($request->request->getIterator()["GalleryName"] == "no gallery") {
 			$galleryName = $request->request->getIterator()["document"]["galleryName"];
 		} else {
 			$galleryName = $request->request->getIterator()["GalleryName"];
 		}
-    	$filesArray = $request->files->getIterator()->current()["file"];  	
-		
+		$caption = $request->request->getIterator()["document"]["caption"];
+
+		$filesArray = $request->files->getIterator()->current()["file"]; 
+		 	
+		$galleryName = trim($galleryName);
+
 		foreach($filesArray as $file){
     		$document = new Document();	
     		if ($galleryName == "") {
-    			$document->setGalleryName(NULL);
-    		} else {
-				$document->setGalleryName($galleryName);
+    			$galleryName = NULL;
     		}
+    		
+			$document->setGalleryName($galleryName);
+    		
+			if ($caption == "") {
+    			$document->setCaption(NULL);
+    		} else {
+				$document->setCaption($caption);
+    		}
+    		
+    		$pubDate = date('D, d M Y H:i:s T');
+    		$document->setPubDate($pubDate);
+
 			$document->setFile($file);
+
 			$em = $this->getDoctrine()->getManager();
   
 			$em->persist($document);
@@ -48,6 +66,25 @@ class UploadProcessController extends Controller
 			// Open the original image
 			$image = new \Imagick;
 			$image->readImage('/Users/richsamartino/VEJSymfony/web/uploads/'.$documentPath);
+			
+			$orientation = $image->getImageOrientation();
+
+				switch($orientation) {
+					case imagick::ORIENTATION_BOTTOMRIGHT:
+						$image->rotateimage("#000", 180); // rotate 180 degrees
+					break;
+
+					case imagick::ORIENTATION_RIGHTTOP:
+						$image->rotateimage("#000", 90); // rotate 90 degrees CW
+					break;
+
+					case imagick::ORIENTATION_LEFTBOTTOM:
+						$image->rotateimage("#000", -90); // rotate 90 degrees CCW
+					break;
+				}
+
+				// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
+				$image->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
 
 			$origSize = $image->getImageGeometry();
 			$origWidth = $origSize['width'];
@@ -114,6 +151,26 @@ class UploadProcessController extends Controller
 			// Open the original image
 			$thumbImage = new \Imagick;
 			$thumbImage->readImage('/Users/richsamartino/VEJSymfony/web/uploads/'.$documentPath);
+			
+						$orientation = $thumbImage->getImageOrientation();
+
+				switch($orientation) {
+					case imagick::ORIENTATION_BOTTOMRIGHT:
+						$thumbImage->rotateimage("#000", 180); // rotate 180 degrees
+					break;
+
+					case imagick::ORIENTATION_RIGHTTOP:
+						$thumbImage->rotateimage("#000", 90); // rotate 90 degrees CW
+					break;
+
+					case imagick::ORIENTATION_LEFTBOTTOM:
+						$thumbImage->rotateimage("#000", -90); // rotate 90 degrees CCW
+					break;
+				}
+
+				// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
+				$thumbImage->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
+				
 			$origSize = $thumbImage->getImageGeometry();
 			//$origWidth = $origSize['width'];
 			//$origHeight = $origSize['height'];
@@ -122,9 +179,9 @@ class UploadProcessController extends Controller
 			$thumbHeight = $origSize['height'];
 
 			if ($thumbWidth >= $thumbHeight){
-				 $thumbImage->thumbnailImage( 150, null );
+				 $thumbImage->thumbnailImage( 300, null );
 			} else {
-				 $thumbImage->thumbnailImage( null, 150 );
+				 $thumbImage->thumbnailImage( null, 300 );
 			}
 
 			$target_thumbnail_dir = '/Users/richsamartino/VEJSymfony/web/thumb/'.$documentPath;
@@ -137,7 +194,34 @@ class UploadProcessController extends Controller
 		{
 				echo $e->getMessage();
 		}
-		} 	
+		}
+		
+		//create blog post if requested
+		if (isset($request->request->getIterator()["document"]["createBlog"]) == true){
+			
+			$page = new Page();
+			$page->setGalleryName($galleryName);
+			$page->setTitle($galleryName);
+			
+			//generate slug
+			$slugNoHyphens = str_replace(" - "," ",$galleryName);
+			$strippedSlug = preg_replace("/[^a-zA-Z0-9 ]/", "", $slugNoHyphens);
+			$slug = str_replace(" ","-",$strippedSlug);
+			$page->setSlug($slug);
+
+			//date('D, d M Y H:i:s T');
+			//$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
+			$sqlDate = new \DateTime();
+			$page->setPubDate(date('D, d M Y H:i:s T'));
+			$page->setSqlDate($sqlDate);
+			$page->setPageType('Blog');
+			$page->setIncludeInNav(0);
+			
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($page);
+			$em->flush();
+		}
+ 	
     
 		return $this->redirectToRoute('admin');
     }

@@ -16,6 +16,7 @@ class DocumentType extends AbstractType
     {
         $builder
 			->add('galleryName')
+			->add('createBlog')
 			->add('caption')
 			->add('file', FileType::class, array('multiple' => true))
             ->add('save', SubmitType::class)
