@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block nav %}
+  	 {% include 'adminNav.html' %}
+{% endblock %}
+{% block main %}
+	<ul>
+		{% for gallery in galleries %}
+			<li><a href="{{ path('editGallery', {'galleryName': gallery.galleryName}) }}">{{ gallery.galleryName }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
