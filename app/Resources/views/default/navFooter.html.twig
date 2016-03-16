@@ -2,24 +2,17 @@
 {% for parentPage in parentPages %}
 	{% if parentPage.title in parentPageNames %}
 
-			<div class="nav navSuper">
-				<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a></li>
-
+				<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a>
 				{% for childPage in childPages %}
 					{% if childPage.parentPage == parentPage.title %}
-						<div class="navSub">
 							<a class="nav subNav" href="{{ path('index', {'slug': childPage.slug}) }}">{{ childPage.title }}</a>
-						</div>
 					{% endif %}
 				{% endfor %}
-			</div>
 		{% else %}
-			<div class="navSuper">
 				{% if parentPage.title == 'Donate' %}
 					<a class="nav superNav" id="donate" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a>
 				{% else %}
 					<a class="nav superNav" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a>
 				{% endif %}
-			</div>
 	{% endif %}
 {% endfor %}

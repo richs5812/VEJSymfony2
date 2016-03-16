@@ -1,0 +1,30 @@
+@font-face {
+	font-family: Raleway;
+	src: url(../fonts/Raleway/Raleway-Regular.ttf);
+}
+
+header {
+
+	@media (min-resolution: 1.5dppx) {
+		  background-image: url('../images/background-1920w.jpg');
+	   }
+	   
+    background-color: indigo;
+	background-image: url('../images/background-960w.jpg');
+	background-size: cover;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+	background-attachment: scroll;
+
+	font-family: Raleway, Helvetica, sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 8vw;
+	text-shadow: 2px 2px 4px black;
+	
+	padding: 20vw 0.5em;
+
+   	@media (orientation: landscape){
+		padding: 10vw 0.5em;
+	}
+}

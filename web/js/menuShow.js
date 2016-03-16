@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 	// When the header is clicked we fire the function to toggle the class
 	document.querySelector('.off-canvas-launcher').addEventListener('click', a );
-	document.querySelector('.main-content').addEventListener('click', b );
+	document.querySelector('.notNav').addEventListener('click', b );
 
 
 	// This debounce function (via: https://remysharp.com/2010/07/21/throttling-function-calls) merely stops functioned firing too often on repetitive events (such as resize/scroll)
