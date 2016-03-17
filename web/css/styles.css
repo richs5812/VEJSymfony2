@@ -380,6 +380,9 @@ header {
     header {
       padding: 10vw 0.5em; } }
 
+@font-face {
+  font-family: EAU;
+  src: url(../fonts/eau_sans/outline_font/eau_sans_book.otf); }
 /*remove default button styling*/
 button.off-canvas-launcher {
   -webkit-appearance: none;
@@ -401,20 +404,34 @@ button.off-canvas-launcher:active {
 nav.navigation-menu {
   background-color: #3b0066;
   box-shadow: 2px 2px 4px #1a1a1a;
-  padding: 1em 0 1em 0;
+  padding: 0em;
   border-bottom-right-radius: 4px;
+  /* fonts */
+  font-family: EAU, Geneva, sans-serif;
+  /*
+  a + a {
+  	border-top: 2px solid $lightPurple;
+  }*/
   /* visited link */
   /* mouse over link */
   /* selected link */ }
   nav.navigation-menu a {
+    background-color: #1e0033;
     display: block;
-    padding: 1em;
     color: #f3edf8; }
-  nav.navigation-menu a + a {
-    border-top: 2px solid #c4a3dc; }
+  nav.navigation-menu a.superNav + a.superNav {
+    margin: 1em 1em .5em;
+    padding: 1em; }
+  nav.navigation-menu a.subNav + a.superNav {
+    padding: 1em;
+    margin: 1em 1em 0; }
   nav.navigation-menu a.subNav {
     padding: .75em 1em .75em 2em;
+    margin: .25em 1em;
     font-style: italic; }
+  nav.navigation-menu a.nav:first-of-type {
+    margin: 1em 1em .5em;
+    padding: 1em; }
   nav.navigation-menu a:link {
     text-decoration: none; }
   nav.navigation-menu a:visited {
@@ -430,7 +447,7 @@ nav.navigation-menu {
     position: absolute;
     top: 0;
     right: 0;
-    width: 215px;
+    width: 275px;
     left: -225px;
     transition: left .55s; }
 
