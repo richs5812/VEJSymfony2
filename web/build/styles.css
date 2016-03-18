@@ -390,16 +390,40 @@ button.off-canvas-launcher {
   border: 1px solid #297D94;
   border-radius: 4px;
   background: none;
-  padding: 4px 8px;
-  position: relative; }
+  padding: 4px 8px; }
+
+/*remove default button styling*/
+button.nav-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1e0033;
+  color: #f3edf8;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid white; }
 
 /*if we don't have JavaScript available, no point showing the button*/
 .no-js button.off-canvas-launcher {
   display: none; }
 
+.no-js button.nav-button {
+  display: none; }
+
 /*add some interactivity when the button is clicked*/
-button.off-canvas-launcher:active {
+button.off-canvas-launcher:active, button.nav-button:active {
   top: 1px; }
+
+div.linkWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 nav.navigation-menu {
   background-color: #3b0066;
@@ -408,17 +432,16 @@ nav.navigation-menu {
   border-bottom-right-radius: 4px;
   /* fonts */
   font-family: EAU, Geneva, sans-serif;
-  /*
-  a + a {
-  	border-top: 2px solid $lightPurple;
-  }*/
   /* visited link */
   /* mouse over link */
   /* selected link */ }
   nav.navigation-menu a {
     background-color: #1e0033;
-    display: block;
-    color: #f3edf8; }
+    color: #f3edf8;
+    -webkit-box-flex: 5;
+    -webkit-flex: 5;
+        -ms-flex: 5;
+            flex: 5; }
   nav.navigation-menu a.superNav + a.superNav {
     margin: 1em 1em .5em;
     padding: 1em; }
@@ -429,9 +452,12 @@ nav.navigation-menu {
     padding: .75em 1em .75em 2em;
     margin: .25em 1em;
     font-style: italic; }
-  nav.navigation-menu a.nav:first-of-type {
+  nav.navigation-menu a.superNav:first-of-type {
     margin: 1em 1em .5em;
     padding: 1em; }
+  nav.navigation-menu a#donate {
+    background-color: yellow;
+    color: #3b0066; }
   nav.navigation-menu a:link {
     text-decoration: none; }
   nav.navigation-menu a:visited {
@@ -448,21 +474,28 @@ nav.navigation-menu {
     top: 0;
     right: 0;
     width: 275px;
-    left: -225px;
-    -webkit-transition: left .55s;
-            transition: left .55s; }
+    left: -300px;
+    -webkit-transition: left .65s;
+            transition: left .65s; }
+
+  /*
+  .superNav:first-child {
+  	margin-right: auto;
+  }*/
+  .js a.subNav {
+    display: none; }
 
   /*when the menu button is clicked move the nav back on screen*/
   .js .OffCanvas-Active nav.navigation-menu {
     left: 0; }
 
+  /*
   .js main.main-content {
-    width: 100%;
-    position: absolute;
-    left: 0px;
-    -webkit-transition: left .5s;
-            transition: left .5s; }
-
+  	width: 100%;
+  	position: absolute;
+  	left: 0px;
+  	transition: left .5s;
+  }*/
   /*
   .js .OffCanvas-Active .main-content {
   	right: -200px;

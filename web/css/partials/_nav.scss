@@ -7,6 +7,7 @@ $darkGray: #1a1a1a;
 $lightPurple: #c4a3dc;
 $lighterPurple: #f3edf8;
 $darkPurple: #3b0066;
+$darkerPurple: #1e0033;
 
 /*remove default button styling*/
 button.off-canvas-launcher {
@@ -16,7 +17,16 @@ button.off-canvas-launcher {
 	border-radius: 4px;
 	background: none;
 	padding: 4px 8px;
-	position: relative;
+}
+
+/*remove default button styling*/
+button.nav-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: $darkerPurple;
+	color: $lighterPurple;
+	flex: 1;
+	border: 1px solid white;
 }
 
 /*if we don't have JavaScript available, no point showing the button*/
@@ -24,11 +34,19 @@ button.off-canvas-launcher {
 	display: none;
 }
 
+.no-js  button.nav-button {
+	display: none;
+}
+
 /*add some interactivity when the button is clicked*/
-button.off-canvas-launcher:active {
+button.off-canvas-launcher:active, button.nav-button:active {
 	top: 1px;
 }
 
+div.linkWrapper {
+	display: flex;
+	align-items: center;
+}
 
 
 nav.navigation-menu {
@@ -39,17 +57,13 @@ nav.navigation-menu {
     
     /* fonts */
    font-family: EAU, Geneva, sans-serif;
-	
-	a{
-		background-color: #1e0033;
-		display: block;
+
+	a {
+		background-color: $darkerPurple;
 		color: $lighterPurple;
+		flex: 5;
 	}
-	/*
-	a + a {
-		border-top: 2px solid $lightPurple;
-	}*/
-	
+
 	a.superNav + a.superNav {
 		margin: 1em 1em .5em;
 		padding: 1em;
@@ -66,11 +80,16 @@ nav.navigation-menu {
 		font-style: italic;
 	}
 	
-	a.nav:first-of-type {
+	a.superNav:first-of-type {
 		margin: 1em 1em .5em;
 		padding: 1em;
 	}
 	
+	a#donate {
+		background-color: yellow;
+		color: $darkPurple;
+	}
+
 	a:link {
 		text-decoration: none;
 	}
@@ -89,6 +108,7 @@ nav.navigation-menu {
 	a:active {
 		text-decoration: none;
 	}
+	
 
 }
 
@@ -100,21 +120,32 @@ nav.navigation-menu {
 		top: 0;
 		right: 0;
 		width: 275px;
-		left: -225px;
-		transition: left .55s;
+		left: -300px;
+		transition: left .65s;
 	}
+	/*
+	.superNav:first-child {
+		margin-right: auto;
+	}*/
+
+
+	.js a.subNav {
+		display: none;
+	}
+
 
 	/*when the menu button is clicked move the nav back on screen*/
 	.js .OffCanvas-Active nav.navigation-menu {
 		left: 0;
 	}
 	
+	/*
 	.js main.main-content {
 		width: 100%;
 		position: absolute;
 		left: 0px;
 		transition: left .5s;
-	}
+	}*/
 	/*
 	.js .OffCanvas-Active .main-content {
 		right: -200px;
