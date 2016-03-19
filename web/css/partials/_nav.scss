@@ -26,7 +26,8 @@ button.nav-button {
 	background-color: $darkerPurple;
 	color: $lighterPurple;
 	flex: 1;
-	border: 1px solid white;
+	border: none;
+	height: 3em;
 }
 
 /*if we don't have JavaScript available, no point showing the button*/
@@ -45,9 +46,18 @@ button.off-canvas-launcher:active, button.nav-button:active {
 
 div.linkWrapper {
 	display: flex;
-	align-items: center;
+	/*align-items: center;*/
+	/*border: 1px solid blue;*/
+	margin: .5em;
 }
 
+div.subNav {
+	margin: .25em .5em;
+}
+
+div.parentNav {
+	margin: .5em .5em .25em .5em;
+}
 
 nav.navigation-menu {
 	background-color: $darkPurple;
@@ -57,38 +67,6 @@ nav.navigation-menu {
     
     /* fonts */
    font-family: EAU, Geneva, sans-serif;
-
-	a {
-		background-color: $darkerPurple;
-		color: $lighterPurple;
-		flex: 5;
-	}
-
-	a.superNav + a.superNav {
-		margin: 1em 1em .5em;
-		padding: 1em;
-	}
-	
-	a.subNav + a.superNav {
-		padding: 1em;
-		margin: 1em 1em 0;
-	}
-	
-	a.subNav {
-		padding: .75em 1em .75em 2em;
-		margin: .25em 1em;
-		font-style: italic;
-	}
-	
-	a.superNav:first-of-type {
-		margin: 1em 1em .5em;
-		padding: 1em;
-	}
-	
-	a#donate {
-		background-color: yellow;
-		color: $darkPurple;
-	}
 
 	a:link {
 		text-decoration: none;
@@ -108,7 +86,25 @@ nav.navigation-menu {
 	a:active {
 		text-decoration: none;
 	}
+
+	a {
+		background-color: $darkerPurple;
+		color: $lighterPurple;
+		flex: 5;
+		line-height: 3em;
+		padding: 0 0 0 1em;
+	}
+
+	a.subNav {
+		flex: 1;
+		font-style: italic;
+		padding: 0 0 0 1.5em;
+	}
 	
+	a#donate {
+		background-color: yellow;
+		color: $darkPurple;
+	}
 
 }
 
@@ -129,7 +125,7 @@ nav.navigation-menu {
 	}*/
 
 
-	.js a.subNav {
+	.js div.subNav {
 		display: none;
 	}
 

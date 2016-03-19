@@ -399,7 +399,8 @@ button.nav-button {
   background-color: #1e0033;
   color: #f3edf8;
   flex: 1;
-  border: 1px solid white; }
+  border: none;
+  height: 3em; }
 
 /*if we don't have JavaScript available, no point showing the button*/
 .no-js button.off-canvas-launcher {
@@ -414,7 +415,15 @@ button.off-canvas-launcher:active, button.nav-button:active {
 
 div.linkWrapper {
   display: flex;
-  align-items: center; }
+  /*align-items: center;*/
+  /*border: 1px solid blue;*/
+  margin: .5em; }
+
+div.subNav {
+  margin: .25em .5em; }
+
+div.parentNav {
+  margin: .5em .5em .25em .5em; }
 
 nav.navigation-menu {
   background-color: #3b0066;
@@ -426,26 +435,6 @@ nav.navigation-menu {
   /* visited link */
   /* mouse over link */
   /* selected link */ }
-  nav.navigation-menu a {
-    background-color: #1e0033;
-    color: #f3edf8;
-    flex: 5; }
-  nav.navigation-menu a.superNav + a.superNav {
-    margin: 1em 1em .5em;
-    padding: 1em; }
-  nav.navigation-menu a.subNav + a.superNav {
-    padding: 1em;
-    margin: 1em 1em 0; }
-  nav.navigation-menu a.subNav {
-    padding: .75em 1em .75em 2em;
-    margin: .25em 1em;
-    font-style: italic; }
-  nav.navigation-menu a.superNav:first-of-type {
-    margin: 1em 1em .5em;
-    padding: 1em; }
-  nav.navigation-menu a#donate {
-    background-color: yellow;
-    color: #3b0066; }
   nav.navigation-menu a:link {
     text-decoration: none; }
   nav.navigation-menu a:visited {
@@ -454,6 +443,19 @@ nav.navigation-menu {
     text-decoration: none; }
   nav.navigation-menu a:active {
     text-decoration: none; }
+  nav.navigation-menu a {
+    background-color: #1e0033;
+    color: #f3edf8;
+    flex: 5;
+    line-height: 3em;
+    padding: 0 0 0 1em; }
+  nav.navigation-menu a.subNav {
+    flex: 1;
+    font-style: italic;
+    padding: 0 0 0 1.5em; }
+  nav.navigation-menu a#donate {
+    background-color: yellow;
+    color: #3b0066; }
 
 /*for smaller screens that support JavaScript by default hide the nav off screen*/
 @media (min-width: 200px) {
@@ -469,7 +471,7 @@ nav.navigation-menu {
   .superNav:first-child {
   	margin-right: auto;
   }*/
-  .js a.subNav {
+  .js div.subNav {
     display: none; }
 
   /*when the menu button is clicked move the nav back on screen*/
