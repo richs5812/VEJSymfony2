@@ -3,6 +3,11 @@
 	src: url(../fonts/Raleway/Raleway-Regular.ttf);
 }
 
+body {
+	position: relative;
+	top: 1em;
+}
+
 header {
 
 	@media (min-resolution: 1.5dppx) {
