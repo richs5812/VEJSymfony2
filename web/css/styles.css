@@ -353,17 +353,9 @@ td,
 th {
   padding: 0; }
 
-body {
-  margin: 0;
-  padding: 0; }
-
 @font-face {
   font-family: Raleway;
   src: url(../fonts/Raleway/Raleway-Regular.ttf); }
-body {
-  position: relative;
-  top: 1em; }
-
 header {
   background-color: indigo;
   background-image: url("../images/background-960w.jpg");
@@ -387,34 +379,35 @@ header {
 @font-face {
   font-family: EAU;
   src: url(../fonts/eau_sans/outline_font/eau_sans_book.otf); }
-div.buttonWrapper {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f3edf8;
-  height: 2em; }
-
 /*remove default button styling*/
 button.off-canvas-launcher {
   -webkit-appearance: none;
   -moz-appearance: none;
-  /*border: 1px solid #297D94;
-  border-radius: 4px;*/
+  position: fixed;
+  top: 0;
+  right: 0;
+  /*border: 1px solid $darkerPurple;*/
+  border-radius: 4px 0 0 4px;
   border: none;
-  background: none;
-  padding: 4px 8px; }
+  background-color: #3b0066;
+  color: #f3edf8;
+  padding: 4px 8px;
+  box-shadow: 2px 2px 4px #1a1a1a; }
 
 /*remove default button styling*/
 button.nav-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: #1e0033;
-  color: #f3edf8;
   flex: 1;
   border: none;
-  height: 3em; }
+  height: 3em;
+  color: #f3edf8; }
+
+.no-flexbox button.nav-button {
+  display: none; }
+.no-flexbox button.off-canvas-launcher {
+  display: none; }
 
 /*if we don't have JavaScript available, no point showing the button*/
 .no-js button.off-canvas-launcher {
@@ -429,6 +422,12 @@ button.off-canvas-launcher:active, button.nav-button:active {
 
 div.linkWrapper {
   display: flex;
+  /*align-items: center;*/
+  /*border: 1px solid blue;*/
+  margin: .5em; }
+
+.no-flexbox div.linkWrapper {
+  display: block;
   /*align-items: center;*/
   /*border: 1px solid blue;*/
   margin: .5em; }
@@ -471,55 +470,35 @@ nav.navigation-menu {
     background-color: gold;
     color: #1e0033; }
 
+.no-flexbox nav.navigation-menu a {
+  background-color: #3b0066; }
+
 /*for smaller screens that support JavaScript by default hide the nav off screen*/
 @media (min-width: 200px) {
   .js nav.navigation-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 275px;
     left: -300px;
     transition: left .65s; }
 
-  /*
-  .superNav:first-child {
-  	margin-right: auto;
-  }*/
+  .no-flexbox nav.navigation-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%; }
+
   .js div.subNav {
     display: none; }
 
+  .no-flexbox div.subNav {
+    display: block; }
+
   /*when the menu button is clicked move the nav back on screen*/
   .js .OffCanvas-Active nav.navigation-menu {
-    left: 0; }
-
-  /*
-  .js main.main-content {
-  	width: 100%;
-  	position: absolute;
-  	left: 0px;
-  	transition: left .5s;
-  }*/
-  /*
-  .js .OffCanvas-Active .main-content {
-  	right: -200px;
-  	left: 200px;
-  }*/
-  /*if the browser supports transforms, reset the left property and pull it off screen with a translate */
-  .js .csstransforms .navigation-menu {
-    left: auto;
-    transform: translateX(-200px); }
-
-  /*when transforms are supported and the menu button is clicked, reset the nav to default position*/
-  .js .csstransforms .OffCanvas-Active .navigation-menu {
-    transform: translateX(0); }
-
-  /*where transform3d is supported reset left and pull off screen with a translate3d instead*/
-  .js .csstransforms3d .navigation-menu {
-    left: auto;
-    transform: translate3d(-200px, 0, 0); }
-
-  /*when transform3d is supported and the menu button is clicked, reset the nav to default position*/
-  .js .csstransforms3d .OffCanvas-Active .navigation-menu {
-    transform: translate3d(0, 0, 0); } }
+    position: fixed;
+    top: 0;
+    left: 0; } }
 
 /*# sourceMappingURL=styles.css.map */
