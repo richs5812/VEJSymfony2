@@ -38,7 +38,12 @@ class DefaultController extends Controller
 		
 		$pics = $picsRepository->findByGalleryName($page->getGalleryName());
 		
-        // replace this example code with whatever you need
+    	if ($slug == "Home") {
+			return $this->render('default/home.html.twig',
+			array('page' => $page, 'pics' => $pics)
+			);
+    	}
+
         return $this->render('default/index.html.twig',
         array('page' => $page, 'pics' => $pics)
         );

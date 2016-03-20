@@ -1,3 +1,39 @@
+$darkGray: #1a1a1a;
+
 @import "partials/normalize";
+
+@font-face {
+	font-family: OpenSans;
+	src: url(../fonts/open-sans/OpenSans-Regular.ttf);
+}
+
+body {
+    /* fonts */
+   font-family: OpenSans, Geneva, sans-serif;
+}
+
+main {
+.content {
+   width: 85%;
+   margin: auto;
+   color: $darkGray;
+}
+
+
+	img.fullWidth {
+		max-width: 100%;
+	}
+      
+   img#logo {
+		float: right;
+		max-width: 200px;
+   }
+}
+
+textarea {
+	width: 100%;
+	height: 5em;
+}
+
 @import "partials/header";
 @import "partials/nav";

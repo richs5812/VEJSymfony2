@@ -354,6 +354,27 @@ th {
   padding: 0; }
 
 @font-face {
+  font-family: OpenSans;
+  src: url(../fonts/open-sans/OpenSans-Regular.ttf); }
+body {
+  /* fonts */
+  font-family: OpenSans, Geneva, sans-serif; }
+
+main .content {
+  width: 85%;
+  margin: auto;
+  color: #1a1a1a; }
+main img.fullWidth {
+  max-width: 100%; }
+main img#logo {
+  float: right;
+  max-width: 200px; }
+
+textarea {
+  width: 100%;
+  height: 5em; }
+
+@font-face {
   font-family: Raleway;
   src: url(../fonts/Raleway/Raleway-Regular.ttf); }
 header {
@@ -368,17 +389,14 @@ header {
   color: white;
   font-size: 8vw;
   text-shadow: 2px 2px 4px black;
-  padding: 20vw 0.5em; }
+  padding: 14vw 0.5em; }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
     header {
       background-image: url("../images/background-1920w.jpg"); } }
   @media (orientation: landscape) {
     header {
-      padding: 10vw 0.5em; } }
+      padding: 7vw 0.5em; } }
 
-@font-face {
-  font-family: EAU;
-  src: url(../fonts/eau_sans/outline_font/eau_sans_book.otf); }
 /*remove default button styling*/
 button.off-canvas-launcher {
   -webkit-appearance: none;
@@ -449,8 +467,6 @@ nav.navigation-menu {
   box-shadow: 2px 2px 4px #1a1a1a;
   padding: 0em;
   border-bottom-right-radius: 4px;
-  /* fonts */
-  font-family: EAU, Geneva, sans-serif;
   /* visited link */
   /* mouse over link */
   /* selected link */ }

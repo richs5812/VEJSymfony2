@@ -1,8 +1,3 @@
-@font-face {
-	font-family: EAU;
-	src: url(../fonts/eau_sans/outline_font/eau_sans_book.otf);
-}
-
 $darkGray: #1a1a1a;
 $lightPurple: #f3edf8;
 $purple: #3b0066;
@@ -87,9 +82,6 @@ nav.navigation-menu {
 	box-shadow: 2px 2px 4px $darkGray;
 	padding: 0em;
     border-bottom-right-radius: 4px;
-    
-    /* fonts */
-   font-family: EAU, Geneva, sans-serif;
 
 	a:link {
 		text-decoration: none;

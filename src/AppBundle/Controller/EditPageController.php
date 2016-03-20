@@ -56,8 +56,6 @@ class EditPageController extends Controller
 			$em->persist($page);
 			$em->flush();
 
-			return $this->redirectToRoute('admin');
-
 		}
     
         // render form
