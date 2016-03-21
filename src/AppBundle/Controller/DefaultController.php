@@ -20,10 +20,10 @@ class DefaultController extends Controller
     	if ($slug == 'Blog') {
 			return $this->forward('AppBundle:Blog:Blog');
     	}    	
-    	
+    	/*
     	if ($slug == 'Photo-Galleries') {
 			return $this->forward('AppBundle:GalleriesPage:GalleriesPage');
-    	}
+    	}*/
     	
 		$repository = $this->getDoctrine()
 		->getRepository('AppBundle:Page');

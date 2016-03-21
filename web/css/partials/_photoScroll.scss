@@ -1,0 +1,24 @@
+h3#latestPhotos {
+	margin: 0 0 0 1em;
+}
+
+.Scroll_Wrapper {
+	width: 100%;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	/*Give us inertia style scrolling on WebKit based touch devices*/
+	-webkit-overflow-scrolling: touch;
+	/*Remove the scrollbars in supporting versions of IE*/
+	-ms-overflow-style: none;
+}
+
+/*Stops the scrollbar appearing in WebKit browsers
+.Scroll_Wrapper::-webkit-scrollbar {
+	display: none;
+}*/
+
+.Item {
+	display: inline-block;
+	vertical-align: middle;
+}

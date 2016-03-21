@@ -360,15 +360,17 @@ body {
   /* fonts */
   font-family: OpenSans, Geneva, sans-serif; }
 
-main .content {
-  width: 85%;
-  margin: auto;
-  color: #1a1a1a; }
-main img.fullWidth {
-  max-width: 100%; }
-main img#logo {
-  float: right;
-  max-width: 200px; }
+main {
+  word-wrap: break-word; }
+  main .content {
+    width: 85%;
+    margin: auto;
+    color: #1a1a1a; }
+  main img.fullWidth {
+    max-width: 100%; }
+  main img#logo {
+    float: right;
+    max-width: 200px; }
 
 textarea {
   width: 100%;
@@ -529,3 +531,23 @@ nav.navigation-menu {
     position: fixed;
     top: 0;
     left: 0; } }
+h3#latestPhotos {
+  margin: 0 0 0 1em; }
+
+.Scroll_Wrapper {
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /*Give us inertia style scrolling on WebKit based touch devices*/
+  -webkit-overflow-scrolling: touch;
+  /*Remove the scrollbars in supporting versions of IE*/
+  -ms-overflow-style: none; }
+
+/*Stops the scrollbar appearing in WebKit browsers
+.Scroll_Wrapper::-webkit-scrollbar {
+	display: none;
+}*/
+.Item {
+  display: inline-block;
+  vertical-align: middle; }

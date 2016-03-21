@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GalleriesPageController extends Controller
 {
+    /**
+     * @Route("/Photo-Galleries", name="photo-galleries")
+     */
     public function galleriesPageAction()
     {
     	

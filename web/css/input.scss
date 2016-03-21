@@ -19,6 +19,7 @@ main {
    color: $darkGray;
 }
 
+word-wrap: break-word;
 
 	img.fullWidth {
 		max-width: 100%;
@@ -37,3 +38,5 @@ textarea {
 
 @import "partials/header";
 @import "partials/nav";
+@import "partials/photoScroll";
+
