@@ -2,6 +2,11 @@ h3#latestPhotos {
 	margin: 0 0 0 1em;
 }
 
+div.photoInset {
+	box-shadow:0px 0px 10px 0px gray inset;
+	padding: 1em 0 0 0;
+}
+
 .Scroll_Wrapper {
 	width: 100%;
 	white-space: nowrap;
@@ -21,4 +26,8 @@ h3#latestPhotos {
 .Item {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+a#seePhotosLink {
+	margin: 0 2em 0 0;
 }

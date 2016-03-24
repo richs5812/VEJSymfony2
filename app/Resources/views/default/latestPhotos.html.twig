@@ -1,13 +1,14 @@
-<h3 id="latestPhotos"><em>Latest Photos</em></h3>
-<div class="Scroll_Wrapper">
-{% for photo in latestPhotos %}
-	<figure class="Item">
-		<img src="../thumb/{{photo.path}}" class="thumbnail"/>
-		<figcaption class="Caption">{{ photo.caption }}<br />Date Added: {{ photo.pubDate|date('n/j/y') }}</figcaption>
-	</figure>
-{% endfor %}
-	<div class="Item">
-		<a href="{{ path('photo-galleries') }}" >See all photos</a>
+<div class="photoInset">
+	<h3 id="latestPhotos"><em>Latest Photos</em></h3>
+	<div class="Scroll_Wrapper">
+	{% for photo in latestPhotos %}
+		<figure class="Item">
+			<img src="../thumb/{{photo.path}}" class="thumbnail"/>
+			<figcaption class="Caption">{{ photo.caption }}<br />Date Added: {{ photo.pubDate|date('n/j/y') }}</figcaption>
+		</figure>
+	{% endfor %}
+		<div class="Item">
+			<a id="seePhotosLink" href="{{ path('photo-galleries') }}" >See all photos</a>
+		</div>
 	</div>
 </div>
-	

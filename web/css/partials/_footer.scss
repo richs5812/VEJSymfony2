@@ -1,0 +1,16 @@
+$lightPurple: #f3edf8;
+$purple: #3b0066;
+$darkerPurple: #1e0033;
+
+footer {
+	background-color: $darkerPurple;
+	color: $lightPurple;
+	padding: 1em;
+	
+	@media (min-width: 768px) {
+		div.footerContent {
+			   width: 85%;
+			   margin: auto;
+		}
+	}
+}

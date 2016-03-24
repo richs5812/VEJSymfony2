@@ -9,6 +9,7 @@ button.off-canvas-launcher {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	position: fixed;
+	z-index: 1;
 	top: 0;
 	right: 0;
 	/*border: 1px solid $darkerPurple;*/

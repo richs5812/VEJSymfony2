@@ -17,17 +17,13 @@ class NewPageType extends AbstractType
     {
         $builder
             ->add('title')
-			->add('pageType', ChoiceType::class, array(
-				'choices' => array(
-					'Page' => 'Page',
-					'Blog' => 'Blog',
-				)
-			));
 		$builder	
             ->add('content')
 			->add('content2')
-			->add('includeInNav')
-			->add('menuOrder')
+			->add('sqlDate', DateTimeType::class, array(
+					'data' => new \DateTime()
+				));
+		$builder
             ->add('save', SubmitType::class)
         ;
     }

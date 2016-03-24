@@ -356,9 +356,23 @@ th {
 @font-face {
   font-family: OpenSans;
   src: url(../fonts/open-sans/OpenSans-Regular.ttf); }
+* {
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
 body {
   /* fonts */
   font-family: OpenSans, Geneva, sans-serif; }
+
+.flexbox body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; }
+
+.flexbox div.notNav {
+  flex: 1; }
 
 main {
   word-wrap: break-word; }
@@ -372,15 +386,46 @@ main {
     float: right;
     max-width: 200px; }
 
+input[type=text], input[type=email] {
+  font-size: 1em;
+  padding: 4px;
+  margin: .5em 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; }
+
+div#mc_embed_signup {
+  background-color: #e6e6e6;
+  padding: .5em 1em 1em;
+  margin: 1em 0;
+  width: 400px;
+  max-width: 100%;
+  border-radius: 4px; }
+
+iframe {
+  max-width: 100%; }
+
+div.indicates-required {
+  margin: 1em 0; }
+
 textarea {
-  width: 100%;
-  height: 5em; }
+  width: 90%;
+  height: 20em; }
+
+img.socialMediaIcon {
+  width: 100px;
+  max-width: 100%; }
+
+img#payPalHomePage {
+  display: block;
+  margin: 1em;
+  max-width: 100%; }
 
 @font-face {
   font-family: Raleway;
   src: url(../fonts/Raleway/Raleway-Regular.ttf); }
 header {
-  background-color: indigo;
+  background-color: #1e0033;
   background-image: url("../images/background-960w.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -404,6 +449,7 @@ button.off-canvas-launcher {
   -webkit-appearance: none;
   -moz-appearance: none;
   position: fixed;
+  z-index: 1;
   top: 0;
   right: 0;
   /*border: 1px solid $darkerPurple;*/
@@ -521,6 +567,10 @@ nav.navigation-menu {
 h3#latestPhotos {
   margin: 0 0 0 1em; }
 
+div.photoInset {
+  box-shadow: 0px 0px 10px 0px gray inset;
+  padding: 1em 0 0 0; }
+
 .Scroll_Wrapper {
   width: 100%;
   white-space: nowrap;
@@ -538,5 +588,17 @@ h3#latestPhotos {
 .Item {
   display: inline-block;
   vertical-align: middle; }
+
+a#seePhotosLink {
+  margin: 0 2em 0 0; }
+
+footer {
+  background-color: #1e0033;
+  color: #f3edf8;
+  padding: 1em; }
+  @media (min-width: 768px) {
+    footer div.footerContent {
+      width: 85%;
+      margin: auto; } }
 
 /*# sourceMappingURL=styles.css.map */

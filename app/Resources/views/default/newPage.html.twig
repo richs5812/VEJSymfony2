@@ -23,8 +23,7 @@
 	{% for parentPage in parentPages %}
 		<option value="{{ parentPage.title }}">{{ parentPage.title }}</option>
 	{% endfor %}
-		</select>                                               
-	{{ form_row(form.sqlDate) }}                                             
+		</select>                                                                                           
 	{{ form_row(form.save) }}
 {{ form_end(form) }}
 {% endblock %}
