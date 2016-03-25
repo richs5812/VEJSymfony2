@@ -36,7 +36,18 @@ class EditPageController extends Controller
 		
 		$form->handleRequest($request);
 
-		if ($form->isSubmitted() && $form->isValid()) {	
+		if ($form->isSubmitted() && $form->isValid()) {
+			if(isset($request->request->getIterator()["DeletePage"])) {
+				
+				$em = $this->getDoctrine()->getManager();
+
+				$em->remove($page);
+				$em->flush();
+			
+				return $this->redirectToRoute('admin');
+
+			}
+				
 			$galleryName = $request->request->getIterator()["GalleryName"];
 			if ($galleryName == "") {
 				$galleryName = null;
@@ -48,9 +59,6 @@ class EditPageController extends Controller
 				$parentPage = NULL;
 			}
 			$page->setParentPage($parentPage);
-			
-			$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
-			$page->setPubDate($rssDate);
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($page);

@@ -376,17 +376,32 @@ body {
 
 main {
   word-wrap: break-word; }
-  main .content {
-    width: 85%;
-    margin: auto;
-    color: #1a1a1a; }
-  main img.fullWidth {
-    max-width: 100%; }
-  main img#logo {
-    float: right;
-    max-width: 200px; }
 
-input[type=text], input[type=email] {
+div.content {
+  width: 85%;
+  margin: auto;
+  color: #1a1a1a; }
+
+div.adminContent {
+  width: 100%;
+  margin: 1em; }
+  div.adminContent input, div.adminContent textarea {
+    font-size: 1em;
+    padding: 4px;
+    margin: .5em .25em;
+    border: 1px solid #ccc;
+    border-radius: 4px; }
+  div.adminContent button {
+    margin: .5em 0; }
+
+img.fullWidth {
+  max-width: 100%; }
+
+img#logo {
+  float: right;
+  max-width: 200px; }
+
+div.mc-field-group input[type=text], div.mc-field-group input[type=email] {
   font-size: 1em;
   padding: 4px;
   margin: .5em 0;
@@ -408,7 +423,7 @@ iframe {
 div.indicates-required {
   margin: 1em 0; }
 
-textarea {
+textarea.contentTextArea {
   width: 90%;
   height: 20em; }
 
@@ -419,6 +434,10 @@ img.socialMediaIcon {
 img#payPalHomePage {
   display: block;
   margin: 1em;
+  max-width: 100%; }
+
+img#featuredPhoto {
+  width: 300px;
   max-width: 100%; }
 
 @font-face {
@@ -570,6 +589,18 @@ h3#latestPhotos {
 div.photoInset {
   box-shadow: 0px 0px 10px 0px gray inset;
   padding: 1em 0 0 0; }
+
+div.blogInset {
+  box-shadow: 0px 0px 10px 0px gray inset;
+  margin: 1em;
+  padding: 1em;
+  width: 400px;
+  max-width: 90%;
+  height: 600px;
+  overflow-y: auto;
+  z-index: 1;
+  /*Give us inertia style scrolling on WebKit based touch devices*/
+  -webkit-overflow-scrolling: touch; }
 
 .Scroll_Wrapper {
   width: 100%;

@@ -15,18 +15,10 @@ class EditPageType extends AbstractType
     {
         $builder
             ->add('title')
-			->add('pageType', ChoiceType::class, array(
-				'choices' => array(
-					'Page' => 'Page',
-					'Blog' => 'Blog',
-				)
-			));
-		$builder	
             ->add('content')
 			->add('content2')
 			->add('includeInNav')
 			->add('menuOrder')
-			->add('sqlDate')
             ->add('slug')
             ->add('save', SubmitType::class)
         ;

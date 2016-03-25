@@ -42,6 +42,11 @@
 		protected $content2;
 		
 		/**
+		 * @ORM\Column(type="text", nullable=true)
+		 */		
+		protected $excerpt;
+		
+		/**
 		 * @ORM\Column(type="boolean", nullable=true)
 		 */		
 		protected $includeInNav;
@@ -63,7 +68,6 @@
 		
 		/**
 		 * @ORM\Column(type="datetime", nullable=true)
-	     * @Assert\NotNull()
 		 */		
 		protected $sqlDate;
 
@@ -77,6 +81,15 @@
 		 */
 		protected $parentPage;
 
+		/**
+		 * @ORM\Column(type="string", nullable=true)
+		 */
+		private $featuredPhoto;
+		
+		/**
+		 * @ORM\Column(type="string", nullable=true)
+		 */
+		private $featuredPhotoName;
 
     /**
      * Get id
@@ -350,5 +363,77 @@
     public function getMenuOrder()
     {
         return $this->menuOrder;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $excerpt
+     *
+     * @return Page
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
+    }
+
+    /**
+     * Set featuredPhoto
+     *
+     * @param string $featuredPhoto
+     *
+     * @return Page
+     */
+    public function setFeaturedPhoto($featuredPhoto)
+    {
+        $this->featuredPhoto = $featuredPhoto;
+
+        return $this;
+    }
+
+    /**
+     * Get featuredPhoto
+     *
+     * @return string
+     */
+    public function getFeaturedPhoto()
+    {
+        return $this->featuredPhoto;
+    }
+
+    /**
+     * Set featuredPhotoName
+     *
+     * @param string $featuredPhotoName
+     *
+     * @return Page
+     */
+    public function setFeaturedPhotoName($featuredPhotoName)
+    {
+        $this->featuredPhotoName = $featuredPhotoName;
+
+        return $this;
+    }
+
+    /**
+     * Get featuredPhotoName
+     *
+     * @return string
+     */
+    public function getFeaturedPhotoName()
+    {
+        return $this->featuredPhotoName;
     }
 }

@@ -32,11 +32,14 @@ class NewPageController extends Controller
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {	
+
 			$galleryName = $request->request->getIterator()["GalleryName"];
 			if ($galleryName == 'no gallery') {
 				$galleryName = null;
 			}
 			$page->setGalleryName($galleryName);
+
+			$page->setPageType("Page");
 			
 			$parentPage = $request->request->getIterator()["ParentPage"];
 			if ($parentPage == 'no parent page'){
@@ -50,16 +53,12 @@ class NewPageController extends Controller
 			$slug = str_replace(" ","-",$strippedSlug);
 			$page->setSlug($slug);
 			
-			$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
-		
-			$page->setPubDate($rssDate);
-			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($page);
 			$em->flush();
 
-			return $this->redirectToRoute('admin');
-
+			$slug = $page->getSlug();
+			return $this->redirectToRoute('editPage', array('slug'=> $slug));
 		}
     
         // render form

@@ -2,6 +2,7 @@
 
 {% block main %}
 	{{ page.content|raw }}
+	{{ render(controller('AppBundle:LatestBlogs:LatestBlogs')) }}
 	{{ render(controller('AppBundle:LatestPhotos:LatestPhotos')) }}
 	{{ page.content2|raw }}
 {% endblock %}

@@ -3,11 +3,22 @@
   	 {% include 'adminNav.html' %}
 {% endblock %}
 {% block main %}
+<div class="content">
+<h2>Edit Pages</h2>
 	<ul>
 		{% for page in pages %}
 			<li><a href="{{ path('editPage', {'slug': page.slug}) }}">{{ page.title }}</a></li>
 		{% endfor %}
-			<li><a href="{{ path('newPage')}}">Create New Page</a></li>
 	</ul>
+		<p><a href="{{ path('newPage')}}">Create New Page</a></p>
+
+<h2>Edit Blog Posts</h2>
+	<ul>
+		{% for blog in blogs %}
+			<li><a href="{{ path('editBlog', {'slug': blog.slug}) }}">{{ blog.title }}</a></li>
+		{% endfor %}
+	</ul>
+		<p><a href="{{ path('newBlog')}}">New Blog Post</a></p>
+</div>
 {% endblock %}
 

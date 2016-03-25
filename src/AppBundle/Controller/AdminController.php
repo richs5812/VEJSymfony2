@@ -22,12 +22,18 @@ class AdminController extends Controller
 		//$pages = $repository->findAll();
 		$em = $this->getDoctrine()->getManager();
 
-		$pagesQuery = $em->createQuery('SELECT p FROM AppBundle:Page p ORDER BY p.title ASC');
+		$pagesQuery = $em->createQuery('SELECT p FROM AppBundle:Page p WHERE p.pageType = :pageType ORDER BY p.title ASC');
+		$pagesQuery->setParameter('pageType', 'Page');
 		$pages = $pagesQuery->getResult();
 
+		$blogsQuery = $em->createQuery('SELECT p FROM AppBundle:Page p WHERE p.pageType = :pageType ORDER BY p.title ASC');
+		$blogsQuery->setParameter('pageType', 'Blog');
+		$blogs = $blogsQuery->getResult();
+
         // replace this example code with whatever you need
-        return $this->render('default/showPages.html.twig',
-        array('pages' => $pages)
-        );
+        return $this->render('default/showPages.html.twig', array(
+        'pages' => $pages,
+		'blogs' => $blogs,
+        ));
     }
 }

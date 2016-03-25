@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
+    /**
+     * @Route("/Blog", name="blog")
+     */
     public function blogAction()
     {
     	$em = $this->getDoctrine()->getManager();

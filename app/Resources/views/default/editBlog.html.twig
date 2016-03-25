@@ -1,13 +1,17 @@
-
 {% extends 'base.html.twig' %}
+
 {% block nav %}
   	 {% include 'adminNav.html' %}
 {% endblock %}
 {% block main %}
 <div class="adminContent">
-<h2>Edit Page</h2>
+<h2>Edit Blog Post</h2>
 {{ form_start(form) }}
 {{ form_row(form.title) }}
+{{ form_row(form.excerpt) }}
+<p>Featured Photo:</p>
+<img src="{{ asset('uploads/featuredPhotos/'~page.featuredPhotoName) }}" alt="featured photo" id="featuredPhoto" />
+{{ form_row(form.featuredPhoto) }}
 	{{ form_row(form.content, {'attr': {'class': 'contentTextArea'}}) }}
 		<label for="gallerySelect">Select Gallery: </label><select id="gallerySelect" name="GalleryName">
 			<option value="no gallery"></option>
@@ -16,19 +20,10 @@
 		{% endfor %}
 	</select>
 	{{ form_row(form.content2, {'attr': {'class': 'contentTextArea'}}) }}                        
-	{{ form_row(form.includeInNav) }}                        
-	{{ form_row(form.menuOrder) }} 
-		<label for="parentPageSelect">Select Parent Page: </label><select id="parentPageSelect" name="ParentPage">
-			<option value="no parent page"></option>
-	{% for parentPage in parentPages %}
-		{% if parentPage.title != page.title %}
-			<option value="{{ parentPage.title }}" {% if parentPage.title == page.parentPage %} selected="selected"{% endif %}>{{ parentPage.title }}</option>
-		{% endif %}
-	{% endfor %}
-		</select>
+ 	{{ form_row(form.sqlDate, {'label': 'Post Date: '}) }}
 	{{ form_row(form.slug) }}                                               
 	{{ form_row(form.save) }}
-	<input type="submit" name="DeletePage" value="Delete Page" onClick="return confirm('Are you sure you want to delete this page?');"/>
-</div>
+<input type="submit" name="DeleteBlog" value="Delete post" onClick="return confirm('Are you sure you want to delete this blog post?');"/>
 {{ form_end(form) }}
+</div>
 {% endblock %}

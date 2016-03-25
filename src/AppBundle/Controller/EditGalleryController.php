@@ -45,7 +45,7 @@ class EditGalleryController extends Controller
 			return $this->redirectToRoute('showGalleries');
 
 		}
-    	
+
 		$em = $this->getDoctrine()->getManager();
 		$query = $em->createQuery(
 			'SELECT d

@@ -31,31 +31,48 @@ body {
 }
 
 main {
-.content {
+	word-wrap: break-word;
+}
+
+div.content {
    width: 85%;
    margin: auto;
    color: $darkGray;
 }
 
-word-wrap: break-word;
-
-	img.fullWidth {
-		max-width: 100%;
+div.adminContent {
+	width: 100%;
+	margin: 1em;
+	input, textarea {
+		font-size: 1em;
+		padding: 4px;
+		margin: .5em .25em;
+		border: 1px solid #ccc;
+		border-radius: 4px;
 	}
-      
-   img#logo {
-		float: right;
-		max-width: 200px;
-   }
+	button {
+		margin: .5em 0;
+	}
 }
 
-input[type=text], input[type=email] {
-	font-size: 1em;
-	padding: 4px;
-    margin: .5em 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
+img.fullWidth {
+	max-width: 100%;
+}
+  
+img#logo {
+	float: right;
+	max-width: 200px;
+}
+
+div.mc-field-group {
+	input[type=text], input[type=email] {
+		font-size: 1em;
+		padding: 4px;
+		margin: .5em 0;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		width: 100%;
+	}
 }
 
 div#mc_embed_signup {
@@ -75,7 +92,7 @@ div.indicates-required {
 	margin: 1em 0;
 }
 
-textarea {
+textarea.contentTextArea {
 	width: 90%;
 	height: 20em;
 }
@@ -89,6 +106,11 @@ img#payPalHomePage {
 	display: block;
 	margin: 1em;
 	max-width: 100%
+}
+
+img#featuredPhoto {
+	width: 300px;
+	max-width: 100%;
 }
 
 @import "partials/header";

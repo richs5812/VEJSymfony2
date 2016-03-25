@@ -16,14 +16,7 @@ class NewPageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-			->add('pageType', ChoiceType::class, array(
-				'choices' => array(
-					'Page' => 'Page',
-					'Blog' => 'Blog',
-				)
-			));
-		$builder	
+            ->add('title')	
             ->add('content')
 			->add('content2')
 			->add('includeInNav')
