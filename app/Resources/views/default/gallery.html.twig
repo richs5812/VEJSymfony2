@@ -1,3 +1,10 @@
-{% for pic in pics %}
-	<a href="{{ path('slideshow', {'picPath': pic.path}) }}"><img src="thumb/{{pic.path}}" class="thumbnail"/></a>
-{% endfor %}
+<div class="photoInset">
+	<div class="Scroll_Wrapper">
+	{% for pic in pics %}
+		<figure class="Item">
+			<a href="{{ path('slideshow', {'picPath': pic.path}) }}"><img src="{{ asset('thumb/'~pic.path) }}" class="thumbnail"/></a>
+			<figcaption class="Caption"><p>{{ pic.caption }}</p></figcaption>
+		</figure>
+	{% endfor %}
+	</div>
+</div>

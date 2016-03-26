@@ -394,7 +394,18 @@ div.adminContent {
   div.adminContent button {
     margin: .5em 0; }
 
+.flexbox div.slideshowFooter {
+  display: flex;
+  justify-content: space-around; }
+
+.flexbox div#slideshowCaption {
+  display: flex;
+  justify-content: center; }
+
 img.fullWidth {
+  max-width: 100%; }
+
+img.slideshow {
   max-width: 100%; }
 
 img#logo {
@@ -598,7 +609,6 @@ div.blogInset {
   max-width: 90%;
   height: 600px;
   overflow-y: auto;
-  z-index: 1;
   /*Give us inertia style scrolling on WebKit based touch devices*/
   -webkit-overflow-scrolling: touch; }
 
@@ -620,6 +630,12 @@ div.blogInset {
   display: inline-block;
   vertical-align: middle; }
 
+/*
+@media (min-resolution: 1.5dppx) {
+	.Item img {
+		transform: scale(0.5);
+	}
+}*/
 a#seePhotosLink {
   margin: 0 2em 0 0; }
 

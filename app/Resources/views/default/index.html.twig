@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-
 {% block main %}
+	<div class="content">
 	<h2>{{page.title}}</h2>
 	{% if page.title == 'Contact' %}
-		<div id="contact">
 			{{ render(controller(
 				'AppBundle:Contact:Contact'
 			)) }}
-		</div>
 	{% endif %}
    {{ page.content|raw }}
+   </div>
    {% if pics %}
 	  <h3>Gallery: {{ page.galleryName }}</h3>
 		{{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}

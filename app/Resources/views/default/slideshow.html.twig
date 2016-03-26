@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-<table>
-	<tr>
-		<td colspan="3"><img class="slideshow" src="../slideshow/{{pic.path}}" /></a>
-	</tr>
-	<tr>
-		<td colspan="3">{{ pic.caption }}</td>
-	</tr>
-	<tr>
-		<td>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</td>
-		<td><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></td>
-		<td>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">next image</a>{% endif %}</td>
-	</tr>
-</table>
+<div class="content">
+<h2>Slideshow: {{ pic.galleryName }}</h2>
+		<img class="slideshow" src="{{ asset('slideshow/'~pic.path) }}" align="middle" /></a>
+	<div id="slideshowCaption">{{ pic.caption }}</div>
+<div class="slideshowFooter">
+	<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</span>
+	<span><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></span>
+	<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">next image</a>{% endif %}</span>
+</div>
+</div>
 {% endblock %}

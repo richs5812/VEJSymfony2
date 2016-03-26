@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-
+<h1>Photo Galleries</h1>
 	{% for gallery in galleries %}
 	<h2><a href="{{gallery.slug}}">{{gallery.title}}</a></h2>
+	<p>Date Added: {{ gallery.sqlDate|date('n/j/y') }}</p>
   	 {{ gallery.content|raw }}
 
   	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': gallery.galleryName })) }}
