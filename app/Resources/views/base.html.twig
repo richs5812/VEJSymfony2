@@ -38,6 +38,63 @@
 			<script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:8001/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
+			<script>
+				var s = $( "html" ).scrollTop();
+				var a = $(".navigation-menu").offset().top;
+				//window.alert(s);
+				if ($(window).width() >= 1140) { 
+					$(document).ready(function(){
+						if(s <= 10){   
+						   $('.navigation-menu').css({"background-color":"transparent"});
+						   $('.navigation-menu').css({"transition":"background-color .25s"});
+						   //$('.navigation-menu').css({"box-shadow":"none"});
+						} else {
+						   $('.navigation-menu').css({"background-color":"#3b0066"});
+						   //$('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+						}
+					});
+
+					$(document).scroll(function(){
+						if($(this).scrollTop() > 10)
+						{   
+						   $('.navigation-menu').css({"background-color":"#3b0066"});
+						   $('.navigation-menu').css({"transition":"background-color .25s"});
+						 //  $('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+						} else {
+						   $('.navigation-menu').css({"background-color":"transparent"});
+						 //  $('.navigation-menu').css({"box-shadow":"none"});
+						}
+					});
+				}
+				
+				$(window).resize(function(){
+					if ($(window).width() < 1140) { 
+						   $('.navigation-menu').css({"background-color":"#3b0066"});
+						} else {
+							if(s <= 10){   
+							   $('.navigation-menu').css({"background-color":"transparent"});
+							   $('.navigation-menu').css({"transition":"background-color .25s"});
+							   //$('.navigation-menu').css({"box-shadow":"none"});
+							} else {
+							   $('.navigation-menu').css({"background-color":"#3b0066"});
+							   //$('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+							}
+
+						$(document).scroll(function(){
+							if($(this).scrollTop() > 10)
+							{   
+							   $('.navigation-menu').css({"background-color":"#3b0066"});
+							   $('.navigation-menu').css({"transition":"background-color .25s"});
+							 //  $('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+							} else {
+							   $('.navigation-menu').css({"background-color":"transparent"});
+							 //  $('.navigation-menu').css({"box-shadow":"none"});
+							}
+						});	
+					}
+					});
+				
+			</script>
         {% endblock %}
     </body>
 </html>

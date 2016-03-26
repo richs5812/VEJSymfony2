@@ -226,20 +226,17 @@ nav.navigation-menu {
 			border-radius: 4px;
 			transition: border .1s;
 		}
-
-		a.subNav {
-			flex: 1;
-			font-style: italic;
-			padding: 0 0 0 1.5em;
-		}
 	
 		a#donate {
 			background-color: $donateYellow;
 			color: $darkerPurple;
+			transition: background-color .25s;
 		}
 		
 		a#donate:hover {
 			border-color: transparent;
+			background-color: yellow;
+			transition: background-color .25s;
 		}
 
 	}
@@ -249,7 +246,6 @@ nav.navigation-menu {
 		align-items: center;
 		//border: 1px solid blue;
 		margin: .25em;
-		
 	}
-	
+
 }

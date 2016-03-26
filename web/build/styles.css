@@ -701,18 +701,16 @@ nav.navigation-menu {
       border-radius: 4px;
       -webkit-transition: border .1s;
               transition: border .1s; }
-    nav.navigation-menu a.subNav {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      font-style: italic;
-      padding: 0 0 0 1.5em; }
     nav.navigation-menu a#donate {
       background-color: gold;
-      color: #1e0033; }
+      color: #1e0033;
+      -webkit-transition: background-color .25s;
+              transition: background-color .25s; }
     nav.navigation-menu a#donate:hover {
-      border-color: transparent; }
+      border-color: transparent;
+      background-color: yellow;
+      -webkit-transition: background-color .25s;
+              transition: background-color .25s; }
 
   div.linkWrapper {
     display: -webkit-box;

@@ -1,7 +1,7 @@
 {% for parentPage in parentPages %}
 	{% if parentPage.title in parentPageNames %}
-
-				<div class="linkWrapper parentNav"><a class="superNav" href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a><button class="nav-button button{{parentPage.id}}">&or;</button></div>
+<div class="parent{{parentPage.id}}">
+				<div class="linkWrapper parentNav"><a href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a><button class="nav-button button{{parentPage.id}}">&or;</button></div>
 				<script>
 					// First wait for the DOM to be ready
 					document.addEventListener('DOMContentLoaded', function(){
@@ -18,18 +18,35 @@
 						document.querySelector('.notNav').addEventListener('click', b );
 					});
 				</script>
-				{% block head %}
 					<style>
 						.js .Child-Active{{parentPage.id}} div.child{{parentPage.id}} {
 							display: flex;
 						}
+						@media (min-width: 1140px) {
+							div.parent{{parentPage.id}}:hover div.subNav {
+								display: flex;
+							}
+						
+							div.parent{{parentPage.id}}:hover div.dropDown{{parentPage.id}} {
+								position: absolute;
+								background-color: #3b0066;
+								box-shadow: 2px 2px 4px #1a1a1a;
+							}
+						
+							div.parent{{parentPage.id}}:hover a.subNav {
+								font-style: normal;
+								padding: 0 1em;
+							}
+						}				
 					</style>
-				{% endblock %}
+		<div class="dropDown{{parentPage.id}}">
 				{% for childPage in childPages %}
 					{% if childPage.parentPage == parentPage.title %}
 						<div class="linkWrapper subNav child{{parentPage.id}}"><a class="subNav" href="{{ path('index', {'slug': childPage.slug}) }}">{{ childPage.title }}</a></div>
 					{% endif %}
 				{% endfor %}
+		</div>
+</div>
 		{% else %}
 				{% if parentPage.title == 'Donate' %}
 					<div class="linkWrapper"><a class="superNav" id="donate" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></div>
