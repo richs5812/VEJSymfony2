@@ -24,9 +24,27 @@ header {
 	font-size: 8vw;
 	text-shadow: 2px 2px 4px black;
 	
-	padding: 14vw 0.5em;
+	padding: 12vw 0.5em;
 
    	@media (orientation: landscape){
-		padding: 7vw 0.5em;
+		padding: 6vw 0.5em;
 	}
+	
+	@media (min-width: 550px) {
+		padding: 8vw 0.5em;
+		
+		@media (orientation: landscape){
+			padding: 4vw 0.5em;
+		}
+	}
+	
+		@media (min-width: 768px) {
+			padding: 7vw 0.5em 13vw;
+			background-image: url('../images/website_header.jpg');
+			font-size: 5vw;
+		}
+		
+		@media (min-width: 1300px) {
+			padding: 6.5vw 0.5em 9.5vw;
+		}
 }

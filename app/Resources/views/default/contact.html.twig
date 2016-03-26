@@ -2,8 +2,14 @@
 {% block main %}
 <div class="content">
 <h2>Contact</h2>
+<p>* = required field</p>
 {{ form_start(contactForm) }}
-{{ form_widget(contactForm) }}
+{{ form_row(contactForm.firstName, {'label': 'First Name*: '}) }}
+{{ form_row(contactForm.lastName, {'label': 'Last Name: '}) }}
+{{ form_row(contactForm.emailAddress, {'label': 'Email Address*: '}) }}
+{{ form_row(contactForm.phoneNumber, {'label': 'Phone Number: '}) }}
+{{ form_row(contactForm.comment, {'label': 'Comment*: '}) }}
+{{ form_row(contactForm.save) }}
 {{ form_end(contactForm) }}
 
 <p>Hope House is located at: 15894 Greydale St. Detroit, MI 48223</p>

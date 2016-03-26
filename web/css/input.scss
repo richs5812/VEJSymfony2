@@ -39,6 +39,19 @@ div.content {
    width: 85%;
    margin: auto;
    color: $darkGray;
+   
+   input[type=text], input[type=email], textarea{
+   		display: block;
+		font-size: 1em;
+		padding: 4px;
+		margin: .5em 0;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+   }
+   
+   button[type=submit] {
+		margin: .5em 0;
+   }
 }
 
 div.adminContent {

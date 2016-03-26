@@ -164,3 +164,92 @@ nav.navigation-menu {
 	}
 	
 }
+
+@media (min-width: 1140px) {
+
+	button.off-canvas-launcher {
+		display: none;
+	}
+	
+	button.nav-button {
+		display: none;
+	}
+	
+	.js nav.navigation-menu {
+		position: fixed;
+		width: 685px;
+		top: 0;
+		right: 0;
+		left: auto;
+	}
+	
+	nav.navigation-menu {
+		display: flex;
+		justify-content: flex-end;
+		//box-shadow: none;
+		padding: 0em;
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 0;
+		//background-color: rgb(243, 237, 248);
+		//background-color: rgba(243, 237, 248, 0.8);
+		//background-color: rgb(59, 0, 102);
+		//background-color: rgba(59, 0, 102, 0.8);
+
+		a:link {
+			text-decoration: none;
+		}
+
+		/* visited link */
+		a:visited {
+			text-decoration: none;
+		}
+
+		/* mouse over link */
+		a:hover {
+			border: 2px solid $lightPurple;
+			transition: border .25s;
+		}
+
+		/* selected link */
+		a:active {
+			text-decoration: none;
+		}
+
+		a {
+			background-color: transparent;
+			//color: $darkerPurple;
+			line-height: 3em;
+			padding: 0 1em;
+			border-style: solid;
+			border-width: 2px;
+			border-color: transparent;
+			border-radius: 4px;
+			transition: border .1s;
+		}
+
+		a.subNav {
+			flex: 1;
+			font-style: italic;
+			padding: 0 0 0 1.5em;
+		}
+	
+		a#donate {
+			background-color: $donateYellow;
+			color: $darkerPurple;
+		}
+		
+		a#donate:hover {
+			border-color: transparent;
+		}
+
+	}
+	
+	div.linkWrapper {
+		display: flex;
+		align-items: center;
+		//border: 1px solid blue;
+		margin: .25em;
+		
+	}
+	
+}
