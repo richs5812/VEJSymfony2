@@ -11,7 +11,7 @@ use AppBundle\Entity\Contact;
 class ContactController extends Controller
 {
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/Contact", name="contact")
      */
     public function contactAction(Request $request)
     {
@@ -22,7 +22,7 @@ class ContactController extends Controller
 		$contactForm->handleRequest($request);
 
 		if ($contactForm->isSubmitted() && $contactForm->isValid()) {	
-			
+
 			$message = \Swift_Message::newInstance()
 				->setSubject('New Contact Received')
 				->setFrom('voices4earth.org@gmail.com')
@@ -53,7 +53,9 @@ class ContactController extends Controller
 			$em->flush();
 			
 
-			return $this->redirectToRoute('showPages');
+        return $this->render('default/contactReceived.html.twig', array(
+            'contactName' => $contact->getFirstName(),
+        ));
 
 		}
     

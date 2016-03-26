@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+<div class="content">
+<h2>Thank you!</h2>
+
+<p>Dear {{contactName}},</p>
+
+<p>Your contact has been received. Thank you!</p>
+
+<p><a href="{{ path('contact') }}">Return to Contact page</a></p><br />
+
+</div>
+{% endblock %}
