@@ -177,7 +177,7 @@ nav.navigation-menu {
 	
 	.js nav.navigation-menu {
 		position: fixed;
-		width: 685px;
+		width: 585px;
 		top: 0;
 		right: 0;
 		left: auto;
@@ -186,10 +186,10 @@ nav.navigation-menu {
 	nav.navigation-menu {
 		display: flex;
 		justify-content: flex-end;
-		//box-shadow: none;
-		padding: 0em;
+		box-shadow: none;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 0;
+		padding: .5em;
 		//background-color: rgb(243, 237, 248);
 		//background-color: rgba(243, 237, 248, 0.8);
 		//background-color: rgb(59, 0, 102);
@@ -219,7 +219,7 @@ nav.navigation-menu {
 			background-color: transparent;
 			//color: $darkerPurple;
 			line-height: 3em;
-			padding: 0 1em;
+			padding: 0 .75em;
 			border-style: solid;
 			border-width: 2px;
 			border-color: transparent;
@@ -245,7 +245,7 @@ nav.navigation-menu {
 		display: flex;
 		align-items: center;
 		//border: 1px solid blue;
-		margin: .25em;
+		margin: 0;
 	}
 
 }

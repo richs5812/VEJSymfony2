@@ -661,7 +661,7 @@ nav.navigation-menu {
 
   .js nav.navigation-menu {
     position: fixed;
-    width: 685px;
+    width: 585px;
     top: 0;
     right: 0;
     left: auto; }
@@ -675,9 +675,10 @@ nav.navigation-menu {
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    padding: 0em;
+    box-shadow: none;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 0;
+    padding: .5em;
     /* visited link */
     /* mouse over link */
     /* selected link */ }
@@ -694,7 +695,7 @@ nav.navigation-menu {
     nav.navigation-menu a {
       background-color: transparent;
       line-height: 3em;
-      padding: 0 1em;
+      padding: 0 .75em;
       border-style: solid;
       border-width: 2px;
       border-color: transparent;
@@ -721,7 +722,7 @@ nav.navigation-menu {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: .25em; } }
+    margin: 0; } }
 h3#latestPhotos {
   margin: 0 0 0 1em; }
 

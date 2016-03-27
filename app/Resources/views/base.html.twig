@@ -39,59 +39,77 @@
     document.write("<script async src='http://HOST:8001/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
 //]]></script>
 			<script>
+			
 				var s = $( "html" ).scrollTop();
 				var a = $(".navigation-menu").offset().top;
-				//window.alert(s);
+
 				if ($(window).width() >= 1140) { 
 					$(document).ready(function(){
 						if(s <= 10){   
 						   $('.navigation-menu').css({"background-color":"transparent"});
-						   $('.navigation-menu').css({"transition":"background-color .25s"});
-						   //$('.navigation-menu').css({"box-shadow":"none"});
+						   $('.navigation-menu').css({"box-shadow":"none"});
+						   $('.navigation-menu a.superNav').css({"color":"#1e0033"});
+
 						} else {
 						   $('.navigation-menu').css({"background-color":"#3b0066"});
-						   //$('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+						   $('.navigation-menu').css({"box-shadow":"2px 2px 4px #1a1a1a"});
+						   $('.navigation-menu a.superNav').css({"color":"#f3edf8"});
+						   $('.navigation-menu a#donate').css({"color":"#1e0033"});
 						}
 					});
 
 					$(document).scroll(function(){
+					if ($(window).width() > 1140) {
+
 						if($(this).scrollTop() > 10)
 						{   
 						   $('.navigation-menu').css({"background-color":"#3b0066"});
-						   $('.navigation-menu').css({"transition":"background-color .25s"});
-						 //  $('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+						   $('.navigation-menu').css({"box-shadow":"2px 2px 4px #1a1a1a"});
+						   $('.navigation-menu a.superNav').css({"color":"#f3edf8"});
+						   $('.navigation-menu a#donate').css({"color":"#1e0033"});
 						} else {
 						   $('.navigation-menu').css({"background-color":"transparent"});
-						 //  $('.navigation-menu').css({"box-shadow":"none"});
+						   $('.navigation-menu').css({"box-shadow":"none"});
+						   $('.navigation-menu a.superNav').css({"color":"#1e0033"});
 						}
+					}
 					});
 				}
 				
 				$(window).resize(function(){
-					if ($(window).width() < 1140) { 
-						   $('.navigation-menu').css({"background-color":"#3b0066"});
+					if ($(window).width() < 1140) {
+							$('.navigation-menu').css({"background-color":"#3b0066"});
+							$('.navigation-menu').css({"box-shadow":"2px 2px 4px #1a1a1a"});
+						   $('.navigation-menu a.superNav').css({"color":"#f3edf8"});
+						    $('.navigation-menu a#donate').css({"color":"#1e0033"});
 						} else {
-							if(s <= 10){   
+							//$( "body" ).prepend( "<div>" +  + "</div>" );
+							if($( "html" ).scrollTop() <= 10){   
 							   $('.navigation-menu').css({"background-color":"transparent"});
-							   $('.navigation-menu').css({"transition":"background-color .25s"});
-							   //$('.navigation-menu').css({"box-shadow":"none"});
+							   $('.navigation-menu').css({"box-shadow":"none"});
+							   $('.navigation-menu a.superNav').css({"color":"#1e0033"});
 							} else {
 							   $('.navigation-menu').css({"background-color":"#3b0066"});
-							   //$('.navigation-menu').css({"box-shadow":"#1a1a1a"});
+							   $('.navigation-menu').css({"box-shadow":"2px 2px 4px #1a1a1a"});
+							   $('.navigation-menu a.superNav').css({"color":"#f3edf8"});
+							   $('.navigation-menu a#donate').css({"color":"#1e0033"});
+								}
+							$(document).scroll(function(){
+							if ($(window).width() > 1140) {
+								if($(this).scrollTop() > 10)
+								{   
+								   $('.navigation-menu').css({"background-color":"#3b0066"});
+								   $('.navigation-menu').css({"box-shadow":"2px 2px 4px #1a1a1a"});
+								   $('.navigation-menu a.superNav').css({"color":"#f3edf8"});
+								   $('.navigation-menu a#donate').css({"color":"#1e0033"});
+								} else {
+								   $('.navigation-menu').css({"background-color":"transparent"});
+								   $('.navigation-menu').css({"box-shadow":"none"});
+								   $('.navigation-menu a.superNav').css({"color":"#1e0033"});
+								}
 							}
-
-						$(document).scroll(function(){
-							if($(this).scrollTop() > 10)
-							{   
-							   $('.navigation-menu').css({"background-color":"#3b0066"});
-							   $('.navigation-menu').css({"transition":"background-color .25s"});
-							 //  $('.navigation-menu').css({"box-shadow":"#1a1a1a"});
-							} else {
-							   $('.navigation-menu').css({"background-color":"transparent"});
-							 //  $('.navigation-menu').css({"box-shadow":"none"});
-							}
-						});	
-					}
+							});
+						}
 					});
 				
 			</script>
