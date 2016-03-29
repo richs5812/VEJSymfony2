@@ -1,12 +1,12 @@
-<div class="blogInset">
-	<h3 id="latestBlogs"><em>Latest Blog Posts</em></h3>
-	<div class="Vertical_Scroll_Wrapper">
-	{% for blog in latestBlogs %}
-		<a href="{{ blog.slug }}"><h3>{{ blog.title }}</h3></a>
-		<img src="{{ asset('uploads/featuredPhotos/'~blog.featuredPhotoName) }}" alt="featured photo" id="featuredPhoto" />
-		<p>{{blog.excerpt}}</p>
-		<a href="{{ blog.slug }}"><p>read more</p></a>
-	{% endfor %}
-			<a id="seePhotosLink" href="{{ path('blog') }}" >Visit our blog</a>
+<div id="blogWrapper">
+<h3 id="latestBlogs"><em>Latest Blog Posts</em></h3>
+	<div class="blogInset">
+		{% for blog in latestBlogs %}
+			<a href="{{ blog.slug }}"><h3>{{ blog.title }}</h3></a>
+			<img src="{{ asset('uploads/featuredPhotos/'~blog.featuredPhotoName) }}" alt="featured photo" id="featuredPhoto" />
+			<p>{{blog.excerpt}}</p>
+			<a href="{{ blog.slug }}"><p>read more</p></a>
+		{% endfor %}
+				<a id="seePhotosLink" href="{{ path('blog') }}" >Visit our blog</a>
 	</div>
 </div>

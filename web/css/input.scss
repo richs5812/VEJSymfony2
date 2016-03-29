@@ -7,6 +7,11 @@ $darkGray: #1a1a1a;
 	src: url(../fonts/open-sans/OpenSans-Regular.ttf);
 }
 
+@font-face {
+	font-family: Raleway;
+	src: url(../fonts/Raleway/Raleway-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
 } 
@@ -37,6 +42,7 @@ main {
 
 div.content {
    width: 85%;
+   max-width: 1200px;
    margin: auto;
    color: $darkGray;
    
@@ -51,6 +57,25 @@ div.content {
    
    button[type=submit] {
 		margin: .5em 0;
+   }
+   
+   @media (min-width: 945px) {
+		width: 75%;
+   }
+}
+
+div.intro {
+	margin: 1em 0 2em;
+	overflow: auto;
+	
+	@media (min-width: 1200px) {
+		margin: 2em 0;
+	}
+	
+	p {
+		@media (min-width: 1200px) {
+			padding: 1em 0 0;
+	   }
    }
 }
 
@@ -86,10 +111,22 @@ img.fullWidth {
 img.slideshow {
 	max-width: 100%;
 }
-  
+
 img#logo {
-	float: right;
-	max-width: 200px;
+	display: block;
+	max-width: 100%;
+	margin: 1em 0;
+	
+	@media (min-width: 500px) {
+		padding: 0 0 0 5%;
+	}
+	
+   @media (min-width: 945px) {
+   		display: inline;
+		float: left;
+		padding: 0;
+		margin: 0 2em;
+   }
 }
 
 div.mc-field-group {
@@ -107,9 +144,24 @@ div#mc_embed_signup {
 	background-color: #e6e6e6;
 	padding: .5em 1em 1em;
 	margin: 1em 0;
+    border-radius: 4px;
+}
+
+div#connectWrapper {
 	width: 400px;
 	max-width: 100%;
-    border-radius: 4px;
+	
+	figcaption {
+		display: none;
+	}
+	
+	@media (min-width: 945px) {
+		width: 35%;
+		display: inline-block;
+		vertical-align: top;
+		padding: 3em 0 0;
+		margin: 0 15% 0 0;
+	}
 }
 
 iframe {
@@ -125,8 +177,14 @@ textarea.contentTextArea {
 	height: 20em;
 }
 
+figure.socialMediaIcon {
+	//border: 1px solid green;
+	display: inline-block;
+	margin: 0 1em 0 0;
+}
+
 img.socialMediaIcon {
-	width: 100px;
+	width: 75px;
 	max-width: 100%
 }
 
