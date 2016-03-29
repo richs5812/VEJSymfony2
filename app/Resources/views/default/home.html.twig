@@ -3,7 +3,6 @@
 {% block main %}
 	<div class="content">
 	{{ page.content|raw }}
-
 	{{ render(controller('AppBundle:LatestBlogs:LatestBlogs')) }}
 	</div>
 	{{ render(controller('AppBundle:LatestPhotos:LatestPhotos')) }}

@@ -44,6 +44,8 @@ $(window).resize(function(){
 		} else {
 		document.querySelector('body').classList.remove('OffCanvas-Active');
 			//$( "body" ).prepend( "<div>" + $("body,html,document").scrollTop($("#map_canvas").position().top) + "</div>" );
+			//to prevent bug in Safari and Chrome
+			$("body,html,document").scrollTop($("#map_canvas").position().top);
 			if($( "html" ).scrollTop() <= 10){   
 			   $('.navigation-menu').css({"background-color":"transparent"});
 			   $('.navigation-menu').css({"box-shadow":"none"});

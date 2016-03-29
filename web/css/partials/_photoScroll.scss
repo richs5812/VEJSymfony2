@@ -12,9 +12,9 @@ div#blogWrapper {
 
 	@media (min-width: 945px) {
 		padding: 0;
-		margin: 0;
+		margin: 0 0 2em;
 		display: inline-block;
-		width: 45%;
+		width: 49%;
 	}
 }
 
@@ -22,13 +22,14 @@ div.blogInset {
 	box-shadow:0px 0px 10px 0px gray inset;
 	padding: 1em;
 	width: 400px;
-	max-width: 90%;
+	max-width: 95%;
 	height: 600px;
 	overflow-y: auto;
 	/*Give us inertia style scrolling on WebKit based touch devices*/
 	-webkit-overflow-scrolling: touch;
 	@media (min-width: 945px) {
 		width: 100%;
+		max-width: 100%;
 	}
 }
 
