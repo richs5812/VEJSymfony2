@@ -3,8 +3,10 @@
 	<div class="Scroll_Wrapper">
 	{% for photo in latestPhotos %}
 		<figure class="Item">
-			<img src="{{ asset('thumb/'~photo.path) }}" class="thumbnail" width="300"/>
-			<figcaption class="Caption">{{ photo.caption }}<br />Date Added: {{ photo.pubDate|date('n/j/y') }}</figcaption>
+			<span><img src="{{ asset('thumb/'~photo.path) }}"/></span>
+			{% if photo.caption %}
+				<figcaption>{{ photo.caption }}</figcaption>
+			{% endif %}
 		</figure>
 	{% endfor %}
 		<div class="Item">

@@ -25,9 +25,7 @@ class EditGalleryController extends Controller
 
 			$em->persist($photo);
 			$em->flush();
-									
-			return $this->redirectToRoute('showGalleries');
-
+			
     	}
     	
     	if(isset($request->query->getIterator()["DeletePhoto"])) {

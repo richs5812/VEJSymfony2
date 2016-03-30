@@ -1,14 +1,23 @@
-{% extends 'base.html.twig' %}
-
-{% block main %}
-<div class="content">
-<h2>Slideshow: {{ pic.galleryName }}</h2>
-		<img class="slideshow" src="{{ asset('slideshow/'~pic.path) }}" align="middle" /></a>
-	<div id="slideshowCaption">{{ pic.caption }}</div>
-<div class="slideshowFooter">
-	<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</span>
-	<span><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></span>
-	<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">next image</a>{% endif %}</span>
-</div>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+		<script src="{{ asset('js/jquery.js') }}"></script>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>VEJ Slideshow - {{pic.galleryName}}</title>
+        <link href="{{ asset('build/styles.css') }}" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="{{ asset('js/modernizr-custom.js') }}"></script>
+    </head>
+    <body>
+		<main class="main-content">
+			<h2 id="slideshow">Slideshow: {{ pic.galleryName }}</h2>
+					{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">{% endif %}<img class="slideshow" src="{{ asset('slideshow/'~pic.path) }}" align="middle" />{% if count != 1 %}</a>{% endif %}
+				<div id="slideshowCaption">{{ pic.caption }}</div>
+				<div class="slideshowFooter">
+					<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</span>
+					<span><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></span>
+					<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">next image</a>{% endif %}</span>
+				</div>
+		</main>
+	</body>
+</html>

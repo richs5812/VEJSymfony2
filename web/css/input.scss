@@ -46,7 +46,7 @@ div.content {
    margin: auto;
    color: $darkGray;
    
-   input[type=text], input[type=email], textarea{
+   input[type=text], input[type=email], input[type=password], textarea{
    		display: block;
 		font-size: 1em;
 		padding: 4px;
@@ -62,6 +62,10 @@ div.content {
    @media (min-width: 945px) {
 		width: 75%;
    }
+}
+
+div#fosUserBundle {
+	padding: 1em;
 }
 
 div.intro {
@@ -97,19 +101,44 @@ div.adminContent {
 .flexbox div.slideshowFooter {
 	display: flex;
 	justify-content: space-around;
+	max-width: 1200px;
+	margin: auto;
+	padding: 0.5em 0 1em;
 }
 
 .flexbox div#slideshowCaption {
+	padding: 0 1em;
 	display:flex;
 	justify-content: center;
+}
+
+p.datePosted {
+	font-style: italic;
+	font-size: smaller;
 }
 
 img.fullWidth {
 	max-width: 100%;
 }
 
+h2#slideshow {
+	margin: .5em 1em;
+	@media (min-width: 945px){
+	width: 75%;
+	margin: auto;
+	//border: 1px solid gray;
+	}
+}
+
 img.slideshow {
+	display: block;
+	margin: auto;
 	max-width: 100%;
+	
+	@media (orientation:landscape) {
+		height: 85vh;
+	}
+
 }
 
 img#logo {
@@ -205,4 +234,3 @@ img#featuredPhoto {
 @import "partials/nav";
 @import "partials/photoScroll";
 @import "partials/footer";
-

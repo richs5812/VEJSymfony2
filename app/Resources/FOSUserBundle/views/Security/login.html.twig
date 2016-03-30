@@ -1,8 +1,8 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
-
 {% block fos_user_content %}
+<h2>VEJ admin login</h2>
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}

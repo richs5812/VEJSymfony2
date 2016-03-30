@@ -9,13 +9,14 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <script src="{{ asset('js/modernizr-custom.js') }}"></script>
-        {% block head %}{% endblock %}
     </head>
     <body>
     	<div class="notNav">
+    	{% block header %}
 			<header>
 				<p>Voices for Earth Justice<p>
 			</header>
+		{% endblock %}
 			<main class="main-content">
 				<button class="off-canvas-launcher">&#9776; Menu</button>
 				{% block main %}{% endblock %}

@@ -385,7 +385,7 @@ div.content {
   max-width: 1200px;
   margin: auto;
   color: #1a1a1a; }
-  div.content input[type=text], div.content input[type=email], div.content textarea {
+  div.content input[type=text], div.content input[type=email], div.content input[type=password], div.content textarea {
     display: block;
     font-size: 1em;
     padding: 4px;
@@ -397,6 +397,9 @@ div.content {
   @media (min-width: 945px) {
     div.content {
       width: 75%; } }
+
+div#fosUserBundle {
+  padding: 1em; }
 
 div.intro {
   margin: 1em 0 2em;
@@ -422,17 +425,37 @@ div.adminContent {
 
 .flexbox div.slideshowFooter {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.5em 0 1em; }
 
 .flexbox div#slideshowCaption {
+  padding: 0 1em;
   display: flex;
   justify-content: center; }
+
+p.datePosted {
+  font-style: italic;
+  font-size: smaller; }
 
 img.fullWidth {
   max-width: 100%; }
 
+h2#slideshow {
+  margin: .5em 1em; }
+  @media (min-width: 945px) {
+    h2#slideshow {
+      width: 75%;
+      margin: auto; } }
+
 img.slideshow {
+  display: block;
+  margin: auto;
   max-width: 100%; }
+  @media (orientation: landscape) {
+    img.slideshow {
+      height: 85vh; } }
 
 img#logo {
   display: block;
@@ -538,6 +561,15 @@ header {
   @media (min-width: 1300px) {
     header {
       padding: 6.5vw 0.5em 9.5vw; } }
+
+header.admin {
+  background-image: none;
+  padding: .5em 1em;
+  font-size: 2em;
+  text-shadow: none;
+  background-color: lightgray;
+  color: black;
+  text-align: left; }
 
 /*remove default button styling*/
 button.off-canvas-launcher {
@@ -752,15 +784,31 @@ div.blogInset {
   /*Give us inertia style scrolling on WebKit based touch devices*/
   -webkit-overflow-scrolling: touch;
   /*Remove the scrollbars in supporting versions of IE*/
-  -ms-overflow-style: none; }
+  -ms-overflow-style: none;
+  /*
+  figure:hover {
+  	figcaption {
+  		display: block;
+  		width: 300px;
+  		word-wrap: break-word;
+  	}
+  }*/ }
+  .Scroll_Wrapper figcaption {
+    width: 250px;
+    margin: auto;
+    font-size: smaller;
+    word-break: normal;
+    white-space: normal; }
 
 /*Stops the scrollbar appearing in WebKit browsers
 .Scroll_Wrapper::-webkit-scrollbar {
 	display: none;
 }*/
 .Item {
-  display: inline-block;
-  vertical-align: middle; }
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+  justify-content: center; }
 
 /*
 @media (min-resolution: 1.5dppx) {
