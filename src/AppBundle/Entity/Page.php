@@ -5,6 +5,7 @@
 	
 	use Doctrine\ORM\Mapping as ORM;
 	use Symfony\Component\Validator\Constraints as Assert;
+	use Imagick;
 	
 	/**
 	 * @ORM\Entity
@@ -90,6 +91,53 @@
 		 * @ORM\Column(type="string", nullable=true)
 		 */
 		private $featuredPhotoName;
+
+	// create featured photo image
+	public function createFeaturedPhoto($file)
+	{
+			try
+			{
+			// Open the original image
+			$featuredPhoto = new \Imagick;
+			$featuredPhoto->readImage($file);
+			
+				$orientation = $featuredPhoto->getImageOrientation();
+
+				switch($orientation) {
+					case imagick::ORIENTATION_BOTTOMRIGHT:
+						$featuredPhoto->rotateimage("#000", 180); // rotate 180 degrees
+					break;
+
+					case imagick::ORIENTATION_RIGHTTOP:
+						$featuredPhoto->rotateimage("#000", 90); // rotate 90 degrees CW
+					break;
+
+					case imagick::ORIENTATION_LEFTBOTTOM:
+						$featuredPhoto->rotateimage("#000", -90); // rotate 90 degrees CCW
+					break;
+				}
+
+				// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
+				$featuredPhoto->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
+
+			$thumbSize = $featuredPhoto->getImageGeometry();
+			$thumbWidth = $thumbSize['width'];
+			$thumbHeight = $thumbSize['height'];
+
+			if ($thumbWidth >= $thumbHeight){
+				 $featuredPhoto->thumbnailImage( 300, null );
+			} else {
+				 $featuredPhoto->thumbnailImage( null, 300 );
+			}
+
+			return $featuredPhoto;
+
+		}
+		catch(Exception $e)
+		{
+				echo $e->getMessage();
+		}	
+	}
 
     /**
      * Get id

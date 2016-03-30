@@ -46,7 +46,7 @@ $(window).resize(function(){
 			//$( "body" ).prepend( "<div>" + $("body,html,document").scrollTop($("#map_canvas").position().top) + "</div>" );
 			//to prevent bug in Safari and Chrome
 			$("body,html,document").scrollTop($("#map_canvas").position().top);
-			if($( "html" ).scrollTop() <= 10){   
+			if($( "body,html,document" ).scrollTop() <= 10){   
 			   $('.navigation-menu').css({"background-color":"transparent"});
 			   $('.navigation-menu').css({"box-shadow":"none"});
 			   $('.navigation-menu a.superNav').css({"color":"#1e0033"});

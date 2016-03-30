@@ -439,6 +439,9 @@ p.datePosted {
   font-style: italic;
   font-size: smaller; }
 
+p#latestPhotosGalleryName {
+  font-size: smaller; }
+
 img.fullWidth {
   max-width: 100%; }
 
@@ -564,7 +567,7 @@ header {
 
 header.admin {
   background-image: none;
-  padding: .5em 1em;
+  padding: .75em 1em .25em;
   font-size: 2em;
   text-shadow: none;
   background-color: lightgray;
@@ -701,6 +704,13 @@ nav.navigation-menu {
   .js nav.navigation-menu {
     position: fixed;
     width: 585px;
+    top: 0;
+    right: 0;
+    left: auto; }
+
+  .js nav#adminNav {
+    position: fixed;
+    width: 750px;
     top: 0;
     right: 0;
     left: auto; }

@@ -7,6 +7,7 @@
 			{% if photo.caption %}
 				<figcaption>{{ photo.caption }}</figcaption>
 			{% endif %}
+			<p id="latestPhotosGalleryName">Gallery: <a href="{{photo.gallerySlug}}" target="_blank">{{photo.galleryName}}</a></p>
 		</figure>
 	{% endfor %}
 		<div class="Item">

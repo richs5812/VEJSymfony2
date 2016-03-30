@@ -51,9 +51,11 @@ class EditBlogController extends Controller
 				// Generate a unique name for the file before saving it
 				$fileName = md5(uniqid()).'.'.$file->guessExtension();
 			
+				$file = $page->createFeaturedPhoto($file);
+			
 				// Move the file to the directory where brochures are stored
-				$featuredPhoroDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/featuredPhotos';
-				$file->move($featuredPhoroDir, $fileName);
+				$featuredPhotoDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/featuredPhotos/';
+				$file->writeImage($featuredPhotoDir.$fileName);
 
 				// Update the 'brochure' property to store the PDF file name
 				// instead of its contents

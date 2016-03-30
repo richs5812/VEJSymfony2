@@ -46,6 +46,11 @@ class Document
 	 * @ORM\Column(type="boolean", nullable=true)
 	 */		
 	protected $createBlog;
+	
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */		
+	protected $gallerySlug;
     
 	/**
      * @Assert\File(maxSize="6000000")
@@ -309,5 +314,29 @@ class Document
     public function getCreateBlog()
     {
         return $this->createBlog;
+    }
+
+    /**
+     * Set gallerySlug
+     *
+     * @param string $gallerySlug
+     *
+     * @return Document
+     */
+    public function setGallerySlug($gallerySlug)
+    {
+        $this->gallerySlug = $gallerySlug;
+
+        return $this;
+    }
+
+    /**
+     * Get gallerySlug
+     *
+     * @return string
+     */
+    public function getGallerySlug()
+    {
+        return $this->gallerySlug;
     }
 }

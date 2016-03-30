@@ -46,6 +46,11 @@ class Document
 	 * @ORM\Column(type="boolean", nullable=true)
 	 */		
 	protected $createBlog;
+	
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */		
+	protected $gallerySlug;
     
 	/**
      * @Assert\File(maxSize="6000000")
@@ -285,5 +290,29 @@ class Document
     public function getPubDate()
     {
         return $this->pubDate;
+    }
+
+    /**
+     * Set createBlog
+     *
+     * @param boolean $createBlog
+     *
+     * @return Document
+     */
+    public function setCreateBlog($createBlog)
+    {
+        $this->createBlog = $createBlog;
+
+        return $this;
+    }
+
+    /**
+     * Get createBlog
+     *
+     * @return boolean
+     */
+    public function getCreateBlog()
+    {
+        return $this->createBlog;
     }
 }

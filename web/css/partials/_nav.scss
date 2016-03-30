@@ -183,6 +183,14 @@ nav.navigation-menu {
 		left: auto;
 	}
 	
+	.js nav#adminNav {
+		position: fixed;
+		width: 750px;
+		top: 0;
+		right: 0;
+		left: auto;
+	}
+	
 	nav.navigation-menu {
 		display: flex;
 		justify-content: flex-end;

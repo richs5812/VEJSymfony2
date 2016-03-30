@@ -17,7 +17,7 @@ class EditBlogType extends AbstractType
         $builder
             ->add('title')
             ->add('excerpt')
-            ->add('featuredPhoto', FileType::class, array('label' => 'Update Featured Photo', 'required'=> false))
+            ->add('featuredPhoto', FileType::class, array('label' => 'Upload/Update Featured Photo', 'required'=> false))
             ->add('content')
 			->add('content2')
 			->add('sqlDate')
