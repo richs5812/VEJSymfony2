@@ -7,15 +7,16 @@
 	<form name="editGalleryPhoto">
 		<input type="hidden" name="photoID" value="{{ galleryPhoto.id }}" />
 		<img src="../../thumb/{{ galleryPhoto.path }}"/>
-		<input type="text" name="imageCaption" value="{{ galleryPhoto.caption }}" />
-		<input type="text" name="imageCaption" value="{{ galleryPhoto.caption }}" />
-<input type="text" style="width: 6.25em; margin: 0 .5em;" name="PhotoDate" id="PhotoDate{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('m/d/Y') }}" />
+		<label for="imageCaption{{ galleryPhoto.id }}">Caption: </label><input type="text" name="imageCaption" id="imageCaption{{ galleryPhoto.id }}" value="{{ galleryPhoto.caption }}" />
+<label for="photoDate{{ galleryPhoto.id }}">Photo Date: </label><input type="text" style="width: 6.25em; margin: 0 .5em;" name="PhotoDate" id="photoDate{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('m/d/Y') }}" />
 			<script>
 			  $(function() {
-				$( "#PhotoDate{{ galleryPhoto.id }}" ).datepicker({dateFormat: "mm/dd/yy"});
+				$( "#photoDate{{ galleryPhoto.id }}" ).datepicker({dateFormat: "mm/dd/yy"});
 			});
 			</script>
-		<input type="submit" name="UpdatePhoto" value="Update Photo" /><input type="submit" name="DeletePhoto" value="Delete Photo" onClick="return confirm('Delete photo from gallery (photo will remain on server)?');" />
+	<label for="hour{{ galleryPhoto.id }}">Hour: </label><input type="number" name="hour" class="timeField" id="hour{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('H') }}"/>
+	<label for="minute{{ galleryPhoto.id }}">Minute: </label><input type="number" name="minute" class="timeField" id="minute{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('i') }}"/>
+	<input type="submit" name="UpdatePhoto" value="Update Photo" /><input type="submit" name="DeletePhoto" value="Delete Photo" onClick="return confirm('Delete photo from gallery (photo will remain on server)?');" />
 	</form>
 	{% endfor %}
 	

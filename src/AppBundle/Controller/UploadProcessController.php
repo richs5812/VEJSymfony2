@@ -66,8 +66,7 @@ class UploadProcessController extends Controller
 			$em = $this->getDoctrine()->getManager();
   
 			$em->persist($document);
-			$em->flush();
-			
+			$em->flush();			
 			
 			//dump($document->getPath());die;
 			$documentPath = $document->getPath();

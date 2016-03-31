@@ -14,16 +14,28 @@ class EditGalleryController extends Controller
     public function editGalleryAction(Request $request, $galleryName)
     {
      	if(isset($request->query->getIterator()["UpdatePhoto"])) {
-    		
+    		//dump($request->query->getIterator());die;
 			$photo = $this->getDoctrine()
 				->getRepository('AppBundle:Document')
 				->findOneById($request->query->getIterator()["photoID"]);
 
-			$photo->setCaption($request->query->getIterator()["imageCaption"]);
+			$caption = $request->query->getIterator()["imageCaption"];
 			
-			$sqlDate=date_create($request->query->getIterator()["PhotoDate"]);
+			if ($caption == ""){
+				$photo->setCaption(NULL);
+			} else {
+				$photo->setCaption($caption);
+			}
+			
+			$sqlDate = date_create($request->query->getIterator()["PhotoDate"]);
+			$sqlDate = $sqlDate->format('Y-m-d');
+			$hour = $request->query->getIterator()["hour"];
+			$minute = $request->query->getIterator()["minute"];
+			//dump($sqlDate.' '.$hour.':'.$minute.':00');die;
+			$sqlDate = new \DateTime($sqlDate.' '.$hour.':'.$minute.':00');
+			//dump($sqlDate);die;
 			$photo->setSqlDate($sqlDate);
-			
+						
 			$pubDate = $sqlDate->format('D, d M Y H:i:s T');
 			$photo->setPubDate($pubDate);
 			

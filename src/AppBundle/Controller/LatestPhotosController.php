@@ -18,11 +18,11 @@ class LatestPhotosController extends Controller
 		$query = $em->createQuery(
 			'SELECT d
 			FROM AppBundle:Document d
-			ORDER BY d.pubDate DESC'
+			ORDER BY d.sqlDate DESC'
 		);
 
 		$photos = $query->getResult();
-
+		
 		$numPhotos = 8;
 		
 		$latestPhotos = array();

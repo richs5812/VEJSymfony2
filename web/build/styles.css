@@ -408,6 +408,9 @@ div.content {
     div.content {
       width: 75%; } }
 
+input[type=number].timeField {
+  width: 3em; }
+
 div#fosUserBundle {
   padding: 1em; }
 
