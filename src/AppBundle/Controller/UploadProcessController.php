@@ -20,7 +20,7 @@ class UploadProcessController extends Controller
      */
     public function uploadProcessAction(Request $request)
     {
-    
+    	//dump($request->request->getIterator()["document"]["sqlDate"]);die;
 		if ($request->request->getIterator()["GalleryName"] == "no gallery") {
 			$galleryName = $request->request->getIterator()["document"]["galleryName"];
 		} else {
@@ -46,7 +46,19 @@ class UploadProcessController extends Controller
 				$document->setCaption($caption);
     		}
     		
-    		$pubDate = date('D, d M Y H:i:s T');
+    		//$sqlDate = $request->request->getIterator()["document"]["sqlDate"];
+    		//$document->setSqlDate($sqlDate);
+			$year = $request->request->getIterator()["document"]["sqlDate"]["date"]["year"];
+			$month = $request->request->getIterator()["document"]["sqlDate"]["date"]["month"];
+			$day = $request->request->getIterator()["document"]["sqlDate"]["date"]["day"];
+			$hour = $request->request->getIterator()["document"]["sqlDate"]["time"]["hour"];
+			$minute = $request->request->getIterator()["document"]["sqlDate"]["time"]["minute"];
+
+			$sqlDate = new \DateTime($year.'-'.$month.'-'.$day.' '.$hour.':'.$minute);
+			//dump($sqlDate);die;
+    		$pubDate = $sqlDate->format('D, d M Y H:i:s T');
+    		//$pubDate = date('D, d M Y H:i:s T');
+    		$document->setSqlDate($sqlDate);
     		$document->setPubDate($pubDate);
 
 			$document->setFile($file);
@@ -211,9 +223,9 @@ class UploadProcessController extends Controller
 
 			//date('D, d M Y H:i:s T');
 			//$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
-			$sqlDate = new \DateTime();
+
 			$page->setPubDate(date('D, d M Y H:i:s T'));
-			$page->setSqlDate($sqlDate);
+			//$page->setSqlDate($sqlDate);
 			$page->setPageType('Blog');
 			$page->setIncludeInNav(0);
 			

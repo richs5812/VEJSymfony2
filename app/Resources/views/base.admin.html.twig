@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+		<script src="{{ asset('js/jquery.js') }}"></script>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        	<link href="{{ asset('build/styles.css') }}" rel="stylesheet" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="{{ asset('js/modernizr-custom.js') }}"></script>
+    </head>
+    <body>
+    	<div class="notNav">
+    	{% block header %}
+			<header class="admin">
+				<p>Voices for Earth Justice - Site Administration<p>
+			</header>
+		{% endblock %}
+			<main class="main-content">
+				<button class="off-canvas-launcher">&#9776; Menu</button>
+				{% block main %}{% endblock %}
+			</main>
+		</div>
+		<nav class="navigation-menu" id="adminNav">
+			{% block nav %}
+			{% include 'adminNav.html' %}
+			{% endblock %}
+		</nav>
+		<footer>
+			<div class="footerContent">
+			</div>
+		</footer>
+        {% block javascripts %}
+			<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+			<script src="{{ asset('js/menuShow.js') }}"></script>
+			<script src="{{ asset('js/menuController.js') }}"></script>
+			<script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:8001/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+        {% endblock %}
+    </body>
+</html>

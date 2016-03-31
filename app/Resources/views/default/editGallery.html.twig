@@ -1,14 +1,27 @@
 {% extends 'base.admin.html.twig' %}
 
 {% block main %}
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
 	{% for galleryPhoto in galleryPhotos %}
 	<form name="editGalleryPhoto">
 		<input type="hidden" name="photoID" value="{{ galleryPhoto.id }}" />
 		<img src="../../thumb/{{ galleryPhoto.path }}"/>
 		<input type="text" name="imageCaption" value="{{ galleryPhoto.caption }}" />
+		<input type="text" name="imageCaption" value="{{ galleryPhoto.caption }}" />
+<input type="text" style="width: 6.25em; margin: 0 .5em;" name="PhotoDate" id="PhotoDate{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('m/d/Y') }}" />
+			<script>
+			  $(function() {
+				$( "#PhotoDate{{ galleryPhoto.id }}" ).datepicker({dateFormat: "mm/dd/yy"});
+			});
+			</script>
 		<input type="submit" name="UpdatePhoto" value="Update Photo" /><input type="submit" name="DeletePhoto" value="Delete Photo" onClick="return confirm('Delete photo from gallery (photo will remain on server)?');" />
 	</form>
 	{% endfor %}
+	
+	<!-- date picker-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 {% endblock %}
 

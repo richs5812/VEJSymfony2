@@ -35,15 +35,16 @@ class LatestPhotosController extends Controller
 				FROM AppBundle:Page p
 				WHERE p.galleryName = :galleryName'
 			)->setParameter('galleryName', $photos[$i]->getGalleryName());
-			
-			//dump($query->getResult());die;
-			
+						
 			$galleryPage = $query->getResult();
-			$latestPhotos[$i]->setGallerySlug($galleryPage[0]->getSlug());
+
+			if($galleryPage != NULL){
+				$latestPhotos[$i]->setGallerySlug($galleryPage[0]->getSlug());
+			} else {
+				$latestPhotos[$i]->setGallerySlug(NULL);
+			}
 		}
 		
-		//dump($galleryPage);die;
-
         return $this->render('default/latestPhotos.html.twig',
         array('latestPhotos' => $latestPhotos)
         );

@@ -21,6 +21,12 @@ class EditGalleryController extends Controller
 
 			$photo->setCaption($request->query->getIterator()["imageCaption"]);
 			
+			$sqlDate=date_create($request->query->getIterator()["PhotoDate"]);
+			$photo->setSqlDate($sqlDate);
+			
+			$pubDate = $sqlDate->format('D, d M Y H:i:s T');
+			$photo->setPubDate($pubDate);
+			
 			$em = $this->getDoctrine()->getManager();
 
 			$em->persist($photo);

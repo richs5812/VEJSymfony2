@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class DocumentType extends AbstractType
 {
@@ -19,6 +20,10 @@ class DocumentType extends AbstractType
 			->add('createBlog')
 			->add('caption')
 			->add('file', FileType::class, array('multiple' => true))
+			->add('sqlDate', DateTimeType::class, array(
+					'data' => new \DateTime()
+				));
+		$builder
             ->add('save', SubmitType::class)
         ;
     }

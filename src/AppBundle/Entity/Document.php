@@ -41,7 +41,12 @@ class Document
 	 * @ORM\Column(type="string", length=100, nullable=true)
 	 */
 	protected $pubDate;
-	
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */		
+	protected $sqlDate;
+
 	/**
 	 * @ORM\Column(type="boolean", nullable=true)
 	 */		
@@ -338,5 +343,29 @@ class Document
     public function getGallerySlug()
     {
         return $this->gallerySlug;
+    }
+
+    /**
+     * Set sqlDate
+     *
+     * @param \DateTime $sqlDate
+     *
+     * @return Document
+     */
+    public function setSqlDate($sqlDate)
+    {
+        $this->sqlDate = $sqlDate;
+
+        return $this;
+    }
+
+    /**
+     * Get sqlDate
+     *
+     * @return \DateTime
+     */
+    public function getSqlDate()
+    {
+        return $this->sqlDate;
     }
 }
