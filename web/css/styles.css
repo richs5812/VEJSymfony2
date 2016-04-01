@@ -443,7 +443,11 @@ p.datePosted {
   font-size: smaller; }
 
 p#latestPhotosGalleryName {
-  font-size: smaller; }
+  font-size: smaller;
+  word-break: normal;
+  white-space: normal;
+  width: 250px;
+  margin: auto; }
 
 img.fullWidth {
   max-width: 100%; }
@@ -454,6 +458,9 @@ h2#slideshow {
     h2#slideshow {
       width: 75%;
       margin: auto; } }
+
+h3#galleryName {
+  margin: 1em; }
 
 img.slideshow {
   display: block;

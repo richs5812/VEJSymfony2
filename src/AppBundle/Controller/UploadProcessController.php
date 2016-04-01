@@ -234,7 +234,7 @@ class UploadProcessController extends Controller
 			//$rssDate = $page->getSqlDate()->format('D, d M Y H:i:s T');
 
 			$page->setPubDate(date('D, d M Y H:i:s T'));
-			//$page->setSqlDate($sqlDate);
+			$page->setSqlDate($sqlDate);
 			$page->setPageType('Blog');
 			$page->setIncludeInNav(0);
 			

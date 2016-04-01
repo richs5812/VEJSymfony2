@@ -6,7 +6,7 @@
    {{ page.content|raw }}
    </div>
    {% if pics %}
-	  <h3>Gallery: {{ page.galleryName }}</h3>
+	 	<h3 id="galleryName">Gallery: {{ page.galleryName }}</h3>
 		{{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
 	{% endif %}
 	<div class="content">

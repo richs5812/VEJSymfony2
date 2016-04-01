@@ -123,6 +123,12 @@ p.datePosted {
 
 p#latestPhotosGalleryName {
 	font-size: smaller;
+	word-break: normal;
+	white-space: normal;
+	//word-wrap: break-word;
+	//border: 1px solid gray;
+	width: 250px;
+	margin: auto;
 }
 
 img.fullWidth {
@@ -136,6 +142,10 @@ h2#slideshow {
 	margin: auto;
 	//border: 1px solid gray;
 	}
+}
+
+h3#galleryName {
+	margin: 1em;
 }
 
 img.slideshow {

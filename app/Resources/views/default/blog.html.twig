@@ -5,7 +5,7 @@
 	<div class="content">
 	<h2><a href="{{blog.slug}}">{{blog.title}}</a></h2>
 		<p class="datePosted">Posted: {{ blog.sqlDate|date('n/j/y') }}</p>
-  	 {{ blog.content|raw }}
+  	 <p>{{ blog.content|raw }}<p>
   	 {% if blog.galleryName %}
   	 <strong>Gallery: {{ blog.galleryName}}</strong>
   	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': blog.galleryName })) }}
