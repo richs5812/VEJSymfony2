@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\WebPath\WebPath;
 
 class EditGalleryController extends Controller
 {
@@ -52,6 +53,22 @@ class EditGalleryController extends Controller
 			$photo = $this->getDoctrine()
 				->getRepository('AppBundle:Document')
 				->findOneById($request->query->getIterator()["photoID"]);
+			
+			$WebPath = new WebPath();
+			$webFilesPath = $WebPath->getWebPath();
+			//dump($webFilesPath);die;
+			$path = $photo->getPath();
+			
+			$oldFilePaths = array();
+			//$oldFilePaths[0] = $webFilesPath.'uploads/'.$path;
+			$oldFilePaths[1] = $webFilesPath.'slideshow/'.$path;
+			$oldFilePaths[2] = $webFilesPath.'thumb/'.$path;
+			
+			//$newFilePath = $webFilesPath.'archived_files/'.$path;
+			
+			foreach ($oldFilePaths as $oldFilePath) {
+				unlink($oldFilePath);
+			}
 				
 			$em = $this->getDoctrine()->getManager();
 

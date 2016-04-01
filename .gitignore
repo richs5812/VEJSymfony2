@@ -21,3 +21,5 @@
 /web/feeds/classes/db_connect.php
 /web/fonts/
 /web/images/
+/src/AppBundle/WebPath/
+/web/archived_files/

@@ -11,7 +11,7 @@ use AppBundle\Entity\Document;
 use Symfony\Component\HttpFoundation\Response;
 use Imagick;
 use AppBundle\Entity\Page;
-
+//use AppBundle\WebPath\WebPath;
 
 class UploadProcessController extends Controller
 {
@@ -20,7 +20,7 @@ class UploadProcessController extends Controller
      */
     public function uploadProcessAction(Request $request)
     {
-    	//dump($request->request->getIterator()["document"]["sqlDate"]);die;
+    	//dump($this->container->getParameter('kernel.root_dir').'/../web/uploads/featuredPhotos/');die;
 		if ($request->request->getIterator()["GalleryName"] == "no gallery") {
 			$galleryName = $request->request->getIterator()["document"]["galleryName"];
 		} else {
@@ -76,7 +76,9 @@ class UploadProcessController extends Controller
 			{
 			// Open the original image
 			$image = new \Imagick;
-			$image->readImage('/Users/richsamartino/VEJSymfony/web/uploads/'.$documentPath);
+
+			//$image->readImage('/Users/richsamartino/VEJSymfony/web/uploads/'.$documentPath);
+			$image->readImage($this->container->getParameter('kernel.root_dir').'/../web/uploads/'.$documentPath);
 			
 			$orientation = $image->getImageOrientation();
 
@@ -94,8 +96,8 @@ class UploadProcessController extends Controller
 					break;
 				}
 
-				// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
-				$image->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
+			// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
+			$image->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
 
 			$origSize = $image->getImageGeometry();
 			$origWidth = $origSize['width'];
@@ -118,6 +120,7 @@ class UploadProcessController extends Controller
 			// Open the watermark
 			$watermark = new \Imagick;
 			$watermark->readImage('/Users/richsamartino/VEJSymfony/web/watermark/watermark_opacity60.png');
+			//$image->readImage($this->container->getParameter('kernel.root_dir').'/../web/watermark/watermark_opacity60.png');
 
 			$image->compositeImage($watermark, imagick::COMPOSITE_OVER, $resizedWidth-189, $resizedHeight-116);
 
@@ -143,8 +146,12 @@ class UploadProcessController extends Controller
 			$image->annotateImage( $draw, 23, 23, 0, "voices4earth.org" );
 	
 			$image->setImageCompressionQuality(50);
+			
+			/*$featuredPhotoDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/featuredPhotos/';
+			$file->writeImage($featuredPhotoDir.$fileName);*/
 
-			$target_slideshow_dir = '/Users/richsamartino/VEJSymfony/web/slideshow/'.$documentPath;
+			//$target_slideshow_dir = '/Users/richsamartino/VEJSymfony/web/slideshow/'.$documentPath;
+			$target_slideshow_dir = $this->container->getParameter('kernel.root_dir').'/../web/slideshow/'.$documentPath;
 
 			/*** write image to disk ***/
 			$image->writeImage( $target_slideshow_dir );
@@ -156,31 +163,32 @@ class UploadProcessController extends Controller
 				echo $e->getMessage();
 		}
 
-			//process image for thumbnail and insert info into database
-			try
-			{
+		//process image for thumbnail and insert info into database
+		try
+		{
 			// Open the original image
 			$thumbImage = new \Imagick;
 			$thumbImage->readImage('/Users/richsamartino/VEJSymfony/web/uploads/'.$documentPath);
+			//$image->readImage($this->container->getParameter('kernel.root_dir').'/../web/uploads/'.$documentPath);
 			
-						$orientation = $thumbImage->getImageOrientation();
+			$orientation = $thumbImage->getImageOrientation();
 
-				switch($orientation) {
-					case imagick::ORIENTATION_BOTTOMRIGHT:
-						$thumbImage->rotateimage("#000", 180); // rotate 180 degrees
-					break;
+			switch($orientation) {
+				case imagick::ORIENTATION_BOTTOMRIGHT:
+					$thumbImage->rotateimage("#000", 180); // rotate 180 degrees
+				break;
 
-					case imagick::ORIENTATION_RIGHTTOP:
-						$thumbImage->rotateimage("#000", 90); // rotate 90 degrees CW
-					break;
+				case imagick::ORIENTATION_RIGHTTOP:
+					$thumbImage->rotateimage("#000", 90); // rotate 90 degrees CW
+				break;
 
-					case imagick::ORIENTATION_LEFTBOTTOM:
-						$thumbImage->rotateimage("#000", -90); // rotate 90 degrees CCW
-					break;
-				}
+				case imagick::ORIENTATION_LEFTBOTTOM:
+					$thumbImage->rotateimage("#000", -90); // rotate 90 degrees CCW
+				break;
+			}
 
-				// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
-				$thumbImage->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
+			// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
+			$thumbImage->setImageOrientation(imagick::ORIENTATION_TOPLEFT); 
 				
 			$origSize = $thumbImage->getImageGeometry();
 			//$origWidth = $origSize['width'];
@@ -195,7 +203,9 @@ class UploadProcessController extends Controller
 				 $thumbImage->thumbnailImage( null, 300 );
 			}
 
-			$target_thumbnail_dir = '/Users/richsamartino/VEJSymfony/web/thumb/'.$documentPath;
+			//$target_thumbnail_dir = '/Users/richsamartino/VEJSymfony/web/thumb/'.$documentPath;
+			//$target_slideshow_dir = $this->container->getParameter('kernel.root_dir').'/../web/slideshow/'.$documentPath;
+			$target_thumbnail_dir = $this->container->getParameter('kernel.root_dir').'/../web/thumb/'.$documentPath;
 
 			/*** write image to disk ***/
 			$thumbImage->writeImage( $target_thumbnail_dir);

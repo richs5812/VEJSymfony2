@@ -16,7 +16,7 @@
 			</script>
 	<label for="hour{{ galleryPhoto.id }}">Hour: </label><input type="number" name="hour" class="timeField" id="hour{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('H') }}"/>
 	<label for="minute{{ galleryPhoto.id }}">Minute: </label><input type="number" name="minute" class="timeField" id="minute{{ galleryPhoto.id }}" value="{{ galleryPhoto.sqlDate|date('i') }}"/>
-	<input type="submit" name="UpdatePhoto" value="Update Photo" /><input type="submit" name="DeletePhoto" value="Delete Photo" onClick="return confirm('Delete photo from gallery (photo will remain on server)?');" />
+	<input type="submit" name="UpdatePhoto" value="Update Photo" /><input type="submit" name="DeletePhoto" value="Delete Photo" onClick="return confirm('Delete photo from gallery?');" />
 	</form>
 	{% endfor %}
 	
