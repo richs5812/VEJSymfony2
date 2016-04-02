@@ -426,6 +426,54 @@ div.adminContent {
   div.adminContent button {
     margin: .5em 0; }
 
+div.faithStatementWrapper {
+  overflow: auto; }
+
+div.bodWrapper {
+  margin: 1em 0;
+  display: block;
+  padding: 0 0 0 2em; }
+  @media (min-width: 945px) {
+    div.bodWrapper {
+      width: 33%;
+      display: inline-block;
+      vertical-align: top; } }
+
+div.BrightmoorHopeHouseWrapper {
+  margin: 1em 0;
+  display: block;
+  padding: 0 0 0 2em; }
+  div.BrightmoorHopeHouseWrapper img {
+    max-width: 400px; }
+  @media (min-width: 945px) {
+    div.BrightmoorHopeHouseWrapper {
+      width: 40%;
+      display: inline-block;
+      vertical-align: top; } }
+
+@media (min-width: 945px) {
+  div.contactWrapper {
+    width: 45%;
+    display: inline-block; } }
+
+div#donateIconsWrapper figure {
+  padding: 0;
+  margin: 0;
+  width: 30%;
+  display: inline block; }
+div#donateIconsWrapper figure img {
+  max-width: 100%; }
+@media (min-width: 945px) {
+  div#donateIconsWrapper {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top; } }
+
+@media (min-width: 945px) {
+  div#donateContentWrapper {
+    width: 79%;
+    display: inline-block; } }
+
 .flexbox div.slideshowFooter {
   display: flex;
   justify-content: space-around;
@@ -842,7 +890,8 @@ a#seePhotosLink {
 footer {
   background-color: #1e0033;
   color: #f3edf8;
-  padding: 1em; }
+  padding: 1em;
+  margin: 4em 0 0; }
   @media (min-width: 768px) {
     footer div.footerContent {
       width: 85%;

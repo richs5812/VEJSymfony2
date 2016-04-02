@@ -45,6 +45,7 @@ div.content {
    max-width: 1200px;
    margin: auto;
    color: $darkGray;
+   //border: 2px dotted blue;
    
    input[type=text], input[type=email], input[type=password], textarea{
    		display: block;
@@ -101,7 +102,78 @@ div.adminContent {
 		margin: .5em 0;
 	}
 }
+
+div.faithStatementWrapper {
+	overflow: auto;
+}
+
+div.bodWrapper {
+	margin: 1em 0;
+	display: block;
+	//border: 1px solid gray;
+	padding: 0 0 0 2em;
 	
+	@media (min-width: 945px) {
+		width: 33%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+div.BrightmoorHopeHouseWrapper {
+	margin: 1em 0;
+	display: block;
+	//border: 1px solid gray;
+	padding: 0 0 0 2em;
+	
+	img {
+		max-width: 400px;
+	}
+	
+	@media (min-width: 945px) {
+		width: 40%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+div.contactWrapper {
+	
+	@media (min-width: 945px) {
+		width: 45%;
+		display: inline-block;
+	}
+}
+	
+div#donateIconsWrapper {
+	figure {
+		padding: 0;
+		margin: 0;
+		width: 30%;
+		display: inline block;
+		//border: 1px solid gray;
+	}
+	
+	figure img {
+		max-width: 100%;
+	}
+	
+	@media (min-width: 945px) {
+		width: 20%;
+		display: inline-block;
+		vertical-align: top;
+	}	
+}
+
+div#donateContentWrapper {
+
+@media (min-width: 945px) {
+		width: 79%;
+		display: inline-block;
+	}	
+	
+}
+
 .flexbox div.slideshowFooter {
 	display: flex;
 	justify-content: space-around;

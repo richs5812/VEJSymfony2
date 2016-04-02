@@ -1,19 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block main %}
 <div class="content">
-<h2>Contact</h2>
-<p>* = required field</p>
-{{ form_start(contactForm) }}
-{{ form_row(contactForm.firstName, {'label': 'First Name*: '}) }}
-{{ form_row(contactForm.lastName, {'label': 'Last Name: '}) }}
-{{ form_row(contactForm.emailAddress, {'label': 'Email Address*: '}) }}
-{{ form_row(contactForm.phoneNumber, {'label': 'Phone Number: '}) }}
-{{ form_row(contactForm.comment, {'label': 'Comment*: '}) }}
-{{ form_row(contactForm.save) }}
-{{ form_end(contactForm) }}
-
-<p>Hope House is located at: 15894 Greydale St. Detroit, MI 48223</p>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-83.25700432062149%2C42.405721569431684%2C-83.25351476669312%2C42.406959376565275&layer=mapnik&marker=42.40634047605145%2C-83.2552595436573" style="border: 1px solid black"></iframe><br/><small><a href="http://www.openstreetmap.org/?mlat=42.40634&mlon=-83.25526#map=19/42.40634/-83.25526">View Larger Map</a></small>
+	<div class="contactWrapper">
+		<h2>Contact</h2>
+		<p>* = required field</p>
+		{{ form_start(contactForm) }}
+		{{ form_row(contactForm.firstName, {'label': 'First Name*: '}) }}
+		{{ form_row(contactForm.lastName, {'label': 'Last Name: '}) }}
+		{{ form_row(contactForm.emailAddress, {'label': 'Email Address*: '}) }}
+		{{ form_row(contactForm.phoneNumber, {'label': 'Phone Number: '}) }}
+		{{ form_row(contactForm.comment, {'label': 'Comment*: '}) }}
+		{{ form_row(contactForm.save) }}
+		{{ form_end(contactForm) }}
+	</div>
+	<div class="contactWrapper">
+		<p>Hope House is located at: 15894 Greydale St. Detroit, MI 48223</p>
+		<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-83.25700432062149%2C42.405721569431684%2C-83.25351476669312%2C42.406959376565275&layer=mapnik&marker=42.40634047605145%2C-83.2552595436573" style="border: 1px solid black"></iframe><br/><small><a href="http://www.openstreetmap.org/?mlat=42.40634&mlon=-83.25526#map=19/42.40634/-83.25526">View Larger Map</a></small>
+	</div>
 </div>
 {% endblock %}
 	{% block javascripts %}
