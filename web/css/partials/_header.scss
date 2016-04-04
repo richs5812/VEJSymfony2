@@ -3,11 +3,11 @@ $darkerPurple: #1e0033;
 header {
 
 	@media (min-resolution: 1.5dppx) {
-		  background-image: url('../images/background-1920w.jpg');
+		  background-image: url('../images/website_header_small.jpg');
 	   }
 	   
     background-color: $darkerPurple;
-	background-image: url('../images/background-960w.jpg');
+	background-image: url('../images/website_header_smaller.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
     /*background-position: center;*/
