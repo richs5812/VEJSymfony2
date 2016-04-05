@@ -127,7 +127,7 @@ div.BrightmoorHopeHouseWrapper {
 	padding: 0 0 0 2em;
 	
 	img {
-		max-width: 400px;
+		max-width: 100%;
 	}
 	
 	@media (min-width: 945px) {
@@ -146,7 +146,17 @@ div.contactWrapper {
 }
 	
 div#donateIconsWrapper {
+	div{
+		@media (max-width: 945px) {
+				margin: 0 0 0 1em;
+			}
+		}
+		
 	figure {
+	@media (max-width: 945px) {
+		width: 35px;
+		//max-width:
+	}
 		padding: 0;
 		margin: 0;
 		width: 30%;

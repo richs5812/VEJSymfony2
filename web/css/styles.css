@@ -444,7 +444,7 @@ div.BrightmoorHopeHouseWrapper {
   display: block;
   padding: 0 0 0 2em; }
   div.BrightmoorHopeHouseWrapper img {
-    max-width: 400px; }
+    max-width: 100%; }
   @media (min-width: 945px) {
     div.BrightmoorHopeHouseWrapper {
       width: 40%;
@@ -456,11 +456,17 @@ div.BrightmoorHopeHouseWrapper {
     width: 45%;
     display: inline-block; } }
 
+@media (max-width: 945px) {
+  div#donateIconsWrapper div {
+    margin: 0 0 0 1em; } }
 div#donateIconsWrapper figure {
   padding: 0;
   margin: 0;
   width: 30%;
   display: inline block; }
+  @media (max-width: 945px) {
+    div#donateIconsWrapper figure {
+      width: 35px; } }
 div#donateIconsWrapper figure img {
   max-width: 100%; }
 @media (min-width: 945px) {
