@@ -23,3 +23,4 @@
 /web/images/
 /src/AppBundle/WebPath/
 /web/archived_files/
+/web/.htaccess
