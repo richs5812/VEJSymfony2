@@ -41,7 +41,7 @@ div.blogInset {
 	/*Give us inertia style scrolling on WebKit based touch devices*/
 	-webkit-overflow-scrolling: touch;
 	/*Remove the scrollbars in supporting versions of IE*/
-	-ms-overflow-style: none;
+	//-ms-overflow-style: none;
 	
 	figcaption {
 		width: 250px;
