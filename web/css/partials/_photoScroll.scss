@@ -9,12 +9,14 @@ div.photoInset {
 
 div#blogWrapper {
 	margin: 1em 0;
+	//border: 2px ridge purple;
 
 	@media (min-width: 945px) {
-		padding: 0;
-		margin: 0 0 2em;
-		display: inline-block;
-		width: 49%;
+		//padding: 0;
+		//margin: 0 0 2em;
+		//display: inline-block;
+		//width: 100%;
+		margin: 0 0 1em;
 	}
 }
 

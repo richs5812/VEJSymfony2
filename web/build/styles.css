@@ -573,18 +573,33 @@ div#mc_embed_signup {
   margin: 1em 0;
   border-radius: 4px; }
 
+@media (min-width: 945px) {
+  div#homePageContent {
+    padding: 0;
+    margin: 0 5% 2em;
+    display: inline-block;
+    width: 54%; } }
+
+div#homePageSidebar {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse; }
+  @media (min-width: 945px) {
+    div#homePageSidebar {
+      vertical-align: top;
+      width: 35%; } }
+
 div#connectWrapper {
   width: 400px;
   max-width: 100%; }
   div#connectWrapper figcaption {
     display: none; }
-  @media (min-width: 945px) {
-    div#connectWrapper {
-      width: 40%;
-      display: inline-block;
-      vertical-align: top;
-      padding: 2em 0 0;
-      margin: 0 10% 0 0; } }
 
 iframe {
   max-width: 100%; }
@@ -881,10 +896,7 @@ div#blogWrapper {
   margin: 1em 0; }
   @media (min-width: 945px) {
     div#blogWrapper {
-      padding: 0;
-      margin: 0 0 2em;
-      display: inline-block;
-      width: 49%; } }
+      margin: 0 0 1em; } }
 
 div.blogInset {
   box-shadow: 0px 0px 10px 0px gray inset;

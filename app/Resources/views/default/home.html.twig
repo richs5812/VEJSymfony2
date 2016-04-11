@@ -1,9 +1,11 @@
+{# template for home page only #}
 {% extends 'base.html.twig' %}
 {% block title %}Voices for Earth Justice - Home{% endblock %}
 {% block main %}
 	<div class="content">
 	{{ page.content|raw }}
 	{{ render(controller('AppBundle:LatestBlogs:LatestBlogs')) }}
+		</div>
 	</div>
 	{{ render(controller('AppBundle:LatestPhotos:LatestPhotos')) }}
 	<div class="content">
