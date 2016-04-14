@@ -14,9 +14,12 @@
     	<div class="notNav">
     	{% block header %}
 			<header>
-				<p>Voices for Earth Justice<p>
+				<p>Voices for Earth Justice</p>
 			</header>
 		{% endblock %}
+		    <div id="fullScreenNav">
+				{{ render(controller('AppBundle:Nav:Nav')) }}
+			</div>
 			<main class="main-content">
 				<button class="off-canvas-launcher">&#9776; Menu</button>
 				{% block main %}{% endblock %}
