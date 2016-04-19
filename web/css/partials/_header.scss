@@ -2,46 +2,35 @@ $darkerPurple: #1e0033;
 
 header {
 
-	@media (min-resolution: 1.5dppx) {
-		  background-image: url('../images/website_header_small.jpg');
-	   }
-	   
-    background-color: $darkerPurple;
-	background-image: url('../images/website_header_smaller.jpg');
-	background-size: cover;
-    background-repeat: no-repeat;
-    /*background-position: center;*/
-	background-attachment: scroll;
-
-	font-family: Raleway, Helvetica, sans-serif;
+	font-family: Helvetica, sans-serif;
 	text-align: center;
-	color: white;
-	font-size: 8vw;
-	text-shadow: 2px 2px 4px black;
+	font-style: italic;
+	color: black;
+	font-size: 1em;
+	overflow: auto;
 	
-	padding: 12vw 0.5em;
-
-   	@media (orientation: landscape){
-		padding: 6vw 0.5em;
-	}
-	
-	@media (min-width: 550px) {
-		padding: 8vw 0.5em;
+	img {
+		//border: 2px solid red;
+		display: block;
+		width: 300px;
+		margin: auto;
+		max-width: 100%;
 		
-		@media (orientation: landscape){
-			padding: 4vw 0.5em;
-		}
-	}
-	
-		@media (min-width: 768px) {
-			padding: 7vw 0.5em 13vw;
-			background-image: url('../images/website_header.jpg');
-			font-size: 5vw;
+		@media (min-width: 945px) {
+			display: inline;
+			vertical-align: middle;
+			margin: auto 3%;
 		}
 		
-		@media (min-width: 1300px) {
-			padding: 6.5vw 0.5em 9.5vw;
+	}
+	
+	p {
+		//border: 1px solid black;
+		
+		@media (min-width: 945px) {
+			display: inline;
 		}
+	}
 }
 
 header.admin {

@@ -1,0 +1,57 @@
+$darkerPurple: #1e0033;
+
+header {
+
+	/*@media (min-resolution: 1.5dppx) {
+		  background-image: url('../images/website_header_small.jpg');
+	   }*/
+	   
+    //background-color: $darkerPurple;
+	//background-image: url('../images/website_header_smaller.jpg');
+	//background-size: cover;
+    //background-repeat: no-repeat;
+    /*background-position: center;*/
+	//background-attachment: scroll;
+
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+	font-style: italic;
+	color: black;
+	font-size: 1em;
+	//text-shadow: 2px 2px 4px black;
+	
+	padding: 12vw 0.5em;
+
+   	@media (orientation: landscape){
+		padding: 6vw 0.5em;
+	}
+	
+	@media (min-width: 550px) {
+		padding: 8vw 0.5em;
+		
+		@media (orientation: landscape){
+			padding: 4vw 0.5em;
+		}
+	}
+	
+		@media (min-width: 768px) {
+			padding: 3vw 0.5em 4vw;
+			//background-image: url('../images/website_header.jpg');
+			//font-size: 3vw;
+		}
+		
+		@media (min-width: 1300px) {
+			padding: 6.5vw 0.5em 9.5vw;
+		}
+}
+
+header.admin {
+	background-image: none;
+	padding: .75em 1em .25em;
+	font-size: 2em;
+	text-shadow: none;
+	background-color: lightgray;
+	color: black;
+	text-align: left;
+
+}

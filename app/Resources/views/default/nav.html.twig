@@ -1,5 +1,5 @@
-<ul>
-
+<ul class="nav">
+<div id="navDiv">
 {% for parentPage in parentPages %}
 	{% if parentPage.title in parentPageNames %}
 		<li class="dropdown"><a href="{{ path('index', {'slug': parentPage.slug}) }}" class="dropbtn">{{ parentPage.title }}</a>
@@ -15,5 +15,5 @@
 	  	<li><a href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></li>
 	{% endif %}
 {% endfor %}
-
+</div>
 </ul>

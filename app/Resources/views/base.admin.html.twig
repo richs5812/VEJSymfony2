@@ -17,24 +17,34 @@
 				<p>Voices for Earth Justice - Site Administration<p>
 			</header>
 		{% endblock %}
+		<div>
+			<ul class="nav">
+				<li><a class="superNav" href="{{ path('admin') }}">Edit Pages</a></li>
+				<li><a class="superNav" href="{{ path('newPage') }}">Create New Page</a></li>
+				<li><a class="superNav" href="{{ path('upload') }}">Upload Images</a></li>
+				<li><a class="superNav" href="{{ path('showGalleries') }}">Edit Galleries</a></li>
+				<li><a class="superNav" href="{{ path('index') }}" target="_blank">View site</a></li>
+				<li><a class="superNav" href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+			</ul>
+		</li>
 			<main class="main-content">
 				<button class="off-canvas-launcher">&#9776; Menu</button>
 				{% block main %}{% endblock %}
 			</main>
-		</div>
+		</li>
 		<nav class="navigation-menu" id="adminNav">
 			{% block nav %}
-				<div class="linkWrapper"><a class="superNav" href="{{ path('admin') }}">Edit Pages</a></div>
-				<div class="linkWrapper"><a class="superNav" href="{{ path('newPage') }}">Create New Page</a></div>
-				<div class="linkWrapper"><a class="superNav" href="{{ path('upload') }}">Upload Images</a></div>
-				<div class="linkWrapper"><a class="superNav" href="{{ path('showGalleries') }}">Edit Galleries</a></div>
-				<div class="linkWrapper"><a class="superNav" href="{{ path('index') }}" target="_blank">View site</a></div>
-				<div class="linkWrapper"><a class="superNav" href="{{ path('fos_user_security_logout') }}">Logout</a></div>
+				<li><a class="superNav" href="{{ path('admin') }}">Edit Pages</a></li>
+				<li><a class="superNav" href="{{ path('newPage') }}">Create New Page</a></li>
+				<li><a class="superNav" href="{{ path('upload') }}">Upload Images</a></li>
+				<li><a class="superNav" href="{{ path('showGalleries') }}">Edit Galleries</a></li>
+				<li><a class="superNav" href="{{ path('index') }}" target="_blank">View site</a></li>
+				<li><a class="superNav" href="{{ path('fos_user_security_logout') }}">Logout</a></li>
 			{% endblock %}
 		</nav>
 		<footer>
 			<div class="footerContent">
-			</div>
+			</li>
 		</footer>
         {% block javascripts %}
 			<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
