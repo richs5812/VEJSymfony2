@@ -276,19 +276,24 @@ div#mc_embed_signup {
 div#homePageContent {
 	//border: 2px solid green;
 
+	img {
+		max-width: 90%;
+	}
+	
 	@media (min-width: 945px) {
 		padding: 0;
 		margin: 0 5% 2em;
 		display: inline-block;
 		width: 54%;
 	}
-	
 }
 
 div#homePageSidebar {
 	//border: 2px solid blue;
 	display: inline-flex;
 	flex-direction: column-reverse;
+	max-width: 100%;
+	
 	
 	@media (min-width: 945px) {
 		vertical-align: top;

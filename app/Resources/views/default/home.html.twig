@@ -4,10 +4,10 @@
 {% block main %}
 	<div class="content">
 	{{ page.content|raw }}
+	{{ render(controller('AppBundle:LatestPhotos:LatestPhotos')) }}
 	{{ render(controller('AppBundle:LatestBlogs:LatestBlogs')) }}
 		</div>
 	</div>
-	{{ render(controller('AppBundle:LatestPhotos:LatestPhotos')) }}
 	<div class="content">
 	{{ page.content2|raw }}
 	</div>

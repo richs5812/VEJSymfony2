@@ -8,9 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LatestPhotosController extends Controller
 {
-    /**
-     * @Route("/latest/photos")
-     */
+
     public function latestPhotosAction()
     {
     		

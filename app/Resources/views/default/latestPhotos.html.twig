@@ -1,8 +1,8 @@
-<div class="photoInset">
-	<h3 id="latestPhotos"><em>Latest Photos</em></h3>
-	<div class="Scroll_Wrapper">
+<div class="blogWrapper" id="latestPhotosWrapper">
+	<h3><em>Latest Photos</em></h3>
+	<div class="blogInset">
 	{% for photo in latestPhotos %}
-		<figure class="Item">
+		<figure class="latestPhotosItem">
 			<span><img src="{{ asset('thumb/'~photo.path) }}"/></span>
 			{% if photo.caption %}
 				<figcaption>{{ photo.caption }}</figcaption>
@@ -10,7 +10,7 @@
 			{% if photo.gallerySlug %}<p id="latestPhotosGalleryName">Gallery: <a href="{{photo.gallerySlug}}" target="_blank">{{photo.galleryName}}</a></p>{% endif %}
 		</figure>
 	{% endfor %}
-		<div class="Item">
+		<div class="latestPhotosItem">
 			<a id="seePhotosLink" href="{{ path('photo-galleries') }}" >See all photos</a>
 		</div>
 	</div>

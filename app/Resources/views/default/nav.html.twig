@@ -12,7 +12,11 @@
 			</div>
 		</li>
 	{% else %}
-	  	<li><a href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></li>
+				{% if parentPage.title == 'Donate' %}
+				  	<li><a id="donate" href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></li>
+				{% else %}
+				  	<li><a href="{{ path('index', {'slug': parentPage.slug}) }}">{{parentPage.title}}</a></li>
+				{% endif %}
 	{% endif %}
 {% endfor %}
 </div>

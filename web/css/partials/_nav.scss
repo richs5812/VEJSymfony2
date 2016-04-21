@@ -229,6 +229,18 @@ ul.nav {
 		.dropdown:hover .dropdown-content {
 			display: block;
 		}
+		
+		a#donate {
+			background-color: $donateYellow;
+			color: $darkerPurple;
+			transition: background-color .25s;
+		}
+		
+		a#donate:hover {
+			border-color: transparent;
+			background-color: yellow;
+			transition: background-color .25s;
+		}
 	}
 
 
