@@ -1,34 +1,33 @@
 $darkerPurple: #1e0033;
 
 header {
-
 	font-family: Helvetica, sans-serif;
 	text-align: center;
 	font-style: italic;
 	color: black;
-	font-size: 1em;
+	font-size: 1.25em;
 	overflow: auto;
-	
+	margin: 0.25em 0;
+	//border: 2px dashed blue;
+
 	img {
 		//border: 2px solid red;
-		display: block;
 		width: 300px;
-		margin: auto;
 		max-width: 100%;
-		
-		@media (min-width: 945px) {
-			display: inline;
-			vertical-align: middle;
-			margin: auto 3%;
-		}
-		
 	}
 	
 	p {
 		//border: 1px solid black;
+	}
+	
+	@media (min-width: 945px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
 		
-		@media (min-width: 945px) {
-			display: inline;
+		img {
+			margin-right: 5%;
 		}
 	}
 }

@@ -8,6 +8,11 @@ $darkGray: #1a1a1a;
 }
 
 @font-face {
+	font-family: OpenSansHeader;
+	src: url(../fonts/open-sans/OpenSans-Bold.ttf);
+}
+
+@font-face {
 	font-family: Raleway;
 	src: url(../fonts/raleway/Raleway-Regular.ttf);
 }
@@ -21,7 +26,7 @@ html {
 }
 
 body {
-    /* fonts */
+	/* fonts */
    font-family: OpenSans, Geneva, sans-serif;
    height: 100%;
 }
@@ -46,7 +51,7 @@ div.content {
    max-width: 1200px;
    margin: auto;
    color: $darkGray;
-   //border: 2px dotted blue;
+   //border: 2px dotted orange;
    overflow: auto;
    
    input[type=text], input[type=email], input[type=password], textarea{
@@ -82,7 +87,7 @@ div.intro {
 	//border: 2px solid gray;
 	@media (min-width: 945px) {
 		max-width: 800px;
-		margin: auto;
+		margin: 1em auto;
 	}
 }
 
@@ -278,12 +283,12 @@ div#homePageContent {
 	//border: 2px solid green;
 
 	img {
-		max-width: 90%;
+		max-width: 100%;
 	}
 	
 	@media (min-width: 945px) {
 		padding: 0;
-		margin: 0 5% 2em;
+		margin: 0 5% 2em 0;
 		display: inline-block;
 		width: 54%;
 	}
@@ -298,7 +303,7 @@ div#homePageSidebar {
 	
 	@media (min-width: 945px) {
 		vertical-align: top;
-		width: 35%;
+		width: 40%;
 	}
 }
 
@@ -319,6 +324,19 @@ div#connectWrapper {
 		//padding: 2em 0 0;
 		//margin: 0 10% 0 0;
 	}
+}
+
+div#homePageDonate {
+	border: 1px solid black;
+	text-align: center;
+	background-color: yellow;
+
+	img {
+		vertical-align: middle;
+		margin-left: 0.25em;
+	}
+	padding-bottom: 1em;
+	margin-top: 1em;
 }
 
 iframe {

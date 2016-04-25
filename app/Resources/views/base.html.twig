@@ -14,7 +14,7 @@
     	<div class="notNav">
     	{% block header %}
 			<header>
-				<div class="content"><img src="images/voices_logo.png" alt="Voices for Earth Justice logo" /><p>Prayer, education and action on behalf of Earth</p></div>
+				<img src="images/voices_logo.png" alt="Voices for Earth Justice logo" /><p>Prayer, education and action on behalf of Earth</p>
 			</header>
 		{% endblock %}
 		    <div>
@@ -39,9 +39,6 @@
         {% block javascripts %}
 			<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
 			<script src="{{ asset('js/menuShow.js') }}"></script>
-			<script type='text/javascript' id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:8001/browser-sync/browser-sync-client.2.11.1.js'><\/script>".replace("HOST", location.hostname));
-//]]></script>
         {% endblock %}
     </body>
 </html>
