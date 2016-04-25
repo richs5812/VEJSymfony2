@@ -367,7 +367,8 @@ html {
 
 body {
   /* fonts */
-  font-family: OpenSans, Geneva, sans-serif; }
+  font-family: OpenSans, Geneva, sans-serif;
+  height: 100%; }
 
 .flexbox body {
   display: -webkit-box;
@@ -383,9 +384,9 @@ body {
 
 .flexbox div.notNav {
   -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1; }
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
 
 main {
   word-wrap: break-word; }
@@ -800,7 +801,7 @@ ul.nav {
     left: 0; } }
 @media (min-width: 945px) {
   div#navDiv {
-    width: 606px;
+    width: 700px;
     margin: auto; }
 
   ul.nav {
