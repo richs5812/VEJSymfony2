@@ -370,8 +370,7 @@ html {
 
 body {
   /* fonts */
-  font-family: OpenSans, Geneva, sans-serif;
-  height: 100%; }
+  font-family: OpenSans, Geneva, sans-serif; }
 
 .flexbox body {
   display: flex;
@@ -582,12 +581,15 @@ div#connectWrapper {
 div#homePageDonate {
   border: 1px solid black;
   text-align: center;
-  background-color: yellow;
+  background-color: #fafa9e;
   padding-bottom: 1em;
   margin-top: 1em; }
   div#homePageDonate img {
     vertical-align: middle;
     margin-left: 0.25em; }
+
+p#frontPageDonorThankYou {
+  margin-top: 2em; }
 
 iframe {
   max-width: 100%; }
@@ -629,6 +631,8 @@ header {
   header img {
     width: 300px;
     max-width: 100%; }
+  header p {
+    padding: 0 1em; }
   @media (min-width: 945px) {
     header {
       display: flex;
@@ -636,7 +640,9 @@ header {
       align-items: center;
       align-content: space-between; }
       header img {
-        margin-right: 5%; } }
+        margin-right: 5%; }
+      header p {
+        padding: 0; } }
 
 header.admin {
   background-image: none;

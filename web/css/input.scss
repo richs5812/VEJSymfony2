@@ -28,7 +28,7 @@ html {
 body {
 	/* fonts */
    font-family: OpenSans, Geneva, sans-serif;
-   height: 100%;
+   //height: 100%;
 }
 
 //to push footer to bottom of page
@@ -40,6 +40,7 @@ body {
 
 .flexbox div.notNav {
 	flex: 1 0 auto;
+	//flex: 1;
 }
 
 main {
@@ -329,7 +330,7 @@ div#connectWrapper {
 div#homePageDonate {
 	border: 1px solid black;
 	text-align: center;
-	background-color: yellow;
+	background-color: #fafa9e;
 
 	img {
 		vertical-align: middle;
@@ -337,6 +338,10 @@ div#homePageDonate {
 	}
 	padding-bottom: 1em;
 	margin-top: 1em;
+}
+
+p#frontPageDonorThankYou {
+	margin-top: 2em;
 }
 
 iframe {

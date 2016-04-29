@@ -18,6 +18,7 @@ header {
 	
 	p {
 		//border: 1px solid black;
+		padding: 0 1em;
 	}
 	
 	@media (min-width: 945px) {
@@ -28,6 +29,10 @@ header {
 		
 		img {
 			margin-right: 5%;
+		}
+		
+		p {
+			padding: 0;
 		}
 	}
 }
