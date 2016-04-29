@@ -2,7 +2,7 @@
 <h3 id="latestBlogs"><em>Latest Blog Posts</em></h3>
 	<div class="blogInset">
 		{% for blog in latestBlogs %}
-			<a href="{{ blog.slug }}"><h3>{{ blog.title }}</h3></a>
+			<a class="blogTitleLink" href="{{ blog.slug }}"><h3>{{ blog.title }}</h3></a>
 			{% if blog.featuredPhotoName %}
 				<img src="{{ asset('uploads/featuredPhotos/'~blog.featuredPhotoName) }}" alt="featured photo" id="featuredPhoto" />
 			{% endif %}

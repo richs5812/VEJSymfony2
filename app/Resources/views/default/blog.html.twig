@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block title %}Voices for Earth Justice - Blog{% endblock %}
 {% block main %}
-	{% for blog in blogs %}
 	<div class="content">
-	<h2><a href="{{blog.slug}}">{{blog.title}}</a></h2>
-		<p class="datePosted">Posted: {{ blog.sqlDate|date('n/j/y') }}</p>
-  	 <p>{{ blog.content|raw }}<p>
-  	 {% if blog.galleryName %}
-  	 <strong>Gallery: {{ blog.galleryName}}</strong>
-  	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': blog.galleryName })) }}
-  	 {% endif %}
-	{{ blog.content2|raw }}
+		<h1>VEJ Blog</h1>
+		{% for page in pagination %}
+			<h2><a class="blogTitleLink" href="{{page.slug}}">{{page.title}}</a></h2>
+				<p class="datePosted">Posted: {{ page.sqlDate|date('n/j/y') }}</p>
+			 <p>{{ page.content|raw }}<p>
+			 {% if page.galleryName %}
+			 <strong>Gallery: {{ page.galleryName}}</strong>
+			 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
+			 {% endif %}
+			{{ page.content2|raw }}
+		{% endfor %}
+		<div class="paginationNavigation">
+			{{ knp_pagination_render(pagination) }}
+		</div>
 	</div>
-	{% endfor %}
 {% endblock %}

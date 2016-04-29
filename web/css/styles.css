@@ -572,6 +572,18 @@ div#homePageSidebar {
       vertical-align: top;
       width: 40%; } }
 
+a.blogTitleLink:link {
+  text-decoration: none; }
+
+a.blogTitleLink:visited {
+  text-decoration: none; }
+
+a.blogTitleLink:hover {
+  text-decoration: underline; }
+
+a.blogTitleLink:active {
+  text-decoration: underline; }
+
 div#connectWrapper {
   width: 400px;
   max-width: 100%; }
@@ -587,6 +599,10 @@ div#homePageDonate {
   div#homePageDonate img {
     vertical-align: middle;
     margin-left: 0.25em; }
+
+div.paginationNavigation {
+  text-align: center;
+  margin-top: 1em; }
 
 p#frontPageDonorThankYou {
   margin-top: 2em; }
@@ -643,6 +659,18 @@ header {
         margin-right: 5%; }
       header p {
         padding: 0; } }
+
+a#headerLink:link {
+  text-decoration: none; }
+
+a#headerLink:visited {
+  text-decoration: none; }
+
+a#headerLink:hover {
+  text-decoration: none; }
+
+a#headerLink:active {
+  text-decoration: none; }
 
 header.admin {
   background-image: none;

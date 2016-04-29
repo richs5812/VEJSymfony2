@@ -13,9 +13,9 @@
     <body>
     	<div class="notNav">
     	{% block header %}
-			<header>
+			<a href="{{ path('index') }}" id="headerLink"><header>
 				<img src="images/voices_logo.png" alt="Voices for Earth Justice logo" /><p>Prayer, education and action on behalf of Earth</p>
-			</header>
+			</header></a>
 		{% endblock %}
 		    <div>
 				{{ render(controller('AppBundle:Nav:Nav')) }}

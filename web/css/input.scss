@@ -308,6 +308,22 @@ div#homePageSidebar {
 	}
 }
 
+a.blogTitleLink:link {
+    text-decoration: none;
+}
+
+a.blogTitleLink:visited {
+    text-decoration: none;
+}
+
+a.blogTitleLink:hover {
+    text-decoration: underline;
+}
+
+a.blogTitleLink:active {
+    text-decoration: underline;
+}
+
 div#connectWrapper {
 	width: 400px;
 	max-width: 100%;
@@ -337,6 +353,11 @@ div#homePageDonate {
 		margin-left: 0.25em;
 	}
 	padding-bottom: 1em;
+	margin-top: 1em;
+}
+
+div.paginationNavigation {
+	text-align: center;
 	margin-top: 1em;
 }
 

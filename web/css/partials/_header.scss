@@ -37,6 +37,22 @@ header {
 	}
 }
 
+a#headerLink:link {
+    text-decoration: none;
+}
+
+a#headerLink:visited {
+    text-decoration: none;
+}
+
+a#headerLink:hover {
+    text-decoration: none;
+}
+
+a#headerLink:active {
+    text-decoration: none;
+}
+
 header.admin {
 	background-image: none;
 	padding: .75em 1em .25em;

@@ -3,14 +3,16 @@
 {% block main %}
 <div class="content">
 <h1>Photo Galleries</h1>
-	{% for gallery in galleries %}
-	<h2><a href="{{gallery.slug}}">{{gallery.title}}</a></h2>
-	<p>Date Added: {{ gallery.sqlDate|date('n/j/y') }}</p>
-  	 {{ gallery.content|raw }}
+	{% for page in pagination %}
+	<h2><a class="blogTitleLink" href="{{page.slug}}">{{page.title}}</a></h2>
+	<p>Date Added: {{ page.sqlDate|date('n/j/y') }}</p>
+  	 {{ page.content|raw }}
 
-  	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': gallery.galleryName })) }}
+  	 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
 
 	{% endfor %}
+	<div class="paginationNavigation">
+		{{ knp_pagination_render(pagination) }}
+	</div>
 </div>
 {% endblock %}
-

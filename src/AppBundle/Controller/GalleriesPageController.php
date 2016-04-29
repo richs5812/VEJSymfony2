@@ -11,7 +11,7 @@ class GalleriesPageController extends Controller
     /**
      * @Route("/Photo-Galleries", name="photo-galleries")
      */
-    public function galleriesPageAction()
+    public function galleriesPageAction(Request $request)
     {
     	
 		$em = $this->getDoctrine()->getManager();
@@ -22,11 +22,19 @@ class GalleriesPageController extends Controller
 			ORDER BY p.sqlDate DESC'
 		)->setParameter('name', 'no gallery');
 		
-		$galleries = $query->getResult();
+		//$galleries = $query->getResult();
+		
+		$paginator  = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+			$query, /* query NOT result */
+			$request->query->getInt('page', 1)/*page number*/,
+			5/*limit per page*/
+		);
 		
         // replace this example code with whatever you need
         return $this->render('default/galleriesPage.html.twig',
-        array('galleries' => $galleries)
+        //array('galleries' => $galleries)
+		array('pagination' => $pagination)
         );
     }
 }
