@@ -467,6 +467,8 @@ div.BrightmoorHopeHouseWrapper {
   div.contactWrapper {
     width: 45%;
     display: inline-block; } }
+div.contactWrapper p {
+  margin-top: 2em; }
 
 @media (max-width: 945px) {
   div#donateIconsWrapper div {
@@ -573,7 +575,8 @@ div#mc_embed_signup {
   background-color: #e6e6e6;
   padding: .5em 1em 1em;
   margin: 1em 0;
-  border-radius: 4px; }
+  border-radius: 4px;
+  max-width: 400px; }
 
 div#homePageContent img {
   max-width: 100%; }
