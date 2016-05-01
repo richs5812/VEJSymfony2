@@ -26,7 +26,7 @@ class ContactController extends Controller
 			$message = \Swift_Message::newInstance()
 				->setSubject('New Contact Received')
 				->setFrom('voices4earth.org@gmail.com')
-				->setTo('rich@detroitcitycentral.com')
+				->setTo('voices4earth@juno.com')
 				->setBody(
 				$this->renderView(
 					// app/Resources/views/Emails/registration.html.twig
