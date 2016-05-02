@@ -25,3 +25,4 @@
 /web/archived_files/
 /web/.htaccess
 /web/newsletters/
+/src/AppBundle/Controller/UploadProcessController.php
