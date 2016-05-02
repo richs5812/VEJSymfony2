@@ -284,6 +284,24 @@ div#mc_embed_signup {
 	margin: 1em 0;
     border-radius: 4px;
     max-width: 400px;
+    display: block;
+    
+    @media (min-width: 945px) {
+		display: inline-block;
+	}
+    
+}
+
+div#newsletterWrapper {
+	display: block;
+	
+    @media (min-width: 945px) {
+		display: inline-block;
+		width: 40%;
+		//border: 1px solid blue;
+		vertical-align: top;
+		margin-top: 1em;
+	}
 }
 
 div#homePageContent {
