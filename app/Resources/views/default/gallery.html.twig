@@ -3,7 +3,7 @@
 	{% for pic in pics %}
 		<figure class="Item">
 			<a href="{{ path('slideshow', {'picPath': pic.path}) }}" target="_blank"><img src="{{ asset('thumb/'~pic.path) }}"/></a>
-			<figcaption class="Caption"><p>{{ pic.caption }}</p></figcaption>
+			<figcaption>{{ pic.caption }}</figcaption>
 		</figure>
 	{% endfor %}
 	</div>

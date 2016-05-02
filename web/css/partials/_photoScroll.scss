@@ -45,32 +45,7 @@ div.blogInset {
 	-webkit-overflow-scrolling: touch;
 	/*Remove the scrollbars in supporting versions of IE*/
 	//-ms-overflow-style: none;
-	
-	figcaption {
-		width: 250px;
-		margin: auto;
-		//position: relative;
-		//top: 0;
-		//color: white;
-		//background-color: darkgray;
-		//text-align: center;
-		//font-style: italic;
-		font-size: smaller;
-		word-break: normal;
-		white-space: normal;
-	}
-	
-	figure {
-		//border: 1px solid purple;
-	}
-	/*
-	figure:hover {
-		figcaption {
-			display: block;
-			width: 300px;
-			word-wrap: break-word;
-		}
-	}*/
+
 }
 
 /*Stops the scrollbar appearing in WebKit browsers
@@ -81,8 +56,19 @@ div.blogInset {
 .Item {
 		display: inline-flex;
 		flex-direction: column;
-		vertical-align: middle;
+		align-items: center;
 		justify-content: center;
+		width: 300px;
+		max-width: 100%;
+		
+		figcaption {
+			word-break: normal;
+			white-space: normal;
+			//border: 2px solid green;
+			margin: 0;
+			padding: 0;
+			vertical-align: top;
+		}
 }
 
 .latestPhotosItem {

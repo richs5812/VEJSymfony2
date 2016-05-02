@@ -3,11 +3,18 @@
 	<div class="blogInset">
 	{% for photo in latestPhotos %}
 		<figure class="latestPhotosItem">
-			<span><img src="{{ asset('thumb/'~photo.path) }}"/></span>
+			{% if photo.gallerySlug %}
+				<a href="{{photo.gallerySlug}}">
+					<span><img src="{{ asset('thumb/'~photo.path) }}" alt="Gallery: {{photo.galleryName}}" /></span>
+				</a>
+			{% else %}
+				<span><img src="{{ asset('thumb/'~photo.path) }}"/></span>
+			{% endif %}
 			{% if photo.caption %}
 				<figcaption>{{ photo.caption }}</figcaption>
+			{% else %}				
+				{% if photo.gallerySlug %}<p id="latestPhotosGalleryName">Gallery: <a href="{{photo.gallerySlug}}" target="_blank">{{photo.galleryName}}</a></p>{% endif %}
 			{% endif %}
-			{% if photo.gallerySlug %}<p id="latestPhotosGalleryName">Gallery: <a href="{{photo.gallerySlug}}" target="_blank">{{photo.galleryName}}</a></p>{% endif %}
 		</figure>
 	{% endfor %}
 		<div class="latestPhotosItem">

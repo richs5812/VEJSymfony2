@@ -525,8 +525,8 @@ p#latestPhotosGalleryName {
   font-size: smaller;
   word-break: normal;
   white-space: normal;
-  width: 250px;
-  margin: auto; }
+  font-style: italic;
+  margin: 0; }
 
 img.fullWidth {
   max-width: 100%; }
@@ -1019,21 +1019,7 @@ div.blogInset {
   overflow-y: hidden;
   /*Give us inertia style scrolling on WebKit based touch devices*/
   -webkit-overflow-scrolling: touch;
-  /*Remove the scrollbars in supporting versions of IE*/
-  /*
-  figure:hover {
-  	figcaption {
-  		display: block;
-  		width: 300px;
-  		word-wrap: break-word;
-  	}
-  }*/ }
-  .Scroll_Wrapper figcaption {
-    width: 250px;
-    margin: auto;
-    font-size: smaller;
-    word-break: normal;
-    white-space: normal; }
+  /*Remove the scrollbars in supporting versions of IE*/ }
 
 /*Stops the scrollbar appearing in WebKit browsers
 .Scroll_Wrapper::-webkit-scrollbar {
@@ -1049,11 +1035,22 @@ div.blogInset {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  width: 300px;
+  max-width: 100%; }
+  .Item figcaption {
+    word-break: normal;
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+    vertical-align: top; }
 
 .latestPhotosItem {
   display: -webkit-box;
