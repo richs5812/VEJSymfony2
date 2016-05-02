@@ -141,6 +141,28 @@ div.BrightmoorHopeHouseWrapper {
 	}
 }
 
+figure.hopeHousePhotos {
+	
+	display: block;
+	
+	img {
+		width: 600px;
+		max-width: 100%;
+	}
+	
+	figcaption {
+		font-size: smaller;
+		font-style: italic;
+	}
+	
+	@media (min-width: 945px) {
+		width: 45%;
+		display: inline-block;
+		margin: 0 0.5em;
+		vertical-align: top;
+	}
+}
+
 div.contactWrapper {
 	@media (min-width: 945px) {
 		width: 45%;
