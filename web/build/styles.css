@@ -521,17 +521,6 @@ div#donateIconsWrapper figure img {
   margin: auto;
   padding: 0.5em 0 1em; }
 
-.flexbox div#slideshowCaption {
-  padding: 0 1em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-
 p.datePosted {
   font-style: italic;
   font-size: smaller; }
@@ -556,13 +545,22 @@ h2#slideshow {
 h3#galleryName {
   margin: 1em; }
 
-img.slideshow {
-  display: block;
-  margin: auto;
-  max-width: 100%; }
-  @media (orientation: landscape) {
-    img.slideshow {
-      height: 85vh; } }
+figure.slideshow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  figure.slideshow img {
+    max-width: 100%; }
 
 img#logo {
   display: block;

@@ -11,8 +11,10 @@
     <body>
 		<main class="main-content">
 			<h2 id="slideshow">Slideshow: {{ pic.galleryName }}</h2>
-					{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">{% endif %}<img class="slideshow" src="{{ asset('slideshow/'~pic.path) }}" align="middle" />{% if count != 1 %}</a>{% endif %}
-				<div id="slideshowCaption">{{ pic.caption }}</div>
+					<figure class="slideshow">
+						{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': nextPic.path}) }}">{% endif %}<img src="{{ asset('slideshow/'~pic.path) }}" align="middle" />{% if count != 1 %}</a>{% endif %}
+					<figcaption>{{ pic.caption }}</figcaption>
+					</figure>
 				<div class="slideshowFooter">
 					<span>{% if count != 1 %}<a href="{{ path('slideshow', {'picPath': previousPic.path}) }}">previous image</a>{% endif %}</span>
 					<span><a href="../uploads/{{pic.path}}" target="_blank">view original image</a></span>

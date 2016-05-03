@@ -506,11 +506,6 @@ div#donateIconsWrapper figure img {
   margin: auto;
   padding: 0.5em 0 1em; }
 
-.flexbox div#slideshowCaption {
-  padding: 0 1em;
-  display: flex;
-  justify-content: center; }
-
 p.datePosted {
   font-style: italic;
   font-size: smaller; }
@@ -535,13 +530,12 @@ h2#slideshow {
 h3#galleryName {
   margin: 1em; }
 
-img.slideshow {
-  display: block;
-  margin: auto;
-  max-width: 100%; }
-  @media (orientation: landscape) {
-    img.slideshow {
-      height: 85vh; } }
+figure.slideshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  figure.slideshow img {
+    max-width: 100%; }
 
 img#logo {
   display: block;

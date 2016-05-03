@@ -221,12 +221,6 @@ div#donateContentWrapper {
 	padding: 0.5em 0 1em;
 }
 
-.flexbox div#slideshowCaption {
-	padding: 0 1em;
-	display:flex;
-	justify-content: center;
-}
-
 p.datePosted {
 	font-style: italic;
 	font-size: smaller;
@@ -261,15 +255,21 @@ h3#galleryName {
 	margin: 1em;
 }
 
-img.slideshow {
-	display: block;
-	margin: auto;
-	max-width: 100%;
+figure.slideshow {
+	display: flex;
+	flex-direction: column;
+	//border: 1px solid gray;
+	//justify-content: center;
+	align-items: center;
 	
-	@media (orientation:landscape) {
-		height: 85vh;
+	img {
+		//border: 1px solid pink;
+		max-width: 100%;
 	}
-
+	
+	figcaption {
+	 	//border: 1px solid green;
+	 }
 }
 
 img#logo {
