@@ -441,17 +441,17 @@ div.bodWrapper {
       display: inline-block;
       vertical-align: top; } }
 
-div.BrightmoorHopeHouseWrapper {
-  margin: 1em 0;
-  display: block;
-  padding: 0 0 0 2em; }
-  div.BrightmoorHopeHouseWrapper img {
+figure.BrightmoorHopeHouseWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 230px;
+  max-width: 100%; }
+  figure.BrightmoorHopeHouseWrapper img {
     max-width: 100%; }
-  @media (min-width: 945px) {
-    div.BrightmoorHopeHouseWrapper {
-      width: 40%;
-      display: inline-block;
-      vertical-align: top; } }
+  figure.BrightmoorHopeHouseWrapper figcaption {
+    word-break: normal;
+    white-space: normal; }
 
 figure.hopeHousePhotos {
   display: block; }

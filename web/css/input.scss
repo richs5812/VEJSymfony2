@@ -124,21 +124,22 @@ div.bodWrapper {
 	}
 }
 
-div.BrightmoorHopeHouseWrapper {
-	margin: 1em 0;
-	display: block;
-	//border: 1px solid gray;
-	padding: 0 0 0 2em;
+figure.BrightmoorHopeHouseWrapper {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	width: 230px;
+	max-width: 100%;
 	
 	img {
 		max-width: 100%;
 	}
 	
-	@media (min-width: 945px) {
-		width: 40%;
-		display: inline-block;
-		vertical-align: top;
+	figcaption {
+		word-break: normal;
+		white-space: normal;
 	}
+
 }
 
 figure.hopeHousePhotos {
