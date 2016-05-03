@@ -22,6 +22,8 @@
 {% endblock %}
 	{% block javascripts %}
 		{{ parent() }}
+		<script src="{{ asset('js/jquery.js') }}"></script>
+		<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
 		<!--script for pattern masks-->
 		<script>
 		jQuery(function($){
