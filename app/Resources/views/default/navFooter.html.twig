@@ -18,16 +18,6 @@
 						document.querySelector('.notNav').addEventListener('click', b );
 					});
 					
-					$(window).resize(function(){
-						if ($(window).width() > 945) {
-							document.querySelector('body').classList.remove('Child-Active{{parentPage.id}}');
-						}
-					});
-					//doesn't seem to do anything - submenu still open when switching to landscape mode on iPad
-					$(window).on("orientationchange",function(){
-							document.querySelector('body').classList.remove('Child-Active{{parentPage.id}}');
-					  });   
-					
 					</script>
 					<style>
 						.js .Child-Active{{parentPage.id}} div.child{{parentPage.id}} {

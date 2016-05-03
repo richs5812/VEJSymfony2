@@ -11,31 +11,5 @@ document.addEventListener('DOMContentLoaded', function(){
 	// When the header is clicked we fire the function to toggle the class
 	document.querySelector('.off-canvas-launcher').addEventListener('click', a );
 	document.querySelector('.notNav').addEventListener('click', b );
-	
-	$(window).resize(function(){
-		if ($(window).width() > 1140) { 
-			document.querySelector('body').classList.remove('OffCanvas-Active');
-		}
-	});
 
-
-	// This debounce function (via: https://remysharp.com/2010/07/21/throttling-function-calls) merely stops functioned firing too often on repetitive events (such as resize/scroll)
-	/*function debounce(fn, delay) {
-		var timer = null;
-		return function () {
-			var context = this, args = arguments;
-			clearTimeout(timer);
-			timer = setTimeout(function () {
-				fn.apply(context, args);
-			}, delay);
-		};
-	}
-
-	// removing the class from the body inside a debounce
-	var debouncedA = debounce(function() {
-		document.querySelector('body').classList.remove('OffCanvas-Active');
-	}, 250);
-
-	// When the window is resized, we want to fire the debouncedA function
-	window.onresize = debouncedA;*/
 });
