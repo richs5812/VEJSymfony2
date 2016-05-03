@@ -19,8 +19,10 @@ class GalleriesPageController extends Controller
 			'SELECT p
 			FROM AppBundle:Page p
 			WHERE p.galleryName != :name
+			AND p.pageType = :pageType
 			ORDER BY p.sqlDate DESC'
-		)->setParameter('name', 'no gallery');
+		)->setParameter('name', 'no gallery')
+		->setParameter('pageType', 'Blog');
 		
 		//$galleries = $query->getResult();
 		
