@@ -19,7 +19,19 @@ class SlideshowController extends Controller
 		
 		$pic = $picsRepository->findOneByPath($picPath);
 		
-		$galleryPics = $picsRepository->findByGalleryName($pic->getGalleryName());
+		$em = $this->getDoctrine()->getManager();
+		
+		$query = $em->createQuery(
+			'SELECT d
+			FROM AppBundle:Document d
+			WHERE d.galleryName = :galleryName
+			ORDER BY d.sqlDate ASC'
+		);
+		$query->setParameter('galleryName', $pic->getGalleryName());
+		
+		$galleryPics = $query->getResult();
+		
+		//$galleryPics = $picsRepository->findByGalleryName($pic->getGalleryName());
 		$count = count($galleryPics);
 		
 		for ($i = 0; $i < $count; $i++){

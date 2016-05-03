@@ -12,10 +12,19 @@ class GalleryController extends Controller
     public function galleryAction($galleryName)
     {
 		
-		$picsRepository = $this->getDoctrine()
-		->getRepository('AppBundle:Document');
+		$em = $this->getDoctrine()->getManager();
 		
-		$pics = $picsRepository->findByGalleryName($galleryName);
+		$query = $em->createQuery(
+			'SELECT d
+			FROM AppBundle:Document d
+			WHERE d.galleryName = :galleryName
+			ORDER BY d.sqlDate ASC'
+		);
+		$query->setParameter('galleryName', $galleryName);
+		
+		$pics = $query->getResult();
+		
+		//$pics = $picsRepository->findByGalleryName($galleryName);
 		
         // replace this example code with whatever you need
         return $this->render('default/gallery.html.twig',
