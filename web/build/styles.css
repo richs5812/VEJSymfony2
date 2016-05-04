@@ -411,6 +411,8 @@ div.content {
   @media (min-width: 945px) {
     div.content {
       width: 75%; } }
+  div.content img {
+    max-width: 100%; }
 
 input[type=number].timeField {
   width: 3em; }
