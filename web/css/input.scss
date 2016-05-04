@@ -333,7 +333,7 @@ div#homePageContent {
 	img {
 		max-width: 100%;
 	}
-	
+
 	@media (min-width: 945px) {
 		padding: 0;
 		margin: 0 5% 2em 0;
@@ -347,8 +347,7 @@ div#homePageSidebar {
 	display: inline-flex;
 	flex-direction: column-reverse;
 	max-width: 100%;
-	
-	
+		
 	@media (min-width: 945px) {
 		vertical-align: top;
 		width: 40%;
@@ -447,6 +446,18 @@ img#payPalHomePage {
 img#featuredPhoto {
 	width: 300px;
 	max-width: 100%;
+}
+
+h3.resourcesParagraph, h4.resourcesParagraph {
+	margin-bottom: 0;
+}
+
+p.resourcesParagraph {
+	margin: 0.5em 0;
+	
+	strong {
+		margin-top: 3em;
+	}
 }
 
 @import "partials/header";

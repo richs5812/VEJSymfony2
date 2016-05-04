@@ -703,6 +703,14 @@ img#featuredPhoto {
   width: 300px;
   max-width: 100%; }
 
+h3.resourcesParagraph, h4.resourcesParagraph {
+  margin-bottom: 0; }
+
+p.resourcesParagraph {
+  margin: 0.5em 0; }
+  p.resourcesParagraph strong {
+    margin-top: 3em; }
+
 header {
   font-family: Helvetica, sans-serif;
   text-align: center;
