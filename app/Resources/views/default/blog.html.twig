@@ -7,7 +7,7 @@
 			<h2><a class="blogTitleLink" href="{{page.slug}}">{{page.title}}</a></h2>
 				<p class="datePosted">Posted: {{ page.sqlDate|date('n/j/y') }}</p>
 			 <p>{{ page.content|raw }}<p>
-			 {% if page.galleryName %}
+			 {% if page.galleryName != "no gallery" %}
 			 <strong>Gallery: {{ page.galleryName}}</strong>
 			 {{ render(controller('AppBundle:Gallery:Gallery',{ 'galleryName': page.galleryName })) }}
 			 {% endif %}
