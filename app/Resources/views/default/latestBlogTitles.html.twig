@@ -1,0 +1,8 @@
+<div class="content" id="latestPosts">
+<h3 id="latestBlogs">VEJ Blog: Latest Posts</h3>
+<ul>
+		{% for blog in latestBlogs %}
+			<li><a class="blogTitleLink" href="{{ blog.slug }}">{{ blog.title }}</a></li>
+		{% endfor %}
+</ul>
+</div>
