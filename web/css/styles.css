@@ -470,12 +470,14 @@ figure.hopeHousePhotos {
       margin: 0 0.5em;
       vertical-align: top; } }
 
-@media (min-width: 945px) {
-  div.contactWrapper {
-    width: 45%;
-    display: inline-block; } }
-div.contactWrapper p {
-  margin-top: 2em; }
+div.contactWrapper {
+  margin-bottom: .25em; }
+  @media (min-width: 945px) {
+    div.contactWrapper {
+      width: 45%;
+      display: inline-block; } }
+  div.contactWrapper p {
+    margin-top: 2em; }
 
 @media (max-width: 945px) {
   div#donateIconsWrapper div {
@@ -581,19 +583,22 @@ div#newsletterWrapper {
       vertical-align: top;
       margin-top: 1em; } }
 
-div#homePageContent img {
-  max-width: 100%; }
-@media (min-width: 945px) {
-  div#homePageContent {
-    padding: 0;
-    margin: 0 5% 2em 0;
-    display: inline-block;
-    width: 54%; } }
+div#homePageContent {
+  border: 1px solid white; }
+  div#homePageContent img {
+    max-width: 100%; }
+  @media (min-width: 945px) {
+    div#homePageContent {
+      padding: 0;
+      margin: 0 5% 2em 0;
+      display: inline-block;
+      width: 54%; } }
 
 div#homePageSidebar {
   display: inline-flex;
   flex-direction: column-reverse;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: .25em; }
   @media (min-width: 945px) {
     div#homePageSidebar {
       vertical-align: top;

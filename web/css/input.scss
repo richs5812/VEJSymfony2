@@ -173,6 +173,9 @@ figure.hopeHousePhotos {
 }
 
 div.contactWrapper {
+	//border: 1px solid blue;
+	margin-bottom: .25em;
+	
 	@media (min-width: 945px) {
 		width: 45%;
 		display: inline-block;
@@ -336,7 +339,8 @@ div#newsletterWrapper {
 }
 
 div#homePageContent {
-	//border: 2px solid green;
+	//for chrome vertical scrollbar fix
+	border: 1px solid white;
 
 	img {
 		max-width: 100%;
@@ -355,6 +359,7 @@ div#homePageSidebar {
 	display: inline-flex;
 	flex-direction: column-reverse;
 	max-width: 100%;
+	margin-bottom: .25em;
 		
 	@media (min-width: 945px) {
 		vertical-align: top;
