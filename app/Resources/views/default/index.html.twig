@@ -3,6 +3,9 @@
 {% block main %}
 	<div class="content">
 	<h2>{{page.title}}</h2>
+	{% if page.pageType == 'Blog' %}
+		<p class="datePosted">Posted: {{ page.sqlDate|date('n/j/y') }}</p>
+	{% endif %}
    {{ page.content|raw }}
    </div>
    {% if pics %}
