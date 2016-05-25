@@ -414,6 +414,14 @@ div.content {
   div.content img {
     max-width: 100%; }
 
+.table-of-contents {
+  width: 505px;
+  max-width: 100%;
+  background: #eee;
+  font-size: 0.8em;
+  padding: 1em 2em;
+  margin: 0 0 0.5em 0.5em; }
+
 input[type=number].timeField {
   width: 3em; }
 
